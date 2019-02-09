@@ -1,4 +1,41 @@
 CS 321 Minutes
 2-9-2019
 
+- Moderator: Sean Mitchell
+- Time of meeting: 2 PM
 
+- Discussion of goals
+	- Map
+	- Trade/Buy/Sell
+	- GUI
+	- Multiplayer aspects
+	- Community chest and chance cards in Database/xml
+	- dice rolling
+	- attributes of tiles
+	- networking
+	- Player set time limit 
+	- Tile graphics
+	- Random tile locations
+
+- Tokens:
+	- horse
+	- rocket
+	- laptop
+	- glasses
+	- fedora
+	- hoverboard
+	- beaker
+
+- Cards look like charger cards
+
+- Use cases
+	- Winning
+	- Losing
+	- What happen if a player drops out (auction)
+	- Abillity to connect to server
+	- Abillity to connect to db
+	- Surrender option
+
+- Next meeting on 1 PM
+
+- Meeting ended at 2 PM	
