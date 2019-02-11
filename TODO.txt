@@ -1,0 +1,27 @@
+CS 321 Project TODO List
+========================
+
+Backend:
+* World class
+* Player class
+* Property class
+* Card class
+* Board class
+
+* Tile Factory
+* Card Factory
+*
+
+GUI:
+* Tokens
+* Tiles
+* User Interface
+* Menus
+* Windows
+
+Networking:
+* Client class
+* Server class
+
+Datebase/XML:
+* DB class
