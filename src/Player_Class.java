@@ -1,10 +1,16 @@
+// ========================================
+// Player_Class.java
+// ========================================
+
+// Imports
+
 public class Player
 {
 	// Member Variables
 	private int location;
 	private int money;
 	private int[] property_list;
-	// token
+	// token, this will be an image file
 	private String name;
 	
 	// Default constructor
