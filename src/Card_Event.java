@@ -6,15 +6,21 @@
 
 public class Card_Event
 {
-	private final String event;
-	
-	public Card(String event_text, int event_number)
+	// Member variables
+	private final String event_text;
+	private final int event_number	
+
+	// Default constructor
+	public Card_Event(String event_text, int event_number)
 	{
-		event = event_input;
+		// Constructs a even object out of a string and integer
+		event_text = event_input;
+		event_number = event_number_input;
 	}
 
 	public String Get_Event()
-	{
-		return event;
+	{	
+		// Returns the event string
+		return event_text;
 	}
 }

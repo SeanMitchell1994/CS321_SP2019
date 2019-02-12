@@ -28,16 +28,16 @@ public class Board
 
 	public Update()
 	{
-
+		// updates all the dynamic varibles of the game
 	}
 	
 	public Get_Score()
 	{
-
+		// Checks the score of each player and returns the scoreboard
 	}
 
 	private Player_Turn()
 	{
-
+		// Walks through player list and calls their turn
 	}
 }
