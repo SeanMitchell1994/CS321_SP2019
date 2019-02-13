@@ -3,61 +3,69 @@
 // ========================================
 
 // Imports
-import java.net.*; 
 import java.io.*; 
-
-public class Client
-{
-
-    // initialize socket and input output streams 
-    private Socket socket            = null; 
-    private DataInputStream  input   = null; 
-    private DataOutputStream out     = null; 
-
-	// Default constructor
-	public Client(String address, int port)
-    	{ 
-        // establish a connection 
-        try
-        { 
-            socket = new Socket(address, port); 
-            System.out.println("Connected"); 
+import java.net.*; 
+import java.util.Scanner; 
   
-            // takes input from terminal 
-            input  = new DataInputStream(System.in); 
+public class Client  
+{ 
+    final static int ServerPort = 1234; 
   
-            // sends output to the socket 
-            out    = new DataOutputStream(socket.getOutputStream()); 
-        } 
-        catch(UnknownHostException u) 
-        { 
-            System.out.println(u); 
-        } 
-        catch(IOException i) 
-        { 
-            System.out.println(i); 
-        } 
-  
-        // string to read message from input 
-        String line = ""; 
-  
-        // keep reading until "Over" is input 
-        while (!line.equals("Over")) 
-        { 
-            try
-            { 
-                line = input.readLine(); 
-                out.writeUTF(line); 
-            } 
-            catch(IOException i) 
-            { 
-                System.out.println(i); 
-            } 
-        } 
-
-	}
-    public static void main(String args[]) 
+    public static void main(String args[]) throws UnknownHostException, IOException  
     { 
-        Client client = new Client("127.0.0.1", 5000); 
+        Scanner scn = new Scanner(System.in); 
+          
+        // getting localhost ip 
+        InetAddress ip = InetAddress.getByName("localhost"); 
+          
+        // establish the connection 
+        Socket s = new Socket(ip, ServerPort); 
+          
+        // obtaining input and out streams 
+        DataInputStream dis = new DataInputStream(s.getInputStream()); 
+        DataOutputStream dos = new DataOutputStream(s.getOutputStream()); 
+  
+        // sendMessage thread 
+        Thread sendMessage = new Thread(new Runnable()  
+        { 
+            @Override
+            public void run() { 
+                while (true) { 
+  
+                    // read the message to deliver. 
+                    String msg = scn.nextLine(); 
+                      
+                    try { 
+                        // write on the output stream 
+                        dos.writeUTF(msg); 
+                    } catch (IOException e) { 
+                        e.printStackTrace(); 
+                    } 
+                } 
+            } 
+        }); 
+          
+        // readMessage thread 
+        Thread readMessage = new Thread(new Runnable()  
+        { 
+            @Override
+            public void run() { 
+  
+                while (true) { 
+                    try { 
+                        // read the message sent to this client 
+                        String msg = dis.readUTF(); 
+                        System.out.println(msg); 
+                    } catch (IOException e) { 
+  
+                        e.printStackTrace(); 
+                    } 
+                } 
+            } 
+        }); 
+  
+        sendMessage.start(); 
+        readMessage.start(); 
+  
     } 
-}
+} 
