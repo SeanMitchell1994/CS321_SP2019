@@ -1,0 +1,32 @@
+Group project session 2
+Moderator: Ansley
+Date: 2/15/19 
+Start time: 12:45
+End time: 1:30
+Next meeting: Friday 1:00
+
+What has been added to GitHub since last week:
+-Skeleton code
+-Networking – someone runs it, it makes a host, it has a client handler class client connects to handler, add threads for each user
+-Token images and board tile images have been added – need to make background transparent
+
+To do:
+-Cushion classes 
+-Turn timers
+-XML 
+-Card class
+-Board class
+-World class
+-Player class
+-Driver class 
+-Menu/options
+-Display board 
+
+Assignments:
+-Ansley – Community chest and chance cards – Design images, list events, etc.
+-Megan – Tile class, board class
+-Sean – XML, networking stuff
+
+Things to think about:
+-Phones vs. computers
+-Scrapping the whole project and making Facebook for cats instead
