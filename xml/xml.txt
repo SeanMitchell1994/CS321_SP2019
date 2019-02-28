@@ -115,12 +115,12 @@
 		<text>Visit the Student Health Center. Pay $50.</text>
 		<event>lose(50)</event>
 	</card>
-  <card category="chargerChest">
+  	<card category="chargerChest">
 		<id_number>23</id_number>
 		<text>Get an on-campus job. Earn $50.</text>
 		<event>collect(50)</event>
 	</card>
-  <card category="chargerChest">
+  	<card category="chargerChest">
 		<id_number>24</id_number>
 		<text>Get out of jail free. This card may be kept until needed or sold/traded.</text>
 		<event></event>
