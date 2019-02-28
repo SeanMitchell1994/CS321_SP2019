@@ -185,7 +185,7 @@
 		<text>You inherit $100.</text>
 		<event>collect(100)</event>
 	</card>
-  <card category="chargerChest">
+  	<card category="chargerChest">
 		<id_number>37</id_number>
 		<text>Library fines. Pay $10.</text>
 		<event>lose(10)</event>
@@ -200,4 +200,4 @@
 		<text>Study for finals. Lose $50.</text>
 		<event>lose(50)</event>
 	</card>
-	</carddeck>
+</carddeck>
