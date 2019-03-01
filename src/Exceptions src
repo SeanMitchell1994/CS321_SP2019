@@ -1,0 +1,9 @@
+public class NegativeException extends java.lang.RuntimeException{
+    //constructors
+     public NegativeException(){
+        }
+         public NegativeException(String s){
+             super(s);
+          }
+    
+}
