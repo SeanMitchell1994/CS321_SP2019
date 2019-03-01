@@ -68,6 +68,9 @@ public class Player
         
         // sets the player's location as an int
 	public void Set_Location(int input){
+            if(input < 0){
+                throw new NegativeException("Can't set location to negative number");
+            }
             location = input;
 	}
         // changes a players location based on a value passed in
