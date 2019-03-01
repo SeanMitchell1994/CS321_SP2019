@@ -5,6 +5,8 @@
 
 // Imports
 
+import javax.swing.ImageIcon;
+
 public class Player
 
 {
@@ -12,28 +14,17 @@ public class Player
 	// Member Variables
 
 	private int location;
-
 	private int money;
-
 	private int[] property_list;
-
-	// token, this will be an image file
-
+	private ImageIcon image;
 	private String name;
-
 	private boolean is_ready;
-
-	
 
 	// Default constructor
 
 	public Player(){
 
-
-
 	}
-
-
 
 	// ==================================
 
@@ -57,6 +48,10 @@ public class Player
 	public boolean Is_Ready(){
             return is_ready;
 	}
+        
+        public ImageIcon Get_Image(){
+            return image;
+        }
 
 	
 
@@ -68,9 +63,6 @@ public class Player
         
         // sets the player's location as an int
 	public void Set_Location(int input){
-            if(input < 0){
-                throw new NegativeException("Can't set location to negative number");
-            }
             location = input;
 	}
         // changes a players location based on a value passed in
@@ -107,5 +99,10 @@ public class Player
 	public void Set_Ready(boolean input){
             is_ready = input;
 	}
+        
+        public void Set_Image(ImageIcon x){
+            image = x;
+        }
 
 }
+
