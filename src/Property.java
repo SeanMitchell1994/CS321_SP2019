@@ -1,5 +1,6 @@
 // ========================================
 // Property.java
+// Main class for the property objects
 // ========================================
 
 // Imports
@@ -7,7 +8,8 @@
 
 import javax.swing.ImageIcon;
 
-public class Property{
+public class Property
+{
 
 	// Member Variables
 
@@ -18,20 +20,25 @@ public class Property{
 	// token, this will be an image file
 	private String name;
 
-    // Default constructor
-        public Property(){
-            
+    	// Default constructor
+        public Property(int location_input)
+	{
+            	Set_Location(location_input);
+		System.out.printf("Property created at location %d!\n", this.Get_Location());
 	}
-        public Property(int location, int cost, String owner, String name, ImageIcon image){
+
+	// overloaded constructor
+        public Property(int location, int cost, String owner, String name, ImageIcon image)
+	{
             Set_Location(location);
             Set_Cost(cost);
             Set_Owner(owner);
             Set_Name(name);  
         }
         
-    //Accessor Methods
+    	//Accessor Methods
         
-        public int Get_Loacation(){
+        public int Get_Location(){
             return location;
         }
         
@@ -54,7 +61,8 @@ public class Property{
         
         //Mutator Methods
         
-        public void Set_Location(int x){
+	// temporarly commented for debuging
+        /*public void Set_Location(int x){
 
             if(x < 0){
 
@@ -63,6 +71,12 @@ public class Property{
             }
 
             location = x;
+
+        }*/
+
+      	public void Set_Location(int location_input){
+
+            location = location_input;
 
         }
 

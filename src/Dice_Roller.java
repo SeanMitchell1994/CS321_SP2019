@@ -20,6 +20,6 @@ public class Dice_Roller
 	// Rolls the dice and returns the result as an int
 	public int Roll()
 	{
-		return 1 + rand.nextInt(sides);
+		return 1 + rand_int.nextInt(sides);
 	}
 }	
