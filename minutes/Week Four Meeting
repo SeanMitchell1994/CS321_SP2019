@@ -1,0 +1,30 @@
+Moderator: Megan Haskins
+Meet Time: 48 minutes
+
+Presentation of new Weekly material:
+  class function fillings easily understood without explanation - M
+  disscused addition of a couple exception files - M
+  new card images and XML file - A
+      XML event tag may change// explanation S & A
+  network progress and discusson of details - S
+      
+  Topic Disscused:
+    XML handling/processing
+    adding building capacity to monopolies instead of houses/hotels
+    house class ability to be included in property
+    time to start implementing goey menu:
+        design layout desired
+        possible connection and sequence points corresponding to layout
+    max player cap
+    the need for quick tile/property associations *
+    starUML proposed for UML documentations
+    token overlap issues and possible ways to overcome
+    which parts of the program could be used to create the state and sequence diagrams
+    
+  Work Distibution for Following Week:
+    Basic Gouy Menus - M
+    XML Parser with Card Stuff - A
+    Flush Out Objects More (Tiles?) - S
+    Networking Message Class and Such - S 
+    
+   
