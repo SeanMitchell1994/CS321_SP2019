@@ -1,0 +1,28 @@
+Week Five Meeting Notes
+
+Date: 3/7/19
+Start time: 11:03 am
+End time: 11:32 am
+
+Done this week: 
+-Made driver class to make classes work together
+-Worked on GUI and menus
+-XML is hard
+
+Things we discussed:
+-Get players to interact with each other
+-XML file for properties
+-One or two xml parsers
+-Networking stuff
+-Instructions
+-Adjacency matrix for board?
+-Setup screen, game options for host
+-Powerpoint presentation, video presentation vs playing live
+-General confusement about due dates
+-Design documents, sequence and state diagrams, use cases
+-Card factory
+
+To do next week:
+Ansley - Work on parsing xml, make xml file for properties, work on card class
+Megan - Displaying player information, Javadoc, use cases
+Sean - Networking, get players to buy and trade properties
