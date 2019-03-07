@@ -145,7 +145,10 @@ public class MainMenu extends Application {
     public static void setupMenu(){
         int playerCount = 0;
         
-        Text space1 = new Text("            ");
+        Text space1 = new Text("                  ");
+        Text space2 = new Text("                  ");
+        Text space3 = new Text("                 ");
+        Text space4 = new Text("                                                 ");
         
         Text text1 = new Text("Lets set up the game. \n Please select number of players and choose a tokin.\n Number of players allowed 2-4. \n \n Amount of Players:");
         TextField numberResponse = new TextField();
@@ -178,10 +181,13 @@ public class MainMenu extends Application {
         root.getChildren().add(space1);
         root.getChildren().add(txtP2);
         root.getChildren().add(TFplayer2);
+        root.getChildren().add(space2);
         root.getChildren().add(txtP3);
         root.getChildren().add(TFplayer3);
+        root.getChildren().add(space3);
         root.getChildren().add(txtP4);
         root.getChildren().add(TFplayer4);
+        root.getChildren().add(space4);
         root.getChildren().add(btnfinish);
 
         Scene setupScene = new Scene(root, 400, 350);
