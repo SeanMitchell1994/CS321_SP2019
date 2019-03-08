@@ -335,7 +335,7 @@
 		<location>05</location>
 		<price>200</price>
 		<rent1>25</rent1>
-		<rent1>50</rent2>
+		<rent2>50</rent2>
 		<rent3>100</rent3>
 		<rent4>200</rent4>
 	</property>
@@ -344,7 +344,7 @@
 		<location>15</location>
 		<price>200</price>
 		<rent1>25</rent1>
-		<rent1>50</rent2>
+		<rent2>50</rent2>
 		<rent3>100</rent3>
 		<rent4>200</rent4>
 	</property>
@@ -353,7 +353,7 @@
 		<location>25</location>
 		<price>200</price>
 		<rent1>25</rent1>
-		<rent1>50</rent2>
+		<rent2>50</rent2>
 		<rent3>100</rent3>
 		<rent4>200</rent4>
 	</property>
@@ -362,7 +362,7 @@
 		<location>35</location>
 		<price>20</price>
 		<rent1>25</rent1>
-		<rent1>50</rent2>
+		<rent2>50</rent2>
 		<rent3>100</rent3>
 		<rent4>200</rent4>
 	</property>
