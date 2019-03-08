@@ -12,13 +12,22 @@ public class Property
 {
 
 	// Member Variables
-
+	private String name;
 	private int location;
-	private int cost;
+	private String color;
+	private int price;
+	private int mortgageValue;
+	private int buildingCost;
+	private int rent;           // Cost of rent with no monopoly or buildings
+	private int monopolyRent;   // Cost of rent when owner has monopoly
+	private int rentHouse1;     // Cost of rent with one house
+	private int rentHouse2;     // Cost of rent with two houses
+	private int rentHouse3;     // Cost of rent with three houses
+	private int rentHouse4;     // Cost of rent with four houses
+	private int rentHotel;      // Cost of rent with hotel
+	
 	private String owner;
         private ImageIcon image;
-	// token, this will be an image file
-	private String name;
 
     	// Default constructor
         public Property(int location_input)
