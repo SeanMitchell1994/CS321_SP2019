@@ -67,6 +67,7 @@ public class Board
 		System.out.printf(" Roll: %-5d | ", current_roll);
 
 		player_list.get(turn_flag).Set_Location(current_roll);
+		player_list.get(turn_flag).Buy_Property(property_list.get(1));
 		System.out.printf(" Location: %-5d | Money: %-5d\n", 
 				player_list.get(turn_flag).Get_Location(),
 				player_list.get(turn_flag).Get_Money());	

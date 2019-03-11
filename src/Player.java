@@ -6,6 +6,7 @@
 // Imports
 
 import javax.swing.ImageIcon;
+import java.util.ArrayList;
 
 public class Player
 
@@ -15,7 +16,8 @@ public class Player
 
 	private int location;
 	private int money;
-	private int[] property_list;
+	//private int[] property_list;
+	ArrayList<Property> property_list = new ArrayList<>();
 	private ImageIcon image;
 	private String name;
 	private boolean is_ready;
@@ -109,5 +111,26 @@ public class Player
             image = x;
         }
 
+	public void Buy_Property(Property tile)
+	{
+		// to do: check if player already owns tile
+		property_list.add(tile);
+		money = money - tile.Get_Cost();
+		//System.out.print(tile.Get_Cost());
+		//System.out.print("Property bought!\n");
+	}
+
+	public void Sell_Property(Property tile)
+	{
+		// to do: check if player doesnt own tile
+		propety_list.remove(tile)
+		money = money + tile.Get_Cost();
+	}
+
+	public void Trade_Property(Player p_other, Property tile)
+	{
+		Sell_Property(tile);
+		p_other.Buy_Property(tile);	
+	}
 }
 

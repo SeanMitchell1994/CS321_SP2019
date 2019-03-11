@@ -34,6 +34,7 @@ public class Property
 	{
             	Set_Location(location_input);
 		System.out.printf("Property created at location %d!\n", this.Get_Location());
+		this.cost = 50;
 	}
 
 	// overloaded constructor
