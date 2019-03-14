@@ -112,6 +112,7 @@ public class Board
 		player_list.get(turn_flag).Turn();		
 
 		int current_roll = dice.Roll();
+		// TODO: doubles check
 		//System.out.printf(" Roll: %-5d | ", current_roll);
 
 		//player_list.get(turn_flag).Set_Location(current_roll);
