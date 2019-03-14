@@ -6,6 +6,7 @@
 // Imports
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player
 {
@@ -169,7 +170,7 @@ public class Player
 	public void Sell_Property(Property tile)
 	{
 		// to do: check if player doesnt own tile
-		propety_list.remove(tile)
+		property_list.remove(tile);
 		money = money + tile.Get_Cost();
 	}
 
@@ -189,6 +190,17 @@ public class Player
 	{
 		Sell_Property(tile);
 		p_other.Buy_Property(tile);	
+	}
+
+	public void Turn()
+	{
+		String s = "";
+		System.out.print("Actions: Buy | Sell | Trade\n");
+		Scanner sc = new Scanner(System.in);
+		s = sc.nextLine();
+		if (s.equals("Buy")){System.out.print("Buy detected!\n");}
+		else if (s.equals("Sell")){System.out.print("Sell detected!\n");}
+		else if (s.equals("Trade")){System.out.print("Trade detected!\n");}
 	}
 }
 

@@ -44,6 +44,7 @@ public class Board
 	{
 
 		// Generates outline of a 2d square
+
 		int _i = 10;
 		int _j = 10;
 		String[][] array = new String[_i][_j];
@@ -56,6 +57,7 @@ public class Board
 		    }
 			System.out.print("\n");
 		}		
+
 		// Creates properties
 		for (int i = 0; i < 10; i++)
 			property_list.add(new Property(i));
@@ -107,14 +109,15 @@ public class Board
 	{
 		// Walks through player list and calls their turn
 		System.out.printf("Player: %-5s |", player_list.get(turn_flag).Get_Name());
+		player_list.get(turn_flag).Turn();		
 
 		int current_roll = dice.Roll();
-		System.out.printf(" Roll: %-5d | ", current_roll);
+		//System.out.printf(" Roll: %-5d | ", current_roll);
 
-		player_list.get(turn_flag).Set_Location(current_roll);
-		player_list.get(turn_flag).Buy_Property(property_list.get(1));
-		System.out.printf(" Location: %-5d | Money: %-5d\n", 
-				player_list.get(turn_flag).Get_Location(),
-				player_list.get(turn_flag).Get_Money());	
+		//player_list.get(turn_flag).Set_Location(current_roll);
+		//player_list.get(turn_flag).Buy_Property(property_list.get(1));
+		//System.out.printf(" Location: %-5d | Money: %-5d\n", 
+				//player_list.get(turn_flag).Get_Location(),
+				//player_list.get(turn_flag).Get_Money());	
 	}
 }

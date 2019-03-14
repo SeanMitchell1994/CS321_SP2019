@@ -34,7 +34,7 @@ public class Property
 	{
             	Set_Location(location_input);
 		System.out.printf("Property created at location %d!\n", this.Get_Location());
-		this.cost = 50;
+		this.price = 50;
 	}
 
 	// overloaded constructor
@@ -53,7 +53,7 @@ public class Property
         }
         
         public int Get_Cost(){
-            return cost;
+            return price;
         }
         
         public String Get_Owner(){
@@ -98,7 +98,7 @@ public class Property
 
         public void Set_Cost(int newCost){
 
-            cost = newCost;
+            price = newCost;
 
         }
 
