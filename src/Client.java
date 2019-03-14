@@ -7,6 +7,12 @@ import java.io.*;
 import java.net.*; 
 import java.util.Scanner; 
   
+ /*
+// Author: Sean Mitchel
+// class Client()
+// Gets local hoast ip and is able to send and read messages through a socket connection 
+// 
+*/
 public class Client  
 { 
     final static int ServerPort = 1234; 
