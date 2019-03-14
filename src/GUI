@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package gooey.stuff;
 
@@ -29,9 +25,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author MeganHaskins
+ /*
+ // Author: Megan Haskins
+ // class MainMenu extends Application
+ // begins Menu Sequence of events
+ // 
  */
 public class MainMenu extends Application {
     
@@ -43,11 +41,23 @@ public class MainMenu extends Application {
     /**
      * @param args the command line arguments
      */
+ /*
+ // Author: Megan Haskins
+ // main(String[] args)
+ // launches MainMenu Application class
+ // 
+ */
     public static void main(String[] args) {
         launch(args);
     }
     
-    //The Welcome Menu
+ /*
+ // Author: Megan Haskins
+ // welcomeMenu()
+ // Creates a new display pane with a welocming screen. A start game button, instructions button, and
+ // exit button are displayed in the pane with appropraite action events when clicked. Button btnStart (start game) calls the
+ // next window  setupMenu() to set up the game.
+ */
     public static void welcomeMenu(){
         Button btnStart = new Button();
         Button btnInstructions = new Button();
@@ -142,6 +152,15 @@ public class MainMenu extends Application {
               frame.setVisible(true);  
     }
     
+ /*
+ // Author: Megan Haskins
+ // setupMenu()
+ // Creates a new display pane with various input boxes and instructions. Textfields are created that will read in the number
+ // of desired players, and each players tokin. Once the needed information is inputted a button (btnfinish) is located at
+ // the bottom so that I player can submit there desired game specifications. btnfinish also calls the next pane to appear (gameMenu)
+ // so that the user can begin playing.
+ // 
+ */
     public static void setupMenu(){
         int playerCount = 0;
         
