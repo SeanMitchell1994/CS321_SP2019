@@ -18,7 +18,12 @@ class Client_Handler extends Thread
     final Socket s; 
       
   
-    // Constructor 
+     /*
+    // Author: Sean Mitchel
+    // Client_Handler(Socket s, DataInputStream dis, DataOutputStream dos)  
+    // Default Client_Handler constructor. Client_Handler socket, DataInputStream, and DataOutputStream are 
+    // set to each corresponding value passed in.
+    */
     public Client_Handler(Socket s, DataInputStream dis, DataOutputStream dos)  
     { 
         this.s = s; 
@@ -26,6 +31,7 @@ class Client_Handler extends Thread
         this.dos = dos; 
     } 
   
+  //NOT SURE WHAT IS GOING ON HERE
     @Override
     public void run()  
     { 
