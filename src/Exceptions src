@@ -1,3 +1,10 @@
+/*
+// Author: Megan Haskins
+// class NegativeException
+//extends java.lang.RuntimeException
+// utilize on functions that should not utilize negative numbers to throw an exception
+*/
+
 public class NegativeException extends java.lang.RuntimeException{
     //constructors
      public NegativeException(){
