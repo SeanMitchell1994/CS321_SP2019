@@ -4,12 +4,10 @@
 // ========================================
 
 // Imports
-
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 
 public class Player
-
 {
 
 	// Member Variables
@@ -36,9 +34,7 @@ public class Player
 	} 
 
 	// ==================================
-
 	// Accessor Functions
-// Main class for the property objects
 	// ==================================
 	// Returns location as an int
 	public int Get_Location(){
@@ -67,12 +63,23 @@ public class Player
 	// ==================================
 	// Mutator Functions
 	// ==================================
-        
-        // sets the player's location as an int
+     
+	/**
+	* Sets the player's location as an int
+	*
+	* @param  input  an integer representing the location of the player
+	* @return      None
+	*/
 	public void Set_Location(int input){
             location = location + input;
 	}
-        // changes a players location based on a value passed in
+
+	/**
+	* changes a players location based on a value passed in
+	*
+	* @param  	shift  The amount to shift the player's location by
+	* @return      	None
+	*/
         public void Shift_Location(int shift){
             if((location + shift) > 39){
                 Set_Location((location+shift) - 40);
@@ -85,9 +92,15 @@ public class Player
             }
         }
 
-        // sets the player's money
-	public void Set_Money(int input){
-        money = input;
+	/**
+	* Sets the player's money to the given input
+	*
+	* @param  input  an integer representing the player's money
+	* @return      None
+	*/
+	public void Set_Money(int input)
+	{
+        	money = input;
 	}
         
         //shifts a player's money (add/subtraction)
@@ -96,21 +109,46 @@ public class Player
             money = money + input;
         }
 
-// sets the player's name
+	/**
+	* Sets the player's name to the given input
+	*
+	* @param  input  a string representing the player's name
+	* @return      None
+	*/
 	public void Set_Name(String input){
             name = input;
 	}
 
 	
-// Set if the player is done with their turn
+	/**
+	* Sets if the player is ready to end their turn
+	*
+	* @param  	None
+	* @return      	None
+	*/
 	public void Set_Ready(){
             is_ready = true;
 	}
         
+	/**
+	* Sets the image used for the player's token
+	*
+	* @param  	x	A loaded image file
+	* @return      	None
+	*/
         public void Set_Image(ImageIcon x){
             image = x;
         }
 
+
+	/**
+	* Allows the player to buy a property
+	* Adds the property object to the player's property list 
+	* and subtracts the cost of the property from the player's current money
+	*
+	* @param  	tile	A property object
+	* @return      	None
+	*/
 	public void Buy_Property(Property tile)
 	{
 		// to do: check if player already owns tile
@@ -120,6 +158,14 @@ public class Player
 		//System.out.print("Property bought!\n");
 	}
 
+	/**
+	* Allows the player to sell a property
+	* Removes the property object to the player's property list 
+	* and adds the cost of the property from the player's current money
+	*
+	* @param  	tile	A property object
+	* @return      	None
+	*/
 	public void Sell_Property(Property tile)
 	{
 		// to do: check if player doesnt own tile
@@ -127,6 +173,18 @@ public class Player
 		money = money + tile.Get_Cost();
 	}
 
+	/**
+	* Allows the player to to trade a property to another player
+	* Calls Sell_Property() on the this player object
+	* and calls Buy_Property() on the other player object
+	* 
+	*
+	* @param	p_other	The other player to interct with
+	* @param  	tile	A property object
+	* @return      	None
+	* @see		Buy_Property()
+	* @see		Sell_Property()
+	*/
 	public void Trade_Property(Player p_other, Property tile)
 	{
 		Sell_Property(tile);

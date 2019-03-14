@@ -21,13 +21,25 @@ public class Board
 	private int[] scoreboard;								// array containing the total score of each player
 	private int turn_flag = 0;								// integer flag identifying whose turn it is
 
-	// Default constructor
+	/**
+	* Default constructor for Board objects
+	*
+	* @param  	None  
+	* @return      	A Board object
+	*/
 	public Board()
 	{
 		System.out.print("Board created!\n");
 		Board_Init();
 	}
 
+	/**
+	* Init utility function for board objects, called on object creation
+	* Main purpose is to call other functions and populate member variables
+	*
+	* @param  	None  
+	* @return      	None
+	*/
 	private void Board_Init()
 	{
 		// Creates properties
@@ -41,6 +53,13 @@ public class Board
 		player_list.add(new Player("p4"));
 	}
 
+	/**
+	* Main function to update the events of the board
+	* Calls various other functions on each player that need to happen each turn
+	*
+	* @param  	None  
+	* @return      	None
+	*/
 	public void Update()
 	{
 		// updates all the dynamic varibles of the game
@@ -52,12 +71,24 @@ public class Board
 			turn_flag = 0;
 	}
 	
+	/**
+	* Gets all the scores of each player
+	*
+	* @param  	None  
+	* @return      	The player's score
+	*/
 	public int Get_Score()
 	{
 		// Checks the score of each player and returns the scoreboard
 		return 0;
 	}
 
+	/**
+	* Calls the turn() on each player in the player_list
+	*
+	* @param  	turn_flag	Identifier of which player's turn it is
+	* @return      	None
+	*/
 	private void Player_Turn(int turn_flag)
 	{
 		// Walks through player list and calls their turn
