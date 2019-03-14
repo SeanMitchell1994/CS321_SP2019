@@ -5,7 +5,7 @@
 // Imports
 import java.util.Random;
 
-//WILL WE RECOGNIZE DOUBLES ROLLED?
+//call twice fpr two die
 public class Dice_Roller
 {
 	private final Random rand_int;
