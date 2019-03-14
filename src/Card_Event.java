@@ -10,7 +10,14 @@ public class Card_Event
 	private final String event_text;
 	private final int event_number	
 
-	// Default constructor
+    /*
+    // Author: Sean Mitchel
+    // Card_Event(String event_text, int event_number)
+    // Default constructor for a Card_Event object. Vraibles even_test and event_number are set to there corresponding
+    // values passed in.
+    */
+		
+//AYE I'M NOT SURE THIS WORKS
 	public Card_Event(String event_text, int event_number)
 	{
 		// Constructs a even object out of a string and integer
@@ -18,6 +25,12 @@ public class Card_Event
 		event_number = event_number_input;
 	}
 
+    /*
+    // Author: Sean Mitchel
+    // Get_Event()
+    // Returns the event string event_text
+    // 
+    */
 	public String Get_Event()
 	{	
 		// Returns the event string
