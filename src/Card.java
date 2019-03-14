@@ -12,13 +12,24 @@ public class Card
 	private final Card_Event event;
 	//private final token
 
-	// Default constructor
+     /*
+    // Author: Sean Mitchel
+    // Card(int event_input, int card_id_input)
+    // Default construct for a card object. A card's event is set to even_input passed in and
+    // card_id is set to card_id_input passed in.
+    */
 	public Card(int event_input, int card_id_input)
 	{
 		event = event_input;
 		card_id = card_id_input;
 	}
 
+    /*
+    // Author: Sean Mitchel
+    // Get_Card_Typre
+    // Returns a card's type as a string.
+    // Useful for determining if a card is chance or community
+    */
 	public String Get_Card_Type()
 	{
 		// TODO: Move this to constructor
@@ -27,7 +38,13 @@ public class Card
 		else {str = "community";}
 		return str;
 	}
-
+	
+     /*
+    // Author: Sean Mitchel
+    // Get_Event
+    // Returns the event string from the member event object in a card
+    /
+    */
 	public Get_Event()
 	{
 		// Returns the event string from the member even object
