@@ -39,7 +39,7 @@ public class Client
                 while (true) { 
   
                     // read the message to deliver. 
-                    String msg = scn.nextLine(); 
+                    String msg = "00011101011111110000"; 
                       
                     try { 
                         // write on the output stream 
