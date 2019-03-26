@@ -10,6 +10,7 @@ public class Card
 	private final String card_type;
 	private final int card_id;
 	private final Card_Event event;
+	private final String text;
 	//private final token
 
      /*
@@ -18,10 +19,11 @@ public class Card
     // Default construct for a card object. A card's event is set to even_input passed in and
     // card_id is set to card_id_input passed in.
     */
-	public Card(int event_input, int card_id_input)
+	public Card(int event_input, int card_id_input, String text_input)
 	{
 		event = event_input;
 		card_id = card_id_input;
+		text = text_input;
 	}
 
     /*
