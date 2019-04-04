@@ -14,8 +14,8 @@ public class Utility
     private String name;
     private String location;
     private String price;
-    private String rent1;
-    private String rent2;
+    private int rent1;
+    private int rent2;
     private String mortgageValue;
 	
     // Member variables that are initialized in the game
@@ -24,12 +24,15 @@ public class Utility
   
     // Author: Ansley Solomon
     // Constructor
-    public Utility(String uName, String uLocation, String uPrice, String uRent1, String uRent2, String uMV){
+// Side note: I have no idea what is supposed to be the input in Dice_Roller, I just guessed
+    public Utility(String uName, String uLocation, String uPrice, String uMV){
+        Dice_Roller roller = new Dice_Roller(12);
+        
         name = uName;
         location = uLocation;
         price = uPrice;
-        rent1 = uRent1;
-        rent2 = uRent2;
+        rent1 = 4*roller.Roll();
+        rent2 = 10*roller.Roll();
         mortgageValue = uMV;
     }
     
@@ -49,15 +52,11 @@ public class Utility
     }
     
     public int getRent1(){
-        Dice_Roller roller = new Dice_Roller(12);
-        int r = 4*roller.Roll();
-        return r;
+        return rent1;
     }
     
     public int getRent2(){
-        Dice_Roller roller = new Dice_Roller(12);
-        int r = 4*roller.Roll();
-        return r;
+        return rent2;
     }
     
     public int getMortgageValue(){
