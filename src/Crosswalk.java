@@ -36,6 +36,7 @@ public class Crosswalk
         rent4 = cRent4;
     }
     
+    // Author: Ansley Solomon
     // Accessor methods
     public String getName(){
         return name;
