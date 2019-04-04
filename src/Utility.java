@@ -49,12 +49,14 @@ public class Utility
     }
     
     public int getRent1(){
-        int r = Integer.parseInt(rent1);
+        Dice_Roller roller = new Dice_Roller(12);
+        int r = 4*roller.Roll();
         return r;
     }
     
     public int getRent2(){
-        int r = Integer.parseInt(rent2);
+        Dice_Roller roller = new Dice_Roller(12);
+        int r = 4*roller.Roll();
         return r;
     }
     
