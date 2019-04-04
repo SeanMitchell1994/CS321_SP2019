@@ -110,10 +110,8 @@ public class PropertyList {
                         String location = eElement.getElementsByTagName("location").item(0).getTextContent();
                         String price = eElement.getElementsByTagName("price").item(0).getTextContent();
                         String mortgageValue = eElement.getElementsByTagName("mortgageValue").item(0).getTextContent();
-                        String rent1 = eElement.getElementsByTagName("rent1").item(0).getTextContent();
-                        String rent2 = eElement.getElementsByTagName("rent2").item(0).getTextContent();
 
-                        Utility prop = new Utility(name, location, price, mortgageValue, rent1, rent2);
+                        Utility prop = new Utility(name, location, price, mortgageValue);
                         utilities.add(prop);
                     }
                 }
