@@ -24,12 +24,14 @@ public class PropertyList {
     // Constructor
     public PropertyList(){
         readXML();
+        //printAll();
     }
     
     // Author: Ansley Solomon
     // printAll()
     // For testing purposes
     public void printAll(){
+        //System.out.print("Size: "+properties.size()+"\n");
         for (int  i = 0; i < properties.size(); i++){
             System.out.println("Name: " + properties.get(i).getName());
             System.out.println("Location: "  + properties.get(i).getLocation());
@@ -117,6 +119,25 @@ public class PropertyList {
                 }
              }
         }catch (ParserConfigurationException | SAXException | IOException | DOMException e){
+            System.out.print(e);
         }
+    }
+    
+    public ArrayList<Property> Get_Property()
+    {
+        //System.out.print("Get Properties XML!\n");
+        return properties;
+    }
+    
+    public ArrayList<Crosswalk> Get_CW()
+    {
+        //System.out.print("Get Crosswalks XML!\n");
+        return crosswalks;
+    }
+    
+        public ArrayList<Utility> Get_U()
+    {
+        //System.out.print("Get Utilities XML!\n");
+        return utilities;
     }
 }

@@ -6,7 +6,7 @@
 
 // Imports
 
-public class driver
+public class driver_nogui
 {
    public static void main(String[] args) 
    {

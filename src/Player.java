@@ -16,7 +16,7 @@ public class Player
 	private int location;
 	private int money;
 	//private int[] property_list;
-	ArrayList<Property> property_list = new ArrayList<>();
+	ArrayList<Tile> property_list = new ArrayList<>();
 	private ImageIcon image;
 	private String name;
 	private boolean is_ready;
@@ -141,7 +141,6 @@ public class Player
             image = x;
         }
 
-
 	/**
 	* Allows the player to buy a property
 	* Adds the property object to the player's property list 
@@ -150,13 +149,21 @@ public class Player
 	* @param  	tile	A property object
 	* @return      	None
 	*/
-	public void Buy_Property(Property tile)
+	public void Buy_Property(Tile tile)
 	{
-		// to do: check if player already owns tile
-		property_list.add(tile);
-		money = money - tile.Get_Cost();
-		//System.out.print(tile.Get_Cost());
-		//System.out.print("Property bought!\n");
+            // to do: check if player already owns tile
+            System.out.print("Buy function!\n");
+            if (tile.getType() == 1)
+                if (!tile.Get_IsOwned())
+                {
+                    property_list.add(tile);
+                    tile.Set_IsOwned(true);
+                    tile.Set_Owner(this.name);
+                    money = money - tile.getPrice();
+                }
+                else
+                    System.out.print("Property is already owned!\n");
+            //System.out.print("Property bought!\n");
 	}
 
 	/**
@@ -167,11 +174,12 @@ public class Player
 	* @param  	tile	A property object
 	* @return      	None
 	*/
-	public void Sell_Property(Property tile)
+	public void Sell_Property(Tile tile)
 	{
 		// to do: check if player doesnt own tile
-		property_list.remove(tile);
-		money = money + tile.Get_Cost();
+            System.out.print("Sell detected!\n");
+            property_list.remove(tile);
+            money = money + tile.getPrice();
 	}
 
 	/**
@@ -180,26 +188,33 @@ public class Player
 	* and calls Buy_Property() on the other player object
 	* 
 	*
-	* @param	p_other	The other player to interct with
+	* @param	p_other	The other player to interact with
 	* @param  	tile	A property object
 	* @return      	None
 	* @see		Buy_Property()
 	* @see		Sell_Property()
 	*/
-	public void Trade_Property(Player p_other, Property tile)
+	public void Trade_Property(Player p_other, Tile tile)
 	{
 		Sell_Property(tile);
 		p_other.Buy_Property(tile);	
 	}
 
-	public void Turn()
+	public void Turn(Tile current_tile)
 	{
 		String s = "";
 		System.out.print("Actions: Buy | Sell | Trade\n");
 		Scanner sc = new Scanner(System.in);
 		s = sc.nextLine();
-		if (s.equals("Buy")){System.out.print("Buy detected!\n");}
-		else if (s.equals("Sell")){System.out.print("Sell detected!\n");}
+                
+		if (s.equals("Buy"))
+                {
+                    this.Buy_Property(current_tile);
+                }
+		else if (s.equals("Sell"))
+                {
+                    this.Sell_Property(current_tile);
+                }
 		else if (s.equals("Trade")){System.out.print("Trade detected!\n");}
 	}
 }

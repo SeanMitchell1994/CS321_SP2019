@@ -360,7 +360,7 @@
 	<property category="crosswalk">
 		<name>Sparkman</name>
 		<location>35</location>
-		<price>20</price>
+		<price>200</price>
 		<rent1>25</rent1>
 		<rent2>50</rent2>
 		<rent3>100</rent3>
