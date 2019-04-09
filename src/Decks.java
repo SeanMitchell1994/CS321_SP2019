@@ -23,6 +23,8 @@ public class Decks {
     public Decks(){
         shuffle("chance");
         shuffle("cc");
+        //PrintAll("chance");
+        //PrintAll("cc");
     }
     
     // Author: Ansley Solomon

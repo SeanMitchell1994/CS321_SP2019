@@ -15,7 +15,7 @@ public class Board
 	//private final Tile_Factory t_factory = new Tile_Factory();				// property factory
 	private final Dice_Roller dice = new Dice_Roller(6);					// dice object
         private final int board_size = 40;
-        private final Tile board[] = new Tile[board_size];                                        // Integer array to store the game tiles (Size of 40)
+        private final Tile_Adapter board[] = new Tile_Adapter[board_size];                                        // Integer array to store the game tiles (Size of 40)
                                                                                                 // Tile reference key:
                                                                                                 // index 0: Start/Go 
                                                                                                 // index 5: Holmes Av
@@ -32,10 +32,10 @@ public class Board
 	//private final LinkedList<Card> chance_list = new LinkedList<Card>();			// linked list with chance cards
 	//private final LinkedList<Card> community_list = new LinkedList<Card>();		// linked list with community cards
         private PropertyList pl = new PropertyList();
-        
+        private Decks d1 = new Decks();
 	private int[] scoreboard;								// array containing the total score of each player
 	private int turn_flag = 0;								// integer flag identifying whose turn it is
-        private int NUM_PLAYERS = 3;
+        private int NUM_PLAYERS = 1;
 
 	/**
 	* Default constructor for Board objects
@@ -68,21 +68,21 @@ public class Board
             for (int i = 0; i < pl.Get_Property().size(); i++)
             {
                 //System.out.print(i);
-                board[pl.Get_Property().get(i).getLocation()] = new Tile(pl.Get_Property().get(i));
+                board[pl.Get_Property().get(i).getLocation()] = new Tile_Adapter(pl.Get_Property().get(i));
             }
             
             System.out.println("CW tiles!");
             for (int i = 0; i < pl.Get_CW().size(); i++)
             {
                 //System.out.print(pl.Get_CW().get(i).getLocation()+"\n");
-                board[pl.Get_CW().get(i).getLocation()] = new Tile(pl.Get_CW().get(i));
+                board[pl.Get_CW().get(i).getLocation()] = new Tile_Adapter(pl.Get_CW().get(i));
             }
             
             System.out.println("Utility tiles!");
             for (int i = 0; i < pl.Get_U().size(); i++)
             {
                 //System.out.print(i);
-                board[pl.Get_U().get(i).getLocation()] = new Tile(pl.Get_U().get(i));
+                board[pl.Get_U().get(i).getLocation()] = new Tile_Adapter(pl.Get_U().get(i));
             }
             
             System.out.println("\nMember values from tiles:");
@@ -119,7 +119,7 @@ public class Board
 		// updates all the dynamic varibles of the game
 		Player_Turn(turn_flag);
 		
-		if (turn_flag < NUM_PLAYERS)
+		if (turn_flag < this.NUM_PLAYERS-1)
 			turn_flag++;
 		else
 			turn_flag = 0;
@@ -144,16 +144,27 @@ public class Board
 	* @return      	None
 	*/
 	private void Player_Turn(int turn_flag)
-	{
-		// Walks through player list and calls their turn
-		System.out.printf("Player: %-5s |", player_list.get(turn_flag).Get_Name());
-		player_list.get(turn_flag).Turn(board[1]);		
+	{		
 
-		int current_roll = dice.Roll();
+		int current_roll_1 = dice.Roll();
+                int current_roll_2 = dice.Roll();
+                System.out.println("roll: " + current_roll_1+", "+current_roll_2);
 		// TODO: doubles check
 		//System.out.printf(" Roll: %-5d | ", current_roll);
 
-		//player_list.get(turn_flag).Set_Location(current_roll);
+		player_list.get(turn_flag).Set_Location(current_roll_1);
+                
+                // Walks through player list and calls their turn
+		System.out.printf("Player: %-5s |", player_list.get(turn_flag).Get_Name());
+                
+                if (board[player_list.get(turn_flag).Get_Location()] != null)
+                {
+                    player_list.get(turn_flag).Turn(board[player_list.get(turn_flag).Get_Location()]);
+                }
+                else
+                {
+                    System.out.println("NULL SPACE");
+                }
 		//player_list.get(turn_flag).Buy_Property(property_list.get(1));
 		//System.out.printf(" Location: %-5d | Money: %-5d\n", 
 				//player_list.get(turn_flag).Get_Location(),

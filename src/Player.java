@@ -16,7 +16,7 @@ public class Player
 	private int location;
 	private int money;
 	//private int[] property_list;
-	ArrayList<Tile> property_list = new ArrayList<>();
+	ArrayList<Tile_Adapter> property_list = new ArrayList<>();
 	private ImageIcon image;
 	private String name;
 	private boolean is_ready;
@@ -149,7 +149,7 @@ public class Player
 	* @param  	tile	A property object
 	* @return      	None
 	*/
-	public void Buy_Property(Tile tile)
+	public void Buy_Property(Tile_Adapter tile)
 	{
             // to do: check if player already owns tile
             System.out.print("Buy function!\n");
@@ -174,7 +174,7 @@ public class Player
 	* @param  	tile	A property object
 	* @return      	None
 	*/
-	public void Sell_Property(Tile tile)
+	public void Sell_Property(Tile_Adapter tile)
 	{
 		// to do: check if player doesnt own tile
             System.out.print("Sell detected!\n");
@@ -194,13 +194,13 @@ public class Player
 	* @see		Buy_Property()
 	* @see		Sell_Property()
 	*/
-	public void Trade_Property(Player p_other, Tile tile)
+	public void Trade_Property(Player p_other, Tile_Adapter tile)
 	{
 		Sell_Property(tile);
 		p_other.Buy_Property(tile);	
 	}
 
-	public void Turn(Tile current_tile)
+	public void Turn(Tile_Adapter current_tile)
 	{
 		String s = "";
 		System.out.print("Actions: Buy | Sell | Trade\n");
@@ -216,6 +216,18 @@ public class Player
                     this.Sell_Property(current_tile);
                 }
 		else if (s.equals("Trade")){System.out.print("Trade detected!\n");}
+                else if(s.equals("Debug")){Print_Property();}
 	}
+        
+        public void Print_Property()
+        {
+            for (int  i = 0; i < property_list.size(); i++)
+            {
+                System.out.println("Name: " + property_list.get(i).getName());
+                System.out.println("Location: "  + property_list.get(i).getLocation());
+                System.out.println("Price: " + property_list.get(i).getPrice());
+                System.out.println();
+            } 
+        }
 }
 
