@@ -8,11 +8,21 @@
 
 public class driver_nogui
 {
+    
+    static int NUM_PLAYERS;
+    static int NUM_ROUNDS;
+    static int NUM_TURNS;
+
    public static void main(String[] args) 
    {
 	System.out.print("Main entry point!\n");
-        Board test_board = new Board();
-	for (int i = 0; i < 16; i++)
+        
+        NUM_PLAYERS = 4;
+        NUM_ROUNDS = 4;
+        NUM_TURNS = NUM_PLAYERS*NUM_ROUNDS;
+        
+        Board test_board = new Board(NUM_PLAYERS);
+	for (int i = 0; i < NUM_TURNS; i++)
 	{
 		test_board.Update();
 	}

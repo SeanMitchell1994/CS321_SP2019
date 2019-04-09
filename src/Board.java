@@ -35,7 +35,7 @@ public class Board
         private Decks d1 = new Decks();
 	private int[] scoreboard;								// array containing the total score of each player
 	private int turn_flag = 0;								// integer flag identifying whose turn it is
-        private int NUM_PLAYERS = 1;
+        private int NUM_PLAYERS;
 
 	/**
 	* Default constructor for Board objects
@@ -43,10 +43,10 @@ public class Board
 	* @param  	None  
 	* @return      	A Board object
 	*/
-	public Board()
+	public Board(int num_players)
 	{
 		System.out.print("Board created!\n");
-                            
+                NUM_PLAYERS = num_players;
            
 		Board_Init();
 	}
