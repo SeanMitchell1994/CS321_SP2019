@@ -146,28 +146,33 @@ public class Board
 	private void Player_Turn(int turn_flag)
 	{		
 
-		int current_roll_1 = dice.Roll();
-                int current_roll_2 = dice.Roll();
-                System.out.println("roll: " + current_roll_1+", "+current_roll_2);
-		// TODO: doubles check
-		//System.out.printf(" Roll: %-5d | ", current_roll);
+            int current_roll_1 = dice.Roll();
+            int current_roll_2 = dice.Roll();
+            System.out.println("roll: " + current_roll_1+", "+current_roll_2);
+            // TODO: doubles check
+            //System.out.printf(" Roll: %-5d | ", current_roll);
 
-		player_list.get(turn_flag).Set_Location(current_roll_1);
-                
-                // Walks through player list and calls their turn
-		System.out.printf("Player: %-5s |", player_list.get(turn_flag).Get_Name());
-                
-                if (board[player_list.get(turn_flag).Get_Location()] != null)
-                {
-                    player_list.get(turn_flag).Turn(board[player_list.get(turn_flag).Get_Location()]);
-                }
-                else
-                {
-                    System.out.println("NULL SPACE");
-                }
-		//player_list.get(turn_flag).Buy_Property(property_list.get(1));
-		//System.out.printf(" Location: %-5d | Money: %-5d\n", 
-				//player_list.get(turn_flag).Get_Location(),
-				//player_list.get(turn_flag).Get_Money());	
+            player_list.get(turn_flag).Set_Location(current_roll_1 + current_roll_2);
+            if (player_list.get(turn_flag).Get_Location() >= 40)
+            {
+                player_list.get(turn_flag).Set_Location(-40);
+            }
+            //System.out.println(player_list.get(turn_flag).Get_Location());
+
+            // Walks through player list and calls their turn
+            System.out.printf("Player: %-5s |", player_list.get(turn_flag).Get_Name());
+
+            if (board[player_list.get(turn_flag).Get_Location()] != null)
+            {
+                player_list.get(turn_flag).Turn(board[player_list.get(turn_flag).Get_Location()]);
+            }
+            else
+            {
+                d1.draw("chance");
+            }
+            //player_list.get(turn_flag).Buy_Property(property_list.get(1));
+            //System.out.printf(" Location: %-5d | Money: %-5d\n", 
+                            //player_list.get(turn_flag).Get_Location(),
+                            //player_list.get(turn_flag).Get_Money());	
 	}
 }

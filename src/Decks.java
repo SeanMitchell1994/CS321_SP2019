@@ -23,7 +23,7 @@ public class Decks {
     public Decks(){
         shuffle("chance");
         shuffle("cc");
-        //PrintAll("chance");
+       // PrintAll("chance");
         //PrintAll("cc");
     }
     
@@ -36,6 +36,8 @@ public class Decks {
                 System.out.println("ID: " + chanceDeck.get(i).getID());
                 System.out.println("Type: " + chanceDeck.get(i).getCardType());
                 System.out.println("Text: " + chanceDeck.get(i).getText());
+                System.out.println("Event Type: " + chanceDeck.get(i).getEventType());
+                System.out.println("Event Type: " + chanceDeck.get(i).getEventValue());
                 System.out.println();
             }
         }
@@ -44,6 +46,8 @@ public class Decks {
                 System.out.println("ID: " + ccDeck.get(i).getID());
                 System.out.println("Type: " + ccDeck.get(i).getCardType());
                 System.out.println("Text: " + ccDeck.get(i).getText());
+                System.out.println("Event Type: " + ccDeck.get(i).getEventType());
+                System.out.println("Event Type: " + ccDeck.get(i).getEventValue());
                 System.out.println();
             }
         }
@@ -76,8 +80,10 @@ public class Decks {
                         if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("chance")){
                             String id = eElement.getElementsByTagName("id_number").item(0).getTextContent();
                             String text = eElement.getElementsByTagName("text").item(0).getTextContent();
+                            String event_type = eElement.getElementsByTagName("event_type").item(0).getTextContent();
+                            String event_value = eElement.getElementsByTagName("event_value").item(0).getTextContent();
 
-                            Card chanceCard = new Card(id, text, "Chance");
+                            Card chanceCard = new Card(id, text, "Chance", event_type, event_value);
                             chanceDeck.add(chanceCard);  
                         }
                     
@@ -88,8 +94,10 @@ public class Decks {
                         if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("chargerChest")){
                             String id = eElement.getElementsByTagName("id_number").item(0).getTextContent();
                             String text = eElement.getElementsByTagName("text").item(0).getTextContent();
+                            String event_type = eElement.getElementsByTagName("event_type").item(0).getTextContent();
+                            String event_value = eElement.getElementsByTagName("event_value").item(0).getTextContent();
 
-                            Card ccCard = new Card(id, text, "Charger Chest");
+                            Card ccCard = new Card(id, text, "Charger Chest",event_type, event_value);
                             ccDeck.add(ccCard);
                         }
                     }
