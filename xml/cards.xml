@@ -4,200 +4,280 @@
 		<id_number>00</id_number>
 		<text>Advance to Go. Collect $200.</text>
 		<event>move(go)</event>
+        <event_type>move</event_type>
+        <event_value>0</event_value>
 	</card>
 	<card category="chance">
 		<id_number>01</id_number>
 		<text>Visit your advisor. Advance to MSB. If you pass Go, collect $200.</text>
 		<event>move(msb)</event>
+        <event_type>move</event_type>
+        <event_value>31</event_value>
 	</card>
 	<card category="chance">
 		<id_number>02</id_number>
 		<text>Group project meeting. Advance to CGU. If you pass Go, collect $200.</text>
 		<event>move(cgu)</event>
+        <event_type>move</event_type>
+        <event_value>09</event_value>
 	</card>
 	<card category="chance">
 		<id_number>03</id_number>
 		<text>Laundry day! Advance to nearest laundromat. If unowned, you may buy it from the bank. If owned, roll dice and pay owner 10 times the amount rolled.</text>
 		<event>move(laundromat)</event>
+        <event_type>move</event_type>
+        <event_value>12</event_value>
 	</card>
 	<card category="chance">
 		<id_number>04</id_number>
 		<text>Advance to nearest crosswalk and pay owner twice the rent. If crosswalk is unowned, you may buy it from the bank.</text>
 		<event>move(crosswalk)</event>
+        <event_type>move</event_type>
+        <event_value>5</event_value>
 	</card>
 	<card category="chance">
 		<id_number>05</id_number>
 		<text>Refund check! Collect $50.</text>
 		<event>collect(50)</event>
+        <event_type>collect</event_type>
+        <event_value>50</event_value>
 	</card>
 	<card category="chance">
 		<id_number>06</id_number>
 		<text>Get out of jail free. This card may be kept until needed, or traded/sold.</text>
 		<event></event>
+        <event_type>jail</event_type>
+        <event_value></event_value>
 	</card>
 	<card category="chance">
 		<id_number>07</id_number>
 		<text>Geese in the road. Go back three spaces.</text>
 		<event>move(current-3)</event>
+        <event_type>move</event_type>
+        <event_value>-3</event_value>
 	</card>
 	<card category="chance">
 		<id_number>08</id_number>
 		<text>Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.</text>
 		<event>move(jail)</event>
+        <event_type>move</event_type>
+        <event_value>10</event_value>
 	</card>
 	<card category="chance">
 		<id_number>09</id_number>
-		<text>Decorate your dorm room. For each house, pay $25. For each hoel, pay $100.</text>
-		<event>lose(getHouses()*25+getHotels()*100</event>
+		<text>Decorate your dorm room, pay $25</text>
+		<event>lose(25)</event>
+        <event_type>collect</event_type>
+        <event_value>-25</event_value>
 	</card>
 	<card category="chance">
 		<id_number>10</id_number>
 		<text>Speeding ticket. Pay $15.</text>
 		<event>lose(15)</event>
+        <event_type>collect</event_type>
+        <event_value>-15</event_value>
 	</card>
 	<card category="chance">
 		<id_number>11</id_number>
 		<text>Take a trip to Holmes Avenue. If you pass Go, collect $200.</text>
 		<event>move(holmes)</event>
+        <event_type>move</event_type>
+        <event_value>5</event_value>
 	</card>
 	<card category="chance">
 		<id_number>12</id_number>
 		<text>Take a walk to Tech Hall. Advance to OKT. If you pass Go, collect $200.</text>
 		<event>move(okt)</event>
+        <event_type>move</event_type>
+        <event_value>39</event_value>
 	</card>
 	<card category="chance">
 		<id_number>13</id_number>
 		<text>Join a fraternity/sorority. Pay each player $50.</text>
 		<event>lose(50*nPlayers)</event>
+        <event_type>collect</event_type>
+        <event_value>-200</event_value>
 	</card>
 	<card category="chance">
 		<id_number>14</id_number>
 		<text>Sell old textbooks. Collect $150.</text>
 		<event>collect(150)</event>
+        <event_type>collect</event_type>
+        <event_value>150</event_value>
 	</card>
 	<card category="chance">
 		<id_number>15</id_number>
 		<text>High Five Friday! Collect $100.</text>
 		<event>collect(100)</event>
+        <event_type>collect</event_type>
+        <event_value>100</event_value>
 	</card>
 	<card category="chance">
 		<id_number>16</id_number>
 		<text>Found a good parking space! Advance to Free Parking.</text>
 		<event>move(freeParking)</event>
+        <event_type>move</event_type>
+        <event_value>20</event_value>
 	</card>
 	<card category="chance">
 		<id_number>17</id_number>
 		<text>Get an A on your test. Collect $50.</text>
 		<event>collect(50)</event>
+        <event_type>collect</event_type>
+        <event_value>50</event_value>
 	</card>
 	<card category="chance">
 		<id_number>18</id_number>
 		<text>Get a B on your test. Collect $25.</text>
 		<event>collect(25)</event>
+        <event_type>collect</event_type>
+        <event_value>25</event_value>
 	</card>
 	<card category="chance">
 		<id_number>19</id_number>
 		<text>Fail a test. Lose $25.</text>
 		<event>lose(25)</event>
+        <event_type>collect</event_type>
+        <event_value>-25</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>20</id_number>
 		<text>Advance to Go. Collect $200.</text>
 		<event>collect(200)</event>
+        <event_type>collect</event_type>
+        <event_value>200</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>21</id_number>
 		<text>Bank error in your favor. Collect $200.</text>
 		<event>collect(200)</event>
+        <event_type>collect</event_type>
+        <event_value>200</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>22</id_number>
 		<text>Visit the Student Health Center. Pay $50.</text>
 		<event>lose(50)</event>
+        <event_type>collect</event_type>
+        <event_value>-50</event_value>
 	</card>
   	<card category="chargerChest">
 		<id_number>23</id_number>
 		<text>Get an on-campus job. Earn $50.</text>
 		<event>collect(50)</event>
+        <event_type>collect</event_type>
+        <event_value>50</event_value>
 	</card>
   	<card category="chargerChest">
 		<id_number>24</id_number>
 		<text>Get out of jail free. This card may be kept until needed or sold/traded.</text>
 		<event></event>
+        <event_type>jail</event_type>
+        <event_value></event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>25</id_number>
 		<text>Go to jail. Go directly to jail. Do not pass Go. Do not collect $200.</text>
 		<event>move(jail)</event>
+        <event_type>move</event_type>
+        <event_value>10</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>26</id_number>
 		<text>Sell concert tickets for a profit. Collect $50 from every player.</text>
 		<event>collect(50*nPlayers)</event>
+        <event_type>collect</event_type>
+        <event_value>200</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>27</id_number>
 		<text>Christmas money from parents. Collect $100.</text>
 		<event>collect(100)</event>
+        <event_type>collect</event_type>
+        <event_value>100</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>28</id_number>
 		<text>Income tax refund. Collect $20.</text>
 		<event>collect(20)</event>
+        <event_type>collect</event_type>
+        <event_value>20</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>29</id_number>
 		<text>It's your birthday! Collect $10 from every player.</text>
 		<event>collect(10*nPlayers)</event>
+        <event_type>collect</event_type>
+        <event_value>40</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>30</id_number>
 		<text>Pass all your classes. Collect $50.</text>
 		<event>collect(50)</event>
+        <event_type>collect</event_type>
+        <event_value>50</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>31</id_number>
-		<text>Lost your Charger ID. Pay %50 for a new one.</text>
+		<text>Lost your Charger ID. Pay $50 for a new one.</text>
 		<event>lose(50)</event>
+        <event_type>collect</event_type>
+        <event_value>50</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>32</id_number>
 		<text>Lab fees. Pay $50.</text>
 		<event>lose(50)</event>
+        <event_type>collect</event_type>
+        <event_value>-50</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>33</id_number>
 		<text>All A's! Collect $100.</text>
 		<event>collect(100)</event>
+        <event_type>collect</event_type>
+        <event_value>100</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>34</id_number>
 		<text>Throw a party. Pay $40 per house and $115 per hotel you own.</text>
 		<event>lose(getHouses()*40+getHotels()*115)</event>
+        <event_type>collect</event_type>
+        <event_value>-40</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>35</id_number>
 		<text>Find money in your pocket. Collect $10.</text>
 		<event>collect(10)</event>
+        <event_type>collect</event_type>
+        <event_value>10</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>36</id_number>
 		<text>You inherit $100.</text>
 		<event>collect(100)</event>
+        <event_type>collect</event_type>
+        <event_value>100</event_value>
 	</card>
   	<card category="chargerChest">
 		<id_number>37</id_number>
 		<text>Library fines. Pay $10.</text>
 		<event>lose(10)</event>
+        <event_type>collect</event_type>
+        <event_value>-10</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>38</id_number>
 		<text>Parking ticket. Pay $15.</text>
 		<event>lose(15)</event>
+        <event_type>collect</event_type>
+        <event_value>-15</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>39</id_number>
 		<text>Study for finals. Lose $50.</text>
 		<event>lose(50)</event>
+        <event_type>collect</event_type>
+        <event_value>-50</event_value>
 	</card>
 </carddeck>
