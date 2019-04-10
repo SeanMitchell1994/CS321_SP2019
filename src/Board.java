@@ -15,7 +15,7 @@ public class Board
 	//private final Tile_Factory t_factory = new Tile_Factory();				// property factory
 	private final Dice_Roller dice = new Dice_Roller(6);					// dice object
         private final int board_size = 40;
-        private final Tile_Adapter board[] = new Tile_Adapter[board_size];                                        // Integer array to store the game tiles (Size of 40)
+        private final Tile_Adapter board[] = new Tile_Adapter[board_size];                      // Tile array to store the game tiles (Size of 40)
                                                                                                 // Tile reference key:
                                                                                                 // index 0: Start/Go 
                                                                                                 // index 5: Holmes Av
@@ -160,7 +160,7 @@ public class Board
             //System.out.println(player_list.get(turn_flag).Get_Location());
 
             // Walks through player list and calls their turn
-            System.out.printf("Player: %-5s |", player_list.get(turn_flag).Get_Name());
+            System.out.printf("Player: %-5s | Money: %-5d |", player_list.get(turn_flag).Get_Name(),player_list.get(turn_flag).Get_Money());
 
             if (board[player_list.get(turn_flag).Get_Location()] != null)
             {
@@ -168,11 +168,11 @@ public class Board
             }
             else
             {
-                d1.draw("chance");
+                d1.draw("chance").Get_Event(player_list.get(turn_flag));
             }
             //player_list.get(turn_flag).Buy_Property(property_list.get(1));
-            //System.out.printf(" Location: %-5d | Money: %-5d\n", 
-                            //player_list.get(turn_flag).Get_Location(),
-                            //player_list.get(turn_flag).Get_Money());	
+            //System.out.printf(" \nLocation: %-5d | Money: %-5d\n", 
+            //                player_list.get(turn_flag).Get_Location(),
+            //                player_list.get(turn_flag).Get_Money());	
 	}
 }

@@ -127,21 +127,26 @@ public class Decks {
     // Author: Ansley Solomon
     // draw()
     // Chooses first card in deck, displays it, and removes from deck
-    public void draw(String type){
-        
+    public Card draw(String type){
+        Card temp;
         // Should change print to displayCard function
         if ("chance".equals(type)){
             System.out.println(chanceDeck.get(0).getText());
+            temp = chanceDeck.get(0);
             chanceDeck.remove(0);
+            return temp;
         }
         else if ("cc".equals(type)){
             System.out.println(ccDeck.get(0).getText());
+            temp = ccDeck.get(0);
             ccDeck.remove(0);
+            return temp;
         }
         else{
             System.out.println("Error");
+            return null;
         }
-        
+        //return null;
     }
         
 }

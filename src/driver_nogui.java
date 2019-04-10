@@ -17,8 +17,8 @@ public class driver_nogui
    {
 	System.out.print("Main entry point!\n");
         
-        NUM_PLAYERS = 4;
-        NUM_ROUNDS = 4;
+        NUM_PLAYERS = 1;
+        NUM_ROUNDS = 16;
         NUM_TURNS = NUM_PLAYERS*NUM_ROUNDS;
         
         Board test_board = new Board(NUM_PLAYERS);

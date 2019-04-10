@@ -76,7 +76,7 @@ public class Card
     {
         if (this.getEventType().equals("collect"))
         {
-            input.Set_Money(Integer.parseInt(this.getEventValue()));
+            input.shift_Money(Integer.parseInt(this.getEventValue()));
         }
         else if (this.getEventType().equals("move"))
         {
