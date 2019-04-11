@@ -23,11 +23,6 @@ public class Property
 	private  String buildingCost;
 	private  String rent;           // Cost of rent with no monopoly or buildings
 	private  String monopolyRent;   // Cost of rent when owner has monopoly
-	private  String rentHouse1;     // Cost of rent with one house
-	private  String rentHouse2;     // Cost of rent with two houses
-	private  String rentHouse3;     // Cost of rent with three houses
-	private  String rentHouse4;     // Cost of rent with four houses
-	private  String rentHotel;      // Cost of rent with hotel
 	
 	private String owner;
         private ImageIcon image;
@@ -35,8 +30,7 @@ public class Property
         // Author: Ansley Solomon
     	// Default constructor
         public Property(String pName, String pLocation, String pColor, String pPrice, 
-                String pMV, String pBC, String pRent, String pMR, String pRent1, 
-                String pRent2, String pRent3, String pRent4, String pRentH)
+                String pMV, String pBC, String pRent, String pMR)
 	{
             name = pName;
             this.pLocation = pLocation;
@@ -46,11 +40,6 @@ public class Property
             buildingCost = pBC;
             rent = pRent;
             monopolyRent = pMR;
-            rentHouse1 = pRent1;
-            rentHouse2 = pRent2;
-            rentHouse3 = pRent3;
-            rentHouse4 = pRent4;
-            rentHotel = pRentH;
 	}
         
         /*public Property(int location_input)
@@ -137,30 +126,5 @@ public class Property
         public int getMonopolyRent(){
             int mr = Integer.parseInt(monopolyRent);
             return mr;
-        }
-        
-        public int getRent1(){
-            int r = Integer.parseInt(rentHouse1);
-            return r;
-        }
-        
-        public int getRent2(){
-            int r = Integer.parseInt(rentHouse2);
-            return r;
-        }
-        
-        public int getRent3(){
-            int r = Integer.parseInt(rentHouse3);
-            return r;
-        }
-        
-        public int getRent4(){
-            int r = Integer.parseInt(rentHouse4);
-            return r;
-        }
-        
-        public int getRentHotel(){
-            int r = Integer.parseInt(rentHotel);
-            return r;
         }
 }
