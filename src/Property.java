@@ -127,4 +127,16 @@ public class Property
             int mr = Integer.parseInt(monopolyRent);
             return mr;
         }
+	
+	public Property getPropertyByLocation(ArrayList<Property> properties, int location){
+            Property thisOne = null;
+            
+            for (int i = 0; i < properties.size(); i++){
+                if (location == getLocation()){
+                    thisOne = properties.get(i);
+                }
+            }
+		
+            return thisOne;
+        }
 }
