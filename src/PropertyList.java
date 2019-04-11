@@ -83,11 +83,6 @@ public class PropertyList {
                         String buildingCost = eElement.getElementsByTagName("buildingCost").item(0).getTextContent();
                         String rent = eElement.getElementsByTagName("rent").item(0).getTextContent();
                         String monopolyRent = eElement.getElementsByTagName("monopolyRent").item(0).getTextContent();
-                        String rentHouse1 = eElement.getElementsByTagName("rentHouse1").item(0).getTextContent();
-                        String rentHouse2 = eElement.getElementsByTagName("rentHouse2").item(0).getTextContent();
-                        String rentHouse3 = eElement.getElementsByTagName("rentHouse3").item(0).getTextContent();
-                        String rentHouse4 = eElement.getElementsByTagName("rentHouse4").item(0).getTextContent();
-                        String rentHotel = eElement.getElementsByTagName("rentHotel").item(0).getTextContent();
 
                         Property prop = new Property(name, location, color, price, mortgageValue, buildingCost, rent, 
                                 monopolyRent, rentHouse1, rentHouse2, rentHouse3, rentHouse4, rentHotel);
