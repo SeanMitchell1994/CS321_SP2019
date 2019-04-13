@@ -6,14 +6,8 @@
 		<color>brown</color>
 		<price>60</price>
 		<mortgageValue>30</mortgageValue>
-		<buildingCost>50</buildingCost>
 		<rent>2</rent>
 		<monopolyRent>4</monopolyRent>
-		<rentHouse1>10</rentHouse1>
-		<rentHouse2>30</rentHouse2>
-		<rentHouse3>90</rentHouse3>
-		<rentHouse4>160</rentHouse4>
-		<rentHotel>250</rentHotel>
 	</property>
 	<property category="property">
 		<name>MOR</name>
@@ -21,14 +15,8 @@
 		<color>brown</color>
 		<price>60</price>
 		<mortgageValue>30</mortgageValue>
-		<buildingCost>50</buildingCost>
 		<rent>4</rent>
 		<monopolyRent>8</monopolyRent>
-		<rentHouse1>20</rentHouse1>
-		<rentHouse2>60</rentHouse2>
-		<rentHouse3>180</rentHouse3>
-		<rentHouse4>320</rentHouse4>
-		<rentHotel>450</rentHotel>
 	</property>
 	<property category="property">
 		<name>CTC</name>
@@ -36,14 +24,8 @@
 		<color>lightBlue</color>
 		<price>100</price>
 		<mortgageValue>50</mortgageValue>
-		<buildingCost>50</buildingCost>
 		<rent>6</rent>
 		<monopolyRent>12</monopolyRent>
-		<rentHouse1>30</rentHouse1>
-		<rentHouse2>90</rentHouse2>
-		<rentHouse3>270</rentHouse3>
-		<rentHouse4>400</rentHouse4>
-		<rentHotel>550</rentHotel>
 	</property>
 	<property category="property">
 		<name>BEV</name>
@@ -51,14 +33,8 @@
 		<color>lightBlue</color>
 		<price>100</price>
 		<mortgageValue>50</mortgageValue>
-		<buildingCost>50</buildingCost>
 		<rent>6</rent>
 		<monopolyRent>12</monopolyRent>
-		<rentHouse1>30</rentHouse1>
-		<rentHouse2>90</rentHouse2>
-		<rentHouse3>270</rentHouse3>
-		<rentHouse4>400</rentHouse4>
-		<rentHotel>550</rentHotel>
 	</property>
 		<property category="property">
 		<name>CGU</name>
@@ -66,14 +42,8 @@
 		<color>lightBlue</color>
 		<price>100</price>
 		<mortgageValue>50</mortgageValue>
-		<buildingCost>50</buildingCost>
 		<rent>6</rent>
 		<monopolyRent>12</monopolyRent>
-		<rentHouse1>30</rentHouse1>
-		<rentHouse2>90</rentHouse2>
-		<rentHouse3>270</rentHouse3>
-		<rentHouse4>400</rentHouse4>
-		<rentHotel>550</rentHotel>
 	</property>
 	<property category="property">
 		<name>CGP</name>
@@ -81,14 +51,8 @@
 		<color>pink</color>
 		<price>140</price>
 		<mortgageValue>70</mortgageValue>
-		<buildingCost>100</buildingCost>
 		<rent>10</rent>
 		<monopolyRent>20</monopolyRent>
-		<rentHouse1>50</rentHouse1>
-		<rentHouse2>150</rentHouse2>
-		<rentHouse3>450</rentHouse3>
-		<rentHouse4>625</rentHouse4>
-		<rentHotel>750</rentHotel>
 	</property>
 	<property category="property">
 		<name>SPR</name>
@@ -96,14 +60,8 @@
 		<color>pink</color>
 		<price>140</price>
 		<mortgageValue>70</mortgageValue>
-		<buildingCost>100</buildingCost>
 		<rent>10</rent>
 		<monopolyRent>20</monopolyRent>
-		<rentHouse1>50</rentHouse1>
-		<rentHouse2>150</rentHouse2>
-		<rentHouse3>450</rentHouse3>
-		<rentHouse4>625</rentHouse4>
-		<rentHotel>750</rentHotel>
 	</property>
 	<property category="property">
 		<name>UFC</name>
@@ -111,14 +69,8 @@
 		<color>pink</color>
 		<price>160</price>
 		<mortgageValue>80</mortgageValue>
-		<buildingCost>100</buildingCost>
 		<rent>12</rent>
 		<monopolyRent>24</monopolyRent>
-		<rentHouse1>60</rentHouse1>
-		<rentHouse2>180</rentHouse2>
-		<rentHouse3>500</rentHouse3>
-		<rentHouse4>700</rentHouse4>
-		<rentHotel>900</rentHotel>
 	</property>
 	<property category="property">
 		<name>BAB</name>
@@ -126,14 +78,8 @@
 		<color>orange</color>
 		<price>180</price>
 		<mortgageValue>90</mortgageValue>
-		<buildingCost>100</buildingCost>
 		<rent>14</rent>
 		<monopolyRent>28</monopolyRent>
-		<rentHouse1>70</rentHouse1>
-		<rentHouse2>200</rentHouse2>
-		<rentHouse3>550</rentHouse3>
-		<rentHouse4>750</rentHouse4>
-		<rentHotel>950</rentHotel>
 	</property>
 	<property category="property">
 		<name>DDC</name>
@@ -141,14 +87,8 @@
 		<color>orange</color>
 		<price>180</price>
 		<mortgageValue>90</mortgageValue>
-		<buildingCost>100</buildingCost>
 		<rent>14</rent>
 		<monopolyRent>28</monopolyRent>
-		<rentHouse1>70</rentHouse1>
-		<rentHouse2>200</rentHouse2>
-		<rentHouse3>550</rentHouse3>
-		<rentHouse4>750</rentHouse4>
-		<rentHotel>950</rentHotel>
 	</property>
 	<property category="property">
 		<name>LIB</name>
@@ -156,14 +96,8 @@
 		<color>orange</color>
 		<price>200</price>
 		<mortgageValue>100</mortgageValue>
-		<buildingCost>100</buildingCost>
 		<rent>16</rent>
 		<monopolyRent>32</monopolyRent>
-		<rentHouse1>80</rentHouse1>
-		<rentHouse2>220</rentHouse2>
-		<rentHouse3>600</rentHouse3>
-		<rentHouse4>800</rentHouse4>
-		<rentHotel>1000</rentHotel>
 	</property>
 	<property category="property">
 		<name>CGV</name>
@@ -171,14 +105,8 @@
 		<color>red</color>
 		<price>220</price>
 		<mortgageValue>110</mortgageValue>
-		<buildingCost>150</buildingCost>
 		<rent>18</rent>
 		<monopolyRent>36</monopolyRent>
-		<rentHouse1>90</rentHouse1>
-		<rentHouse2>250</rentHouse2>
-		<rentHouse3>700</rentHouse3>
-		<rentHouse4>875</rentHouse4>
-		<rentHotel>1050</rentHotel>
 	</property>
 	<property category="property">
 		<name>FFH</name>
@@ -186,14 +114,8 @@
 		<color>red</color>
 		<price>220</price>
 		<mortgageValue>110</mortgageValue>
-		<buildingCost>150</buildingCost>
 		<rent>18</rent>
 		<monopolyRent>36</monopolyRent>
-		<rentHouse1>90</rentHouse1>
-		<rentHouse2>250</rentHouse2>
-		<rentHouse3>700</rentHouse3>
-		<rentHouse4>875</rentHouse4>
-		<rentHotel>1050</rentHotel>
 	</property>
 	<property category="property">
 		<name>NCH</name>
@@ -201,14 +123,8 @@
 		<color>red</color>
 		<price>240</price>
 		<mortgageValue>120</mortgageValue>
-		<buildingCost>150</buildingCost>
 		<rent>20</rent>
 		<monopolyRent>40</monopolyRent>
-		<rentHouse1>100</rentHouse1>
-		<rentHouse2>300</rentHouse2>
-		<rentHouse3>750</rentHouse3>
-		<rentHouse4>925</rentHouse4>
-		<rentHotel>1100</rentHotel>
 	</property>
 	<property category="property">
 		<name>CRH</name>
@@ -216,14 +132,8 @@
 		<color>yellow</color>
 		<price>260</price>
 		<mortgageValue>130</mortgageValue>
-		<buildingCost>150</buildingCost>
 		<rent>22</rent>
 		<monopolyRent>44</monopolyRent>
-		<rentHouse1>110</rentHouse1>
-		<rentHouse2>330</rentHouse2>
-		<rentHouse3>800</rentHouse3>
-		<rentHouse4>975</rentHouse4>
-		<rentHotel>1150</rentHotel>
 	</property>
 	<property category="property">
 		<name>NUR</name>
@@ -231,14 +141,8 @@
 		<color>yellow</color>
 		<price>260</price>
 		<mortgageValue>130</mortgageValue>
-		<buildingCost>150</buildingCost>
 		<rent>22</rent>
 		<monopolyRent>44</monopolyRent>
-		<rentHouse1>110</rentHouse1>
-		<rentHouse2>330</rentHouse2>
-		<rentHouse3>800</rentHouse3>
-		<rentHouse4>975</rentHouse4>
-		<rentHotel>1150</rentHotel>
 	</property>
 		<property category="property">
 		<name>ELC</name>
@@ -246,14 +150,8 @@
 		<color>yellow</color>
 		<price>280</price>
 		<mortgageValue>140</mortgageValue>
-		<buildingCost>150</buildingCost>
 		<rent>24</rent>
 		<monopolyRent>48</monopolyRent>
-		<rentHouse1>120</rentHouse1>
-		<rentHouse2>360</rentHouse2>
-		<rentHouse3>850</rentHouse3>
-		<rentHouse4>1025</rentHouse4>
-		<rentHotel>1200</rentHotel>
 	</property>
 	<property category="property">
 		<name>MSB</name>
@@ -261,14 +159,8 @@
 		<color>green</color>
 		<price>300</price>
 		<mortgageValue>150</mortgageValue>
-		<buildingCost>200</buildingCost>
 		<rent>26</rent>
 		<monopolyRent>52</monopolyRent>
-		<rentHouse1>130</rentHouse1>
-		<rentHouse2>390</rentHouse2>
-		<rentHouse3>900</rentHouse3>
-		<rentHouse4>1100</rentHouse4>
-		<rentHotel>1275</rentHotel>
 	</property>
 	<property category="property">
 		<name>SST</name>
@@ -276,14 +168,8 @@
 		<color>green</color>
 		<price>300</price>
 		<mortgageValue>150</mortgageValue>
-		<buildingCost>200</buildingCost>
 		<rent>26</rent>
 		<monopolyRent>52</monopolyRent>
-		<rentHouse1>130</rentHouse1>
-		<rentHouse2>390</rentHouse2>
-		<rentHouse3>900</rentHouse3>
-		<rentHouse4>1100</rentHouse4>
-		<rentHotel>1275</rentHotel>
 	</property>
 	<property category="property">
 		<name>OPB</name>
@@ -291,14 +177,8 @@
 		<color>green</color>
 		<price>320</price>
 		<mortgageValue>160</mortgageValue>
-		<buildingCost>200</buildingCost>
 		<rent>28</rent>
 		<monopolyRent>56</monopolyRent>
-		<rentHouse1>150</rentHouse1>
-		<rentHouse2>450</rentHouse2>
-		<rentHouse3>1000</rentHouse3>
-		<rentHouse4>1200</rentHouse4>
-		<rentHotel>1400</rentHotel>
 	</property>
 	<property category="property">
 		<name>ENG</name>
@@ -306,14 +186,8 @@
 		<color>darkBlue</color>
 		<price>350</price>
 		<mortgageValue>175</mortgageValue>
-		<buildingCost>200</buildingCost>
 		<rent>35</rent>
 		<monopolyRent>70</monopolyRent>
-		<rentHouse1>175</rentHouse1>
-		<rentHouse2>500</rentHouse2>
-		<rentHouse3>1100</rentHouse3>
-		<rentHouse4>1300</rentHouse4>
-		<rentHotel>1500</rentHotel>
 	</property>
 	<property category="property">
 		<name>OKT</name>
@@ -321,14 +195,8 @@
 		<color>darkBlue</color>
 		<price>400</price>
 		<mortgageValue>200</mortgageValue>
-		<buildingCost>200</buildingCost>
 		<rent>50</rent>
 		<monopolyRent>100</monopolyRent>
-		<rentHouse1>200</rentHouse1>
-		<rentHouse2>600</rentHouse2>
-		<rentHouse3>1400</rentHouse3>
-		<rentHouse4>1700</rentHouse4>
-		<rentHotel>2000</rentHotel>
 	</property>
 	<property category="crosswalk">
 		<name>Holmes</name>
