@@ -1,19 +1,14 @@
-// ========================================
-// Property.java
-// Main class for the property objects
-// ========================================
-
-// Imports
-
-
+package monopolydriver;
+/**
+ * Main class for the Property objects
+ * @author Ansley Solomon, Sean Mitchell
+ */
 import javax.swing.ImageIcon;
 
-public class Property
-{
-
+public class Property{
+    
 	// Member Variables
 	private final String name;
-	
         private String location;
 	private  String color;
 	private  String price;
@@ -23,120 +18,132 @@ public class Property
 	private  String buildingCost;
 	private  String rent;           // Cost of rent with no monopoly or buildings
 	private  String monopolyRent;   // Cost of rent when owner has monopoly
-	
 	private String owner;
         private ImageIcon image;
 
-        // Author: Ansley Solomon
-    	// Default constructor
+        /**
+         * Default constructor
+         * @author Ansley Solomon
+         * @param pName         The Property's name
+         * @param pLocation     The Property's location on the Board
+         * @param pColor        The Property's color
+         * @param pPrice        The Property's price
+         * @param pMV           The Property's mortgage value
+         * @param pRent         The Property's rent
+         * @param pMR           The Property's rent when owner has a monopoly
+         */
         public Property(String pName, String pLocation, String pColor, String pPrice, 
-                String pMV, String pBC, String pRent, String pMR)
-	{
+                String pMV, String pRent, String pMR){
             name = pName;
             this.pLocation = pLocation;
             color = pColor;
             price = pPrice;
             mortgageValue = pMV;
-            buildingCost = pBC;
             rent = pRent;
             monopolyRent = pMR;
 	}
-        
-        /*public Property(int location_input)
-        {
-            this.location = location_input;
-            this.name = "";
-            this.color = "";
-            this.price = "";
-            this.is_owned = false;
-        }
-*/
-        /*
-	// overloaded constructor
-        public Property(int location, int cost, String owner, String name, ImageIcon image)
-	{
-            Set_Location(location);
-            Set_Cost(cost);
-            Set_Owner(owner);
-            Set_Name(name);  
-        }
-        */
-        
-    	//Accessor Methods
-        
+
+        /**
+         * Returns the name of the Property
+         * @author Ansley Solomon
+         * @return String name
+         */
         public String getName(){
             return name;
         }
         
+        /**
+         * Returns the Property's location on the Board
+         * @author Ansley Solomon
+         * @return int location
+         */
         public int getLocation(){
             int lo = Integer.parseInt(pLocation);	
             return lo;
-            //return location;
         }
         
+        /**
+         * Returns the price of the Property
+         * @author Ansley Solomon
+         * @return int price
+         */
         public int getPrice(){
             int p = Integer.parseInt(price);
             return p;
         }
         
+        /**
+         * Returns the color of the PRoperty
+         * @author Ansley Solomon
+         * @return String color
+         */
         public String getColor(){
             return color;
         }
         
-        public int Get_Cost()
-        {
-            return 50;
-        }
-        
-        public boolean Get_IsOwned()
-        {
-            return this.is_owned;
-        }
-        
-        public void Set_IsOwned(boolean input)
-        {
-            this.is_owned = input;
-        }
-        
-        public void Set_Owner(String input)
-        {
-            this.owner = input;
-        }
-        
-        public String Get_Owner()
-        {
-            return this.owner;
-        }
-        
+        /**
+         * Returns the Property's value when mortgaged
+         * @author Ansley Solomon
+         * @return int mortgage value
+         */
         public int getMortgageValue(){
             int mv = Integer.parseInt(mortgageValue);
             return mv;
         }
         
-        public int getBuildingCost(){
-            int bc = Integer.parseInt(buildingCost);
-            return bc;
-        }
-        
+        /**
+         * Returns the Property's rent
+         * @author Ansley Solomon
+         * @return int rent
+         */
         public int getRent(){
             int r = Integer.parseInt(rent);
             return r;
         }
         
+        /**
+         * Returns the Property's rent when the owner has a monopoly
+         * @author Ansley Solomon
+         * @return int monopoly rent
+         */
         public int getMonopolyRent(){
             int mr = Integer.parseInt(monopolyRent);
             return mr;
         }
-	
-	public Property getPropertyByLocation(ArrayList<Property> properties, int location){
-            Property thisOne = null;
-            
-            for (int i = 0; i < properties.size(); i++){
-                if (location == getLocation()){
-                    thisOne = properties.get(i);
-                }
-            }
-		
-            return thisOne;
+        
+        /**
+         * Tells if a property is owned
+         * @author Sean Mitchell
+         * @return boolean is_owned
+         */
+        public boolean Get_IsOwned(){
+            return this.is_owned;
+        }
+        
+        /**
+         * Sets the Property's ownership status
+         * @author Sean Mitchell
+         * @param input 
+         */
+        public void Set_IsOwned(boolean input){
+            this.is_owned = input;
+        }
+        
+        /**
+         * Sets the Property's owner
+         * @author Sean Mitchell
+         * @param input 
+         */
+        public void Set_Owner(String input){
+            this.owner = input;
+        }
+        
+        /**
+         * Returns the name of the Property's owner
+         * @author Sean Mitchell
+         * @return String owner
+         */
+        public String Get_Owner(){
+            return this.owner;
         }
 }
