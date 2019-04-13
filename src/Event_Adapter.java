@@ -1,22 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package monopolydriver;
 
 /**
- *
- * @author Sean
+ * Event_Adapter class
+ * 
+ * Description goes here
+ * 
+ * @author Sean Mitchell
  */
 public class Event_Adapter 
 {
-
     Card local_c;
+    
+    /**
+     * Default constructor
+     * @author: Sean Mitchell
+     * @param obj_input 
+     */
     Event_Adapter(Card obj_input)
     {
         this.local_c = obj_input;     
     }
     
+    /**
+     * Does an Event to a Player object
+     * @author Sean Mitchell
+     * @param input Which Player the event is happening to
+     */
     public void Event(Player input)
     {
         if (this.local_c.getEventType().equals("collect"))
