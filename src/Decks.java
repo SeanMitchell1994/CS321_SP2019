@@ -1,3 +1,15 @@
+package monopolydriver;
+
+/**
+ * Decks class
+ * 
+ * This class contains the constructor for the Decks object. It includes methods
+ * to read in the card information from Cards.xml and place in two separate decks 
+ * (Chance and Charger Chest), print every card in a deck, shuffle the deck, and
+ * draw/remove a card from the deck
+ * 
+ * @author Ansley Solomon
+ */
 import java.util.ArrayList;
 import java.io.File;
 import java.io.IOException;
@@ -12,24 +24,27 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-
 public class Decks {
-    // Variables
+
     private final ArrayList<Card> chanceDeck = new ArrayList<>();
     private final ArrayList<Card> ccDeck = new ArrayList<>();
     
-    // Author: Ansley Solomon
-    // Constructor
+    /**
+     * Default constructor for Decks object
+     * Creates a shuffled Chance deck and a shuffled CC deck
+     * @author Ansley Solomon
+     */
     public Decks(){
         shuffle("chance");
         shuffle("cc");
-       // PrintAll("chance");
-        //PrintAll("cc");
     }
     
-    // Author: Ansley Solomon
-    // For every card in deck, print ID number, card type, and text
-    // For testing purposes
+    /**
+     * Prints information for every card in deck
+     * For testing purposes
+     * @author Ansley Solomon
+     * @param type The deck that is being printed (Chance or CC)
+     */
     public void PrintAll(String type){
         if ("chance".equals(type)){
             for (int i = 0; i < chanceDeck.size(); i++){
@@ -53,64 +68,58 @@ public class Decks {
         }
     }
 
-    
-    // Author: Ansley Solomon
-    // readXML()
-    // Reads in the XML file, puts information into cards, puts cards in deck
+    /**
+     * Reads in the XML file, puts information into cards, puts cards into deck
+     * @author Ansley Solomon
+     * @param type Type of deck to create (Chance or CC)
+     */
     private void readXML(String type){
-        
         try{
             File fXmlFile = new File("cards.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
-            
             doc.getDocumentElement().normalize();
-            
             NodeList nList = doc.getElementsByTagName("card");
-            
             for (int i = 0; i < nList.getLength(); i++){
                 Node nNode = nList.item(i);
-            
                 if (nNode.getNodeType() == Node.ELEMENT_NODE){
                     Element eElement = (Element) nNode;
-                    
+
                     if ("chance".equals(type)){
-                                        
                         if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("chance")){
                             String id = eElement.getElementsByTagName("id_number").item(0).getTextContent();
                             String text = eElement.getElementsByTagName("text").item(0).getTextContent();
                             String event_type = eElement.getElementsByTagName("event_type").item(0).getTextContent();
                             String event_value = eElement.getElementsByTagName("event_value").item(0).getTextContent();
-
+                            
                             Card chanceCard = new Card(id, text, "Chance", event_type, event_value);
                             chanceDeck.add(chanceCard);  
                         }
-                    
                     }
-                    
                     if ("cc".equals(type)){
-                    
                         if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("chargerChest")){
                             String id = eElement.getElementsByTagName("id_number").item(0).getTextContent();
                             String text = eElement.getElementsByTagName("text").item(0).getTextContent();
                             String event_type = eElement.getElementsByTagName("event_type").item(0).getTextContent();
                             String event_value = eElement.getElementsByTagName("event_value").item(0).getTextContent();
-
+                            
                             Card ccCard = new Card(id, text, "Charger Chest",event_type, event_value);
                             ccDeck.add(ccCard);
                         }
                     }
                 }
             }
-            
         } catch (ParserConfigurationException | SAXException | IOException | DOMException e){
+
         }
     }
-    
-    // Author: Ansley Solomon
-    // shuffle()
-    // Clears the deck, creates a new deck, and randomizes
+
+    /**
+     * Clears the deck, creates a new deck, and randomizes the deck
+     * @author Ansley Solomon
+     * @param type Which deck to shuffle (Chance or CC)
+     */
     public void shuffle(String type){
         if ("chance".equals(type)){
             chanceDeck.clear();
@@ -124,9 +133,12 @@ public class Decks {
         }
     }
     
-    // Author: Ansley Solomon
-    // draw()
-    // Chooses first card in deck, displays it, and removes from deck
+    /**
+     * Chooses first card in deck, displays it, and removes from deck
+     * @author Ansley Solomon
+     * @param type Which deck to draw from (Chance or CC)
+     * @return Returns the first card in the chosen deck
+     */
     public Card draw(String type){
         Card temp;
         // Should change print to displayCard function
@@ -146,7 +158,5 @@ public class Decks {
             System.out.println("Error");
             return null;
         }
-        //return null;
     }
-        
 }
