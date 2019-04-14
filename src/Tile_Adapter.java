@@ -1,3 +1,5 @@
+package monopolydriver;
+
 /**
  * Tile_Adapter.java
  * This class contains the adapters to allow the various property classes 

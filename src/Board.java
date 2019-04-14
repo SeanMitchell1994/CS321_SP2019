@@ -1,3 +1,5 @@
+package monopolydriver;
+
 // ========================================
 // Board.java
 // Main class for the board objects
@@ -85,6 +87,7 @@ public class Board
                 board[pl.Get_U().get(i).getLocation()] = new Tile_Adapter(pl.Get_U().get(i));
             }
             
+            /*
             System.out.println("\nMember values from tiles:");
             for (int i = 0; i < board_size; i++)
             {
@@ -93,17 +96,17 @@ public class Board
                     System.out.println(board[i].getName() +", "+ board[i].getLocation()+", "+board[i].getPrice());
                 }
             }
-            
+            */
             // Creates properties
             //for (int i = 0; i < board_size; i++)
             //        property_list.add(new Property(i));
 
             // Creates players\
             System.out.print("\n");
-            player_list.add(new Player("p1"));
-            player_list.add(new Player("p2"));
-            player_list.add(new Player("p3"));
-            player_list.add(new Player("p4"));
+            player_list.add(new Player("p1",1));
+            player_list.add(new Player("p2",2));
+            player_list.add(new Player("p3",3));
+            player_list.add(new Player("p4",4));
             System.out.print("\n");
 	}
 

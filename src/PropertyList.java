@@ -24,6 +24,8 @@ public class PropertyList{
     private final ArrayList<Property> properties = new ArrayList<>();
     private final ArrayList<Crosswalk> crosswalks = new ArrayList<>();
     private final ArrayList<Utility> utilities = new ArrayList<>();
+    private final ArrayList<Card_Tile> charger_chest = new ArrayList<>();
+    private final ArrayList<Card_Tile> chance = new ArrayList<>();
     
     /**
      * Default constructor
@@ -31,7 +33,7 @@ public class PropertyList{
      */
     public PropertyList(){
         readXML();
-        //printAll();
+        printAll();
     }
     
     /**
@@ -41,6 +43,7 @@ public class PropertyList{
      */
     public void printAll(){
         //System.out.print("Size: "+properties.size()+"\n");
+        /*
         for (int  i = 0; i < properties.size(); i++){
             System.out.println("Name: " + properties.get(i).getName());
             System.out.println("Location: "  + properties.get(i).getLocation());
@@ -58,6 +61,20 @@ public class PropertyList{
             System.out.println("Location: "  + crosswalks.get(i).getLocation());
             System.out.println("Price: " + utilities.get(i).getPrice());
             System.out.println();
+        }*/
+        for (int i = 0; i < charger_chest.size(); i++)
+        {
+            System.out.println("Name: " + charger_chest.get(i).getName());
+            System.out.println("Location: "  + charger_chest.get(i).getLocation());
+            System.out.println();
+            //System.out.println("Name: " + charger_chest.get(0).getName());
+        }
+        for (int i = 0; i < chance.size(); i++)
+        {
+            System.out.println("Name: " + chance.get(i).getName());
+            System.out.println("Location: "  + chance.get(i).getLocation());
+            System.out.println();
+            //System.out.println("Name: " + charger_chest.get(0).getName());
         }
     }
     
@@ -109,6 +126,20 @@ public class PropertyList{
                         String mortgageValue = eElement.getElementsByTagName("mortgageValue").item(0).getTextContent();
                         Utility prop = new Utility(name, location, price, mortgageValue);
                         utilities.add(prop);
+                    }
+                    else if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("charger_chest"))
+                    {
+                        String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+                        String location = eElement.getElementsByTagName("location").item(0).getTextContent();
+                        Card_Tile prop = new Card_Tile(name, location);
+                        charger_chest.add(prop);
+                    }
+                    else if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("chance"))
+                    {
+                        String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+                        String location = eElement.getElementsByTagName("location").item(0).getTextContent();
+                        Card_Tile ct = new Card_Tile(name, location);
+                        chance.add(ct);
                     }
                 }
              }

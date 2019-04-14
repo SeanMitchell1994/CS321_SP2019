@@ -1,3 +1,8 @@
+package monopolydriver;
+
+
+import monopolydriver.Board;
+
 // ========================================
 // driver.java
 // Demo driver that spawns a few players 
