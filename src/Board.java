@@ -87,16 +87,30 @@ public class Board
                 board[pl.Get_U().get(i).getLocation()] = new Tile_Adapter(pl.Get_U().get(i));
             }
             
-            /*
+            System.out.println("Charger Chest tiles!");
+            for (int i = 0; i < pl.Get_CC().size(); i++)
+            {
+                //System.out.print(i);
+                board[pl.Get_CC().get(i).getLocation()] = new Tile_Adapter(pl.Get_CC().get(i));
+            }
+            
+            System.out.println("Chance tiles!");
+            for (int i = 0; i < pl.Get_C().size(); i++)
+            {
+                //System.out.print(i);
+                board[pl.Get_C().get(i).getLocation()] = new Tile_Adapter(pl.Get_C().get(i));
+            }
+            
+            
             System.out.println("\nMember values from tiles:");
             for (int i = 0; i < board_size; i++)
             {
                 if (board[i] != null)
                 {
-                    System.out.println(board[i].getName() +", "+ board[i].getLocation()+", "+board[i].getPrice());
+                    System.out.println(board[i].getName() +", "+ board[i].getLocation()+", ");//+board[i].getPrice());
                 }
             }
-            */
+            
             // Creates properties
             //for (int i = 0; i < board_size; i++)
             //        property_list.add(new Property(i));

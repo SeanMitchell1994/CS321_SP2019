@@ -18,6 +18,7 @@ public class Tile_Adapter
     private Property local_p;
     private Crosswalk local_cw;
     private Utility local_u;
+    private Card_Tile local_ct;
     
     private int flag;
     private boolean is_owned;
@@ -63,6 +64,19 @@ public class Tile_Adapter
         //System.out.println("Utlity object created!");
         this.local_u = input;
         this.flag = 3;
+    }
+    
+    /**
+    * Constructor for Card_Tile types
+    *
+    * @param                    None
+    * @return   Tile_Adapter    Tile_Adapter object
+    */
+    public Tile_Adapter(Card_Tile input)
+    {
+        //System.out.println("Tile object  created!");
+        this.local_ct = input;
+        this.flag = 4;
     }
     
     // ======================================
@@ -137,8 +151,10 @@ public class Tile_Adapter
             temp = local_p.getName();
         else if (this.flag == 2)
             temp = local_cw.getName();
-        else 
+        else if (this.flag == 3)
             temp = local_u.getName();
+        else if (this.flag == 4)
+            temp = local_ct.getName();
         
         return temp;
     }
@@ -151,13 +167,15 @@ public class Tile_Adapter
     */
     public int getLocation()
     {
-        int temp;
+        int temp = 0;
         if (this.flag == 1)
             temp = local_p.getLocation();
         else if (this.flag == 2)
             temp = local_cw.getLocation();
-        else 
+        else if (this.flag == 3)
             temp = local_u.getLocation();
+        else if (this.flag == 4)
+            temp = local_ct.getLocation();
         
         return temp;
     }

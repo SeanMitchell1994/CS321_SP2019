@@ -26,6 +26,7 @@ public class PropertyList{
     private final ArrayList<Utility> utilities = new ArrayList<>();
     private final ArrayList<Card_Tile> charger_chest = new ArrayList<>();
     private final ArrayList<Card_Tile> chance = new ArrayList<>();
+    private final ArrayList<Corner_Tile> corner_tiles = new ArrayList<>();
     
     /**
      * Default constructor
@@ -33,7 +34,7 @@ public class PropertyList{
      */
     public PropertyList(){
         readXML();
-        printAll();
+        //printAll();
     }
     
     /**
@@ -41,9 +42,8 @@ public class PropertyList{
      * For testing purposes
      * @author Ansley Solomon
      */
-    public void printAll(){
-        //System.out.print("Size: "+properties.size()+"\n");
-        /*
+    public void printAll()
+    {
         for (int  i = 0; i < properties.size(); i++){
             System.out.println("Name: " + properties.get(i).getName());
             System.out.println("Location: "  + properties.get(i).getLocation());
@@ -61,20 +61,24 @@ public class PropertyList{
             System.out.println("Location: "  + crosswalks.get(i).getLocation());
             System.out.println("Price: " + utilities.get(i).getPrice());
             System.out.println();
-        }*/
+        }
         for (int i = 0; i < charger_chest.size(); i++)
         {
             System.out.println("Name: " + charger_chest.get(i).getName());
             System.out.println("Location: "  + charger_chest.get(i).getLocation());
             System.out.println();
-            //System.out.println("Name: " + charger_chest.get(0).getName());
         }
         for (int i = 0; i < chance.size(); i++)
         {
             System.out.println("Name: " + chance.get(i).getName());
             System.out.println("Location: "  + chance.get(i).getLocation());
             System.out.println();
-            //System.out.println("Name: " + charger_chest.get(0).getName());
+        }
+        for (int i = 0; i < corner_tiles.size(); i++)
+        {
+            System.out.println("Name: " + corner_tiles.get(i).getName());
+            System.out.println("Location: "  + corner_tiles.get(i).getLocation());
+            System.out.println();
         }
     }
     
@@ -138,12 +142,18 @@ public class PropertyList{
                     {
                         String name = eElement.getElementsByTagName("name").item(0).getTextContent();
                         String location = eElement.getElementsByTagName("location").item(0).getTextContent();
-                        Card_Tile ct = new Card_Tile(name, location);
-                        chance.add(ct);
+                        Card_Tile prop = new Card_Tile(name, location);
+                        chance.add(prop);
+                    }
+                    else if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("corner"))
+                    {
+                        String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+                        String location = eElement.getElementsByTagName("location").item(0).getTextContent();
+                        Corner_Tile prop = new Corner_Tile(name, location);
+                        corner_tiles.add(prop);
                     }
                 }
              }
-
         }catch (ParserConfigurationException | SAXException | IOException | DOMException e){
             System.out.print(e);
         }
@@ -180,5 +190,38 @@ public class PropertyList{
     {
         //System.out.print("Get Utilities XML!\n");
         return utilities;
+    }
+    
+    /**
+     * Returns the ArrayList of Utilities
+     * author Sean Mitchell
+     * @return ArrayList utilities
+     */
+    public ArrayList<Card_Tile> Get_CC()
+    {
+        //System.out.print("Get Utilities XML!\n");
+        return charger_chest;
+    }
+    
+    /**
+     * Returns the ArrayList of Utilities
+     * author Sean Mitchell
+     * @return ArrayList utilities
+     */
+    public ArrayList<Card_Tile> Get_C()
+    {
+        //System.out.print("Get Utilities XML!\n");
+        return chance;
+    }
+    
+    /**
+     * Returns the ArrayList of Utilities
+     * author Sean Mitchell
+     * @return ArrayList utilities
+     */
+    public ArrayList<Corner_Tile> Get_CT()
+    {
+        //System.out.print("Get Utilities XML!\n");
+        return corner_tiles;
     }
 }
