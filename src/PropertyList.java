@@ -21,9 +21,9 @@ import org.xml.sax.SAXException;
 public class PropertyList{
     
     // Variables
-    private final ArrayList<Property> properties = new ArrayList<>();
-    private final ArrayList<Crosswalk> crosswalks = new ArrayList<>();
-    private final ArrayList<Utility> utilities = new ArrayList<>();
+    private final ArrayList<Property_Tile> properties = new ArrayList<>();
+    private final ArrayList<Crosswalk_Tile> crosswalks = new ArrayList<>();
+    private final ArrayList<Utility_Tile> utilities = new ArrayList<>();
     private final ArrayList<Card_Tile> charger_chest = new ArrayList<>();
     private final ArrayList<Card_Tile> chance = new ArrayList<>();
     private final ArrayList<Corner_Tile> corner_tiles = new ArrayList<>();
@@ -109,7 +109,7 @@ public class PropertyList{
                         String rent = eElement.getElementsByTagName("rent").item(0).getTextContent();
                         String monopolyRent = eElement.getElementsByTagName("monopolyRent").item(0).getTextContent();
                         
-                        Property prop = new Property(name, location, color, price, mortgageValue, rent, monopolyRent);
+                        Property_Tile prop = new Property_Tile(name, location, color, price, mortgageValue, rent, monopolyRent);
                         properties.add(prop); 
                     }
                     else if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("crosswalk")){
@@ -120,7 +120,7 @@ public class PropertyList{
                         String rent2 = eElement.getElementsByTagName("rent2").item(0).getTextContent();
                         String rent3 = eElement.getElementsByTagName("rent3").item(0).getTextContent();
                         String rent4 = eElement.getElementsByTagName("rent4").item(0).getTextContent();
-                        Crosswalk prop = new Crosswalk(name, location, price, rent1, rent2, rent3, rent4);
+                        Crosswalk_Tile prop = new Crosswalk_Tile(name, location, price, rent1, rent2, rent3, rent4);
                         crosswalks.add(prop);
                     }
                     else if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("utility")){
@@ -128,7 +128,7 @@ public class PropertyList{
                         String location = eElement.getElementsByTagName("location").item(0).getTextContent();
                         String price = eElement.getElementsByTagName("price").item(0).getTextContent();
                         String mortgageValue = eElement.getElementsByTagName("mortgageValue").item(0).getTextContent();
-                        Utility prop = new Utility(name, location, price, mortgageValue);
+                        Utility_Tile prop = new Utility_Tile(name, location, price, mortgageValue);
                         utilities.add(prop);
                     }
                     else if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("charger_chest"))
@@ -164,7 +164,7 @@ public class PropertyList{
      * @author Sean Mitchell
      * @return ArrayList properties
      */
-    public ArrayList<Property> Get_Property()
+    public ArrayList<Property_Tile> Get_Property()
     {
         //System.out.print("Get Properties XML!\n");
         return properties;
@@ -175,7 +175,7 @@ public class PropertyList{
      * @author Sean Mitchell
      * @return ArrayList crosswalks
      */
-    public ArrayList<Crosswalk> Get_CW()
+    public ArrayList<Crosswalk_Tile> Get_CW()
     {
         //System.out.print("Get Crosswalks XML!\n");
         return crosswalks;
@@ -186,7 +186,7 @@ public class PropertyList{
      * author Sean Mitchell
      * @return ArrayList utilities
      */
-    public ArrayList<Utility> Get_U()
+    public ArrayList<Utility_Tile> Get_U()
     {
         //System.out.print("Get Utilities XML!\n");
         return utilities;

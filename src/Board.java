@@ -30,7 +30,7 @@ public class Board
         
         
 	private final LinkedList<Player> player_list = new LinkedList<Player>();		// linked list with player objects
-	private final LinkedList<Property> property_list = new LinkedList<Property>();		// linked list with property objects
+	private final LinkedList<Property_Tile> property_list = new LinkedList<Property_Tile>();		// linked list with property objects
 	//private final LinkedList<Card> chance_list = new LinkedList<Card>();			// linked list with chance cards
 	//private final LinkedList<Card> community_list = new LinkedList<Card>();		// linked list with community cards
         private PropertyList pl = new PropertyList();

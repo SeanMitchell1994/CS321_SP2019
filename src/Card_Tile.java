@@ -10,6 +10,7 @@ public class Card_Tile
     int flag = 0;
     private String name;
     private String location;
+    private boolean hasEvent = true;
     
     Card_Tile(String name, String location)
     {
@@ -49,5 +50,15 @@ public class Card_Tile
     public int getLocation(){
         int lo = Integer.parseInt(location);	
         return lo;
+    }
+    
+    /**
+     * Returns if the tile has an event
+     * @author Sean Mitchell
+     * @return boolean hasEvent
+     */
+    public boolean getHasEvent()
+    {
+        return this.hasEvent;
     }
 }

@@ -8,7 +8,7 @@ package monopolydriver;
  * 
  * @author Ansley Solomon
  */
-public class Crosswalk{
+public class Crosswalk_Tile{
     private String name;
     private String location;
     private String price;
@@ -19,6 +19,7 @@ public class Crosswalk{
 
     private String owner;
     private int currentRent; 
+    private boolean hasEvent = false;
 
     /**
      * Default constructor for Crosswalk
@@ -32,7 +33,7 @@ public class Crosswalk{
      * @param cRent3
      * @param cRent4 
      */
-    public Crosswalk(String cName, String cLocation, String cPrice, String cRent1,String cRent2, String cRent3, String cRent4){
+    public Crosswalk_Tile(String cName, String cLocation, String cPrice, String cRent1,String cRent2, String cRent3, String cRent4){
         name = cName;
         location = cLocation;
         price = cPrice;
@@ -109,5 +110,16 @@ public class Crosswalk{
     public int getRent4(){
         int r = Integer.parseInt(rent4);
         return r;
+    }
+    
+            
+    /**
+     * Returns if the tile has an event
+     * @author Sean Mitchell
+     * @return boolean hasEvent
+     */
+    public boolean getHasEvent()
+    {
+        return this.hasEvent;
     }
 }

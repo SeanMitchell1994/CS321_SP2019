@@ -14,6 +14,7 @@ public class Corner_Tile
     private int flag = 0;
     private String name;
     private String location;
+    private boolean hasEvent = true;
     
     Corner_Tile(String name, String location)
     {
@@ -53,6 +54,16 @@ public class Corner_Tile
     public int getLocation(){
         int lo = Integer.parseInt(location);	
         return lo;
+    }
+    
+    /**
+     * Returns if the tile has an event
+     * @author Sean Mitchell
+     * @return boolean hasEvent
+     */
+    public boolean getHasEvent()
+    {
+        return this.hasEvent;
     }
     
 }

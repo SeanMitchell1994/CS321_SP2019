@@ -5,7 +5,7 @@ package monopolydriver;
  */
 import javax.swing.ImageIcon;
 
-public class Property{
+public class Property_Tile{
     
 	// Member Variables
 	private final String name;
@@ -20,6 +20,7 @@ public class Property{
 	private  String monopolyRent;   // Cost of rent when owner has monopoly
 	private String owner;
         private ImageIcon image;
+        private boolean hasEvent = false;
 
         /**
          * Default constructor
@@ -32,7 +33,7 @@ public class Property{
          * @param pRent         The Property's rent
          * @param pMR           The Property's rent when owner has a monopoly
          */
-        public Property(String pName, String pLocation, String pColor, String pPrice, 
+        public Property_Tile(String pName, String pLocation, String pColor, String pPrice, 
                 String pMV, String pRent, String pMR){
             name = pName;
             this.pLocation = pLocation;
@@ -145,5 +146,15 @@ public class Property{
          */
         public String Get_Owner(){
             return this.owner;
+        }
+        
+        /**
+         * Returns if the tile has an event
+         * @author Sean Mitchell
+         * @return boolean hasEvent
+         */
+        public boolean getHasEvent()
+        {
+            return this.hasEvent;
         }
 }

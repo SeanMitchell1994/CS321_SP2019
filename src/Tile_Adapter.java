@@ -15,9 +15,9 @@ public class Tile_Adapter
     // ======================================
     // Member variables
     // ======================================
-    private Property local_p;
-    private Crosswalk local_cw;
-    private Utility local_u;
+    private Property_Tile local_p;
+    private Crosswalk_Tile local_cw;
+    private Utility_Tile local_u;
     private Card_Tile local_ct;
     private Corner_Tile local_corner;
     
@@ -34,7 +34,7 @@ public class Tile_Adapter
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
-    public Tile_Adapter(Property input)
+    public Tile_Adapter(Property_Tile input)
     {
         //System.out.println("Tile object  created!");
         this.local_p = input;
@@ -47,7 +47,7 @@ public class Tile_Adapter
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
-    public Tile_Adapter(Crosswalk input)
+    public Tile_Adapter(Crosswalk_Tile input)
     {
         //System.out.println("CW object  created!");
         this.local_cw = input;
@@ -60,7 +60,7 @@ public class Tile_Adapter
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
-    public Tile_Adapter(Utility input)
+    public Tile_Adapter(Utility_Tile input)
     {
         //System.out.println("Utlity object created!");
         this.local_u = input;
@@ -80,7 +80,7 @@ public class Tile_Adapter
         this.flag = 4;
     }
     
-        /**
+    /**
     * Constructor for Card_Tile types
     *
     * @param                    None
@@ -215,5 +215,36 @@ public class Tile_Adapter
             temp = local_u.getPrice();
         
         return temp;
+    }
+    
+    public boolean getHasEvent()
+    {
+        boolean temp = false;
+        switch(flag)
+        {
+            case 1:
+                if (local_p.getHasEvent()) {temp = true;}
+                break;
+            case 2:
+                if (local_cw.getHasEvent()) {temp = true;}
+                break;
+            case 3:
+                if (local_u.getHasEvent()) {temp = true;}
+                break;
+            case 4:
+                if (local_ct.getHasEvent()) {temp = true;}
+                break;
+            case 5:
+                if (local_corner.getHasEvent()) {temp = true;}
+                break;
+            default:
+                break;
+        }
+        return temp;
+    }
+    
+    public Event_Adapter getEvent()
+    {
+        
     }
 }
