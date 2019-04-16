@@ -136,50 +136,66 @@ public class Player{
         
         /**
          * Returns the Y-coordinate of the Player's location on the Board
-         * @author 
+         * @author  Megan Haskins
          * @return int y-coordinate
          */
         public int Get_YCordinate(){
         int starty = 545;
-        if(location <= 10 && location >= 0){
-            return starty;
-        }
-        if(location < 30 && location >= 20 ){
-            starty = 50;
-            return starty;
-        }
-            
-        if(Get_Location() == 11 || Get_Location() == 39){return 500;}
-        if(Get_Location() == 12 || Get_Location() == 38){return 470;}
-        if(Get_Location() == 13 || Get_Location() == 37){return 440;}
-        if(Get_Location() == 14 || Get_Location() == 36){return 400;}
-        if(Get_Location() == 15 || Get_Location() == 35){return 370;}
-        if(Get_Location() == 16 || Get_Location() == 34){return 335;}
-        if(Get_Location() == 17 || Get_Location() == 33){return 300;}
-        if(Get_Location() == 18 || Get_Location() == 32){return 260;}
-        if(Get_Location() == 19 || Get_Location() == 31){return 220;}        
-            
+        if(Get_Location() < 10 && Get_Location() >= 0){ return starty;}
+        if(Get_Location() < 30 && Get_Location() > 20 ){starty = 50; return starty;}
+        if(Get_Location() == 10){return 550;}
+        if(Get_Location() == 11){ return 500;}
+        if(Get_Location() == 12){ return 470;}
+        if(Get_Location() == 13){ return 415;}
+        if(Get_Location() == 14){ return 370;}
+        if(Get_Location() == 15){ return 300;}
+        if(Get_Location() == 16){ return 265;}
+        if(Get_Location() == 17){ return 215;}
+        if(Get_Location() == 18){return 190;}
+        if(Get_Location() == 19){ return 100;}
+        if(Get_Location() == 20){return 50;}
+        if(Get_Location() == 31){ return 100;}
+        if(Get_Location() == 32){ return 190;}
+        if(Get_Location() == 33){ return 235;}
+        if(Get_Location() == 34){ return 265;}
+        if(Get_Location() == 35){ return 300;}
+        if(Get_Location() == 36){ return 370;}
+        if(Get_Location() == 37){ return 415;}
+        if(Get_Location() == 37){ return 450;}
+        if(Get_Location() == 39){ return 500;}
+        if(Get_Location() == 40 || Get_Location() == 0){return 545;} 
             return 0;
         }
-        
         /**
          * Returns the X-coordinate of the Player's location on the Board
-         * @author 
+         * @author  Megan Haskins
          * @return int x-coordinate
          */
         public int Get_XCordinate(){
             int startx = 750;
+            if(Get_Location() == 20){return 170;}
             if(Get_Location() == 0){ return startx;}
-            if(Get_Location() == 1 || Get_Location() == 29){return 730;}
-            if(Get_Location() == 2 || Get_Location() == 28){return 670;}
-            if(Get_Location() == 3 || Get_Location() == 27){return 590;}
+            if(Get_Location() == 1 ){
+                return 655;
+            }
+            if(Get_Location() == 29){return 650;}
+            if(Get_Location() == 2){
+                return 590;
+            }
+            if(Get_Location() == 28){return 590;}
+            if(Get_Location() == 3) {
+                return 530; 
+            }
+            if(Get_Location() == 27){return 590;}
             if(Get_Location() == 4 || Get_Location() == 26){return 500;}
             if(Get_Location() == 5 || Get_Location() == 25){return 420;}
             if(Get_Location() == 6 || Get_Location() == 24){return 365;}
-            if(Get_Location() == 7 || Get_Location() == 23){return 300;}
+            if(Get_Location() == 7 || Get_Location() == 23){return 315;}
             if(Get_Location() == 8 || Get_Location() == 22){return 260;}
             if(Get_Location() == 9 || Get_Location() == 21){return 220;}
-            
+            if(Get_Location() == 10){
+                return 160;
+            }
             if(Get_Location() >= 10 && location < 20){
                 return 170;
             }
@@ -196,6 +212,9 @@ public class Player{
 	*/
 	public void Set_Location(int input){
             location = location + input;
+		if(location >= 40){
+			location = location -40;
+		}
 	}
         
         /**
