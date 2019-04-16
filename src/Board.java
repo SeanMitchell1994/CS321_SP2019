@@ -34,7 +34,7 @@ public class Board
 	//private final LinkedList<Card> chance_list = new LinkedList<Card>();			// linked list with chance cards
 	//private final LinkedList<Card> community_list = new LinkedList<Card>();		// linked list with community cards
         private PropertyList pl = new PropertyList();
-        private Decks d1 = new Decks();
+        //private Decks d1 = new Decks();
 	private int[] scoreboard;								// array containing the total score of each player
 	private int turn_flag = 0;								// integer flag identifying whose turn it is
         private int NUM_PLAYERS;
@@ -189,12 +189,21 @@ public class Board
 
             if (board[player_list.get(turn_flag).Get_Location()] != null)
             {
-                player_list.get(turn_flag).Turn(board[player_list.get(turn_flag).Get_Location()]);
+                if (!board[player_list.get(turn_flag).Get_Location()].getHasEvent())  
+                {
+                    //System.out.println("hasEvent: " + String.valueOf(board[player_list.get(turn_flag).Get_Location()].getHasEvent()));
+                    player_list.get(turn_flag).Turn(board[player_list.get(turn_flag).Get_Location()]);
+                }
+                else
+                {
+                    //System.out.println("Event tile!");
+                    board[player_list.get(turn_flag).Get_Location()].getEvent(player_list.get(turn_flag));
+                }
             }
-            else
-            {
-                d1.draw("chance").Get_Event(player_list.get(turn_flag));
-            }
+            //else
+            //{
+                //d1.draw("chance").Get_Event(player_list.get(turn_flag));
+            //}
             //player_list.get(turn_flag).Buy_Property(property_list.get(1));
             //System.out.printf(" \nLocation: %-5d | Money: %-5d\n", 
             //                player_list.get(turn_flag).Get_Location(),

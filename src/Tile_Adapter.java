@@ -20,6 +20,7 @@ public class Tile_Adapter
     private Utility_Tile local_u;
     private Card_Tile local_ct;
     private Corner_Tile local_corner;
+    private Decks d1 = new Decks();
     
     private int flag;
     private boolean is_owned;
@@ -243,8 +244,14 @@ public class Tile_Adapter
         return temp;
     }
     
-    public Event_Adapter getEvent()
+    public void getEvent(Player input)
     {
-        
+        if (getHasEvent())
+        {
+            if (flag == 4)
+            {
+                d1.draw("chance").Get_Event(input);
+            }
+        }
     }
 }
