@@ -27,6 +27,7 @@ public class PropertyList{
     private final ArrayList<Card_Tile> charger_chest = new ArrayList<>();
     private final ArrayList<Card_Tile> chance = new ArrayList<>();
     private final ArrayList<Corner_Tile> corner_tiles = new ArrayList<>();
+	private final ArrayList<Other_Tile> other_tiles = new ArrayList<>();
     
     /**
      * Default constructor
@@ -78,6 +79,13 @@ public class PropertyList{
         {
             System.out.println("Name: " + corner_tiles.get(i).getName());
             System.out.println("Location: "  + corner_tiles.get(i).getLocation());
+            System.out.println();
+        }
+        for (int i = 0; i < other_tiles.size(); i++)
+        {
+            System.out.println("Name: " + other_tiles.get(i).getName());
+            System.out.println("Location: "  + other_tiles.get(i).getLocation());
+		System.out.println("Cost: "  + other_tiles.get(i).getCost());
             System.out.println();
         }
     }
@@ -152,6 +160,14 @@ public class PropertyList{
                         Corner_Tile prop = new Corner_Tile(name, location);
                         corner_tiles.add(prop);
                     }
+            		else if (eElement.hasAttribute("category") && eElement.getAttribute("category").equals("other"))
+                    {
+                        String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+                        String location = eElement.getElementsByTagName("location").item(0).getTextContent();
+			String price = eElement.getElementsByTagName("price").item(0).getTextContent();
+                        Other_Tile prop = new Other_Tile(name, location, price);
+                        other_tiles.add(prop);
+                    }
                 }
              }
         }catch (ParserConfigurationException | SAXException | IOException | DOMException e){
@@ -224,4 +240,12 @@ public class PropertyList{
         //System.out.print("Get Utilities XML!\n");
         return corner_tiles;
     }
+
+    public ArrayList<Other_Tile> Get_OT()
+    {
+        //System.out.print("Get Utilities XML!\n");
+        return other_tiles;
+    }
+
+
 }

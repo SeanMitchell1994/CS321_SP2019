@@ -13,12 +13,14 @@ public class Other_Tile
 {
     private String name;
     private String location;
+	private String cost;
     private boolean hasEvent = true;
     
-    Other_Tile (String name, String location)
+    Other_Tile (String name, String location, String cost)
     {        
         this.name = name;
         this.location = location;
+	this.cost = cost;
     }
     
     /*()
@@ -45,6 +47,12 @@ public class Other_Tile
         int lo = Integer.parseInt(location);	
         return lo;
     }
+
+	public int getCost()
+	{
+	        int co = Integer.parseInt(this.cost);	
+	        return co;
+	}
     
     /**
      * Returns if the tile has an event
