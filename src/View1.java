@@ -143,7 +143,8 @@ public class View1 extends Mdriver{
     
     //Will be edited to display current player locations
     public void viewBoard(Player currentP){
-       rotations++;
+        if(currentP.Get_Playable() == true){
+            rotations++;
        if(rotations > maxRotations){
            Completed_Window();
        }
@@ -254,7 +255,17 @@ public class View1 extends Mdriver{
         frame.add(basePanel);
         frame.pack();
         frame.setVisible(true);
-       }    
+        }
+      }
+       else{
+             turnCounter++;
+             if(turnCounter == maxPlayers){
+                 turnCounter = 0;
+             }
+             currentP.Update_Playability();
+             playerTurns(0, currentP);    
+               }
+  
     }
 
      public void afterRollBoard(Player currentP, String rollResult){
@@ -269,6 +280,7 @@ public class View1 extends Mdriver{
         JButton btnEndTurn = new JButton("End Turn");
         JButton btnForfeit = new JButton("Forfiet");
         
+        //////////////////////////////////////////////////////////////////////////////END TURN
          btnEndTurn.addActionListener(new ActionListener() { 
             public void actionPerformed(ActionEvent e) { 
             } 
@@ -279,7 +291,14 @@ public class View1 extends Mdriver{
              if(turnCounter == maxPlayers){
                  turnCounter = 0;
              }
-             playerTurns();            
+             currentP.Update_Playability();
+             if(currentP.Get_Playable() == false){
+                 playerTurns(1, currentP); 
+             }
+             else{
+                playerTurns(0, currentP); 
+             }
+                         
            }
         } );
         
@@ -512,8 +531,14 @@ public class View1 extends Mdriver{
        frame.setVisible(true); 
        }
        
-       public void playerTurns(){
-           viewBoard(gameBoard.get_Player(turnCounter));
+       public void playerTurns(int window, Player currentP){
+           if(window != 0){
+               viewBoard(gameBoard.get_Player(turnCounter)); 
+               Player_Elimination(currentP);
+           }
+           else{
+             viewBoard(gameBoard.get_Player(turnCounter));  
+           }  
        }
        
        public void Error_Window(String message){
@@ -819,10 +844,10 @@ public class View1 extends Mdriver{
        
        public void Completed_Window(){
            JPanel basePanel = new JPanel();
-           basePanel.setSize(100,100);
+           basePanel.setSize(1000,1000);
            basePanel.setLayout(new FlowLayout());
            JFrame frame = new JFrame("Finished!");
-           frame.setSize(100,100);
+           frame.setSize(1000,1000);
            JTextField txtmessage = new JTextField("The game is complete! \n Let's see the standings :D \n");
            JLabel Lfinish = new JLabel("The game is complete! Let's see the standings :D ");
            JLabel Lplayer1 = new JLabel(gameBoard.get_Player(0).Get_Name()+" total worth: " + gameBoard.get_Player(0).Get_Total_Worth());
@@ -847,4 +872,18 @@ public class View1 extends Mdriver{
            frame.pack();
            frame.setVisible(true);
        }
+       
+    public void Player_Elimination(Player currentP){
+        JFrame frame = new JFrame("Player Elimination");
+        JPanel panel = new JPanel();
+        frame.setSize(150,150);
+        panel.setSize(150,150);
+        panel.setLayout(new FlowLayout());
+        JLabel Lmessage = new JLabel(currentP.Get_Name() + "'s account balance has dropped below zero. ");
+        JLabel Lmessage2 = new JLabel(currentP.Get_Name() + " has been eliminated from the game.");
+        panel.add(Lmessage); panel.add(Lmessage2);
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+    }
 }
