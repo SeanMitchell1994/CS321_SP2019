@@ -78,27 +78,6 @@
         <event_value>-15</event_value>
 	</card>
 	<card category="chance">
-		<id_number>11</id_number>
-		<text>Take a trip to Holmes Avenue. If you pass Go, collect $200.</text>
-		<event>move(holmes)</event>
-        <event_type>move</event_type>
-        <event_value>5</event_value>
-	</card>
-	<card category="chance">
-		<id_number>12</id_number>
-		<text>Take a walk to Tech Hall. Advance to OKT. If you pass Go, collect $200.</text>
-		<event>move(okt)</event>
-        <event_type>move</event_type>
-        <event_value>39</event_value>
-	</card>
-	<card category="chance">
-		<id_number>13</id_number>
-		<text>Join a fraternity/sorority. Pay each player $50.</text>
-		<event>lose(50*nPlayers)</event>
-        <event_type>collect</event_type>
-        <event_value>-200</event_value>
-	</card>
-	<card category="chance">
 		<id_number>14</id_number>
 		<text>Sell old textbooks. Collect $150.</text>
 		<event>collect(150)</event>
@@ -183,13 +162,6 @@
         <event_value>10</event_value>
 	</card>
 	<card category="chargerChest">
-		<id_number>26</id_number>
-		<text>Sell concert tickets for a profit. Collect $50 from every player.</text>
-		<event>collect(50*nPlayers)</event>
-        <event_type>collect</event_type>
-        <event_value>200</event_value>
-	</card>
-	<card category="chargerChest">
 		<id_number>27</id_number>
 		<text>Christmas money from parents. Collect $100.</text>
 		<event>collect(100)</event>
@@ -237,13 +209,6 @@
 		<event>collect(100)</event>
         <event_type>collect</event_type>
         <event_value>100</event_value>
-	</card>
-	<card category="chargerChest">
-		<id_number>34</id_number>
-		<text>Throw a party. Pay $40 per house and $115 per hotel you own.</text>
-		<event>lose(getHouses()*40+getHotels()*115)</event>
-        <event_type>collect</event_type>
-        <event_value>-40</event_value>
 	</card>
 	<card category="chargerChest">
 		<id_number>35</id_number>
