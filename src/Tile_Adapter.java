@@ -425,7 +425,7 @@ public class Tile_Adapter
 		        if (local_corner.getHasEvent()) {temp = true;}
 		        break;
 		    case 7:
-		        if (this.local_ot.getHasEvent()) {temp = true;}
+		        input.shift_Money(-local_ot.getCost());
 		        break;
 		    default:
 		        break;
