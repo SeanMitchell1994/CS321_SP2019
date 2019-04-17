@@ -14,21 +14,31 @@ public class Corner_Tile
     private int flag = 0;
     private String name;
     private String location;
-    private boolean hasEvent = true;
+    private final boolean hasEvent = true;
     
     Corner_Tile(String name, String location)
     {
-        if (name.equals("charger_chest"))
-        {
-            flag = 1;
-        }
-        else if (name.equals("chance"))
-        {
-            flag = 2;
-        }
-        
         this.name = name;
         this.location = location;
+
+	switch(this.name)
+	{
+	    case "GO":
+		this.flag = 1;
+		break;
+	    case "Jail":
+		this.flag = 2;
+		break;
+	    case "Free Parking":
+		this.flag = 3;
+		break;
+	    case "Go to Jail":
+		this.flag = 4;
+		break;
+	default:
+		break;
+	}
+        
     }
     
     /*()
@@ -59,11 +69,29 @@ public class Corner_Tile
     /**
      * Returns if the tile has an event
      * @author Sean Mitchell
-     * @return boolean hasEvent
+     * @return boolean hasEvent 
      */
-    public boolean getHasEvent()
+    public boolean getHasEvent(Player input_obj)
     {
         return this.hasEvent;
     }
-    
+
+	public void getEvent()
+	{
+		switch(flag)
+		{
+		    case 1:
+			input_obj.shift_Money(200);
+			break;
+		    case 2:
+			break;
+		    case 3:
+			break;
+		    case 4:
+			//input_obj.Set_Location
+			break;
+		default:
+			break;
+		}
+	}
 }
