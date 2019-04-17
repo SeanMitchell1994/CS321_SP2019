@@ -91,19 +91,26 @@ public class View1 extends Mdriver{
   
   public void instructionEvent(){
        System.out.println("Give Instructions");
-                
+       Font font = new Font("Courier", Font.BOLD,13);
+
        JPanel panel = new JPanel();
        panel.setLayout(new FlowLayout());
        panel.setPreferredSize(new Dimension(1000,1000));
-       JLabel instruct1 = new JLabel("Monopoly Instructions                                                                                                      "); 
-       JLabel instruct2 = new JLabel("Object                                                                        ");
+       String Lspace = "                                                                                                                                                                                           ";
+       String LLspace = "                           ";
+       JLabel instruct1 = new JLabel("Monopoly Instructions" + LLspace); 
+       instruct1.setFont(font);
+       JLabel instruct2 = new JLabel("Object" + Lspace);
+       instruct2.setFont(font);
        JLabel instruct3 = new JLabel("The object of Monopoly is to become the wealthiest player by buying, selling, trading, and collecting");
        JLabel instruct4 = new JLabel("rent on properties. In this version, a number of rounds is set at the beginning of the game, and the");
        JLabel instruct5 = new JLabel("player who is the richest after the set number of rounds is declared the winner.");
-       JLabel instruct6 = new JLabel("Start                                                                              ");
+       JLabel instruct6 = new JLabel("Start" + Lspace);
+       instruct6.setFont(font);
        JLabel instruct7 = new JLabel("To start the game, each player enters their name and is assigned a token. Each player starts out");
        JLabel instruct8 = new JLabel("with $1,500. Each player token starts on the “Go” tile.        ");
-       JLabel instruct9 = new JLabel("Turns                                                                                ");
+       JLabel instruct9 = new JLabel("Turns" + Lspace);
+       instruct9.setFont(font);
        JLabel instruct10 = new JLabel("On your turn, click the “Roll Dice” button. Your token will automatically move the correct number of spaces (1-12). ");
        JLabel instruct11= new JLabel("-If you land on an unowned property, crosswalk, or utility, you have the option to buy it.");
        JLabel instruct12= new JLabel("-If you land on a property, a crosswalk, or utility that is already owned, you must pay rent to its owner.");
@@ -111,34 +118,36 @@ public class View1 extends Mdriver{
        JLabel instruct14 = new JLabel("-If you land on “Free Parking”, you don’t have to pay rent or draw a card.");
        JLabel instruct15 = new JLabel("-If you land on “Jail”, nothing happens. You are just passing through.");
        JLabel instruct16 = new JLabel("-If you land on “Go to Jail”, your player is now incarcerated (see Jail section of instructions)             .");
-       JLabel instruct17 = new JLabel("Buying, Selling, and Trading Properties");
+       JLabel instruct17 = new JLabel("Buying, Selling, and Trading Properties" + Lspace);
+       instruct17.setFont(font);
        JLabel instruct18 = new JLabel("There are two ways to buy a property, crosswalk, or utility: (1) land on the tile, or (2) buy or trade it from another player.");
        JLabel instruct19 = new JLabel("If you own all the tiles of one color, this is a monopoly. Rent is more expensive on properties where the owner has a monopoly");
        JLabel instruct20 = new JLabel("On your turn, you have the option of selling or trading properties. The other player must agree to your");
        JLabel instruct21 = new JLabel("proposed sale or trade. If they do not, the sale or trade doesn’t happen.");
-       JLabel instruct22 = new JLabel("Mortgaging Properties                ");
+       JLabel instruct22 = new JLabel("Mortgaging Properties" + Lspace);
+       instruct22.setFont(font);
        JLabel instruct23 = new JLabel("Players have the option to mortgage their properties on their turn. If you mortgage a property, you receive a certain amount of money.");
        JLabel instruct24 = new JLabel("Rent is not collected when a morgaged property is landed on.");
-       JLabel instruct25 = new JLabel("Jail                                                    ");
+       JLabel instruct25 = new JLabel("Jail" + Lspace + "           ");
+       instruct25.setFont(font);
        JLabel instruct26 = new JLabel("If you find yourself incarcerated, there are two ways to get out of jail: (1) Use a “Get Out of Jail Free");
        JLabel instruct27 = new JLabel("or (2) Pay $50. Else you must pay the $50 on your third turn in jail.");
-       JLabel instruct28 = new JLabel("Winning and Losing                                                          ");
-       JLabel instruct29 = new JLabel("If a player runs out of money and is unable to mortgage any properties, they must declare bankruptcy. ");
-       JLabel instruct30 = new JLabel("Bankrupt players are eliminated from the game.                   ");
-       JLabel instruct31 = new JLabel("At the end of the predetermined number of rounds, the player with the most assets (money and properties) wins the game. ");
+       JLabel instruct28 = new JLabel("Winning and Losing" + LLspace + "                                                                                                                                                                ");
+       instruct28.setFont(font);
+       JLabel instruct29 = new JLabel("If a player ends a turn with a negative account balance they are eliminated from the game. ");
+       JLabel instruct30 = new JLabel("The game ends when only one player remains or when the aloted amount of turns has ended.");
+       JLabel instruct31 = new JLabel("The last player standing or the player with the most assets (money and properties) at the end of the rounds wins the game. ");
        JLabel instruct32 = new JLabel();
-
        panel.add(instruct1); panel.add(instruct2); panel.add(instruct3); panel.add(instruct4); panel.add(instruct5); panel.add(instruct6);
        panel.add(instruct7); panel.add(instruct8); panel.add(instruct9); panel.add(instruct10); panel.add(instruct11); panel.add(instruct12);
        panel.add(instruct13); panel.add(instruct14); panel.add(instruct15); panel.add(instruct16); panel.add(instruct17); panel.add(instruct18);
        panel.add(instruct19); panel.add(instruct20); panel.add(instruct21); panel.add(instruct22); panel.add(instruct23); panel.add(instruct24);
        panel.add(instruct25); panel.add(instruct26); panel.add(instruct27); panel.add(instruct28); panel.add(instruct29); panel.add(instruct30);
        panel.add(instruct31); panel.add(instruct32); 
-
        JFrame frame = new JFrame("Instructions");
        frame.getContentPane().add(panel);
        frame.pack();
-       frame.setVisible(true);  
+       frame.setVisible(true);
     }
     
     //Will be edited to display current player locations
