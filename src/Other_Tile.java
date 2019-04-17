@@ -21,6 +21,18 @@ public class Other_Tile
         this.name = name;
         this.location = location;
 	this.cost = cost;
+
+	switch(this.name)
+	{
+	    case "Buy Books":
+		this.flag = 1;
+		break;
+	    case "Pay Tutition":
+		this.flag = 2;
+		break;
+	default:
+		break;
+	}
     }
     
     /*()
