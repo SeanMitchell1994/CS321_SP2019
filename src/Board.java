@@ -107,6 +107,13 @@ public class Board
                 //System.out.print(i);
                 board[pl.Get_CT().get(i).getLocation()] = new Tile_Adapter(pl.Get_CT().get(i));
             }
+
+		System.out.println("Other tiles!");
+           for (int i = 0; i < pl.Get_OT().size(); i++)
+           {
+                //System.out.print(i);
+                board[pl.Get_OT().get(i).getLocation()] = new Tile_Adapter(pl.Get_OT().get(i));
+            }
             
             /*
             System.out.println("\nMember values from tiles:");
