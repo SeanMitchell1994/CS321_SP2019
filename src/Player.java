@@ -24,6 +24,7 @@ public class Player{
 	private ImageIcon image;
 	private String name;
 	private boolean is_ready;
+	private boolean playable;
 	// list with money broken down into types of money
 	// integer that shows the sum total of money
 
@@ -133,6 +134,10 @@ public class Player{
         public ImageIcon Get_Image(){
             return this.image;
         }
+	
+	public boolean Get_Playable(){
+        return playable;
+        }
         
         /**
          * Returns the Y-coordinate of the Player's location on the Board
@@ -197,6 +202,10 @@ public class Player{
 	public void Set_Location(int input){
             location = location + input;
 	}
+	
+	public void Set_Playable(boolean tf){
+        playable = tf;
+        }
         
         /**
 	* changes a players location based on a value passed in
@@ -307,6 +316,13 @@ public class Player{
 		Sell_Property(tile);
 		p_other.Buy_Property(tile);	
 	}
+	
+	
+	public void Update_Playability(){
+        if(this.Get_Money() < 0){
+            this.Set_Playable(false);
+        }
+        }
         
         /**
          * DESCRIPTION NEEDED
