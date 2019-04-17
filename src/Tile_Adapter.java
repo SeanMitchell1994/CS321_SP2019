@@ -20,6 +20,7 @@ public class Tile_Adapter
     private Utility_Tile local_u;
     private Card_Tile local_ct;
     private Corner_Tile local_corner;
+    private Other_Tile local_ot;
     private Decks d1 = new Decks();
     private Card local_card;
     
@@ -79,11 +80,19 @@ public class Tile_Adapter
     {
         //System.out.println("Tile object  created!");
         this.local_ct = input;
-        this.flag = 4;
+        
+        if (this.local_ct.getName().equals("charger_chest"))
+        {
+            this.flag = 4;
+        }
+        else if (this.local_ct.getName().equals("chance"))
+        {
+            this.flag = 5;
+        }
     }
     
     /**
-    * Constructor for Card_Tile types
+    * Constructor for Corner_Tile types
     *
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
@@ -92,7 +101,20 @@ public class Tile_Adapter
     {
         //System.out.println("Tile object  created!");
         this.local_corner = input;
-        this.flag = 5;
+        this.flag = 6;
+    }
+    
+    /**
+    * Constructor for Other_Tile types
+    *
+    * @param                    None
+    * @return   Tile_Adapter    Tile_Adapter object
+    */
+    public Tile_Adapter(Other_Tile input)
+    {
+        //System.out.println("Tile object  created!");
+        this.local_ot = input;
+        this.flag = 7;
     }
     
     // ======================================
@@ -237,7 +259,13 @@ public class Tile_Adapter
                 if (local_ct.getHasEvent()) {temp = true;}
                 break;
             case 5:
+                if (local_ct.getHasEvent()) {temp = true;}
+                break;
+            case 6:
                 if (local_corner.getHasEvent()) {temp = true;}
+                break;
+            case 7:
+                if (this.local_ot.getHasEvent()) {temp = true;}
                 break;
             default:
                 break;
