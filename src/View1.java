@@ -33,6 +33,8 @@ public class View1 extends Mdriver{
     Board gameBoard;
     int turnCounter;
     int maxPlayers;
+    int rotations;
+    int maxRotations;
     
     //needed trade variables
     int tradeP1;
@@ -41,7 +43,7 @@ public class View1 extends Mdriver{
     int trade1index;
     int trade2index;
     
- public void View1(){  turnCounter = 0; }
+ public void View1(){  turnCounter = 0; rotations = 0; maxRotations = 0; }
     
   public void welcomeMenu(){
         Button btnStart = new Button();
@@ -84,7 +86,6 @@ public class View1 extends Mdriver{
         Stage welcomeMenu = new Stage();
         welcomeMenu.setTitle("UAH Monopoly Start Menu");
         welcomeMenu.setScene(Startscene);
-        
         welcomeMenu.show();
     }
   
@@ -92,9 +93,47 @@ public class View1 extends Mdriver{
        System.out.println("Give Instructions");
                 
        JPanel panel = new JPanel();
+       panel.setLayout(new FlowLayout());
        panel.setPreferredSize(new Dimension(1000,1000));
-       JLabel instructionText = new JLabel("These are the Instructions to play: \n win");
-       panel.add(instructionText);
+       JLabel instruct1 = new JLabel("Monopoly Instructions                                                                                                      "); 
+       JLabel instruct2 = new JLabel("Object                                                                        ");
+       JLabel instruct3 = new JLabel("The object of Monopoly is to become the wealthiest player by buying, selling, trading, and collecting");
+       JLabel instruct4 = new JLabel("rent on properties. In this version, a number of rounds is set at the beginning of the game, and the");
+       JLabel instruct5 = new JLabel("player who is the richest after the set number of rounds is declared the winner.");
+       JLabel instruct6 = new JLabel("Start                                                                              ");
+       JLabel instruct7 = new JLabel("To start the game, each player enters their name and is assigned a token. Each player starts out");
+       JLabel instruct8 = new JLabel("with $1,500. Each player token starts on the “Go” tile.        ");
+       JLabel instruct9 = new JLabel("Turns                                                                                ");
+       JLabel instruct10 = new JLabel("On your turn, click the “Roll Dice” button. Your token will automatically move the correct number of spaces (1-12). ");
+       JLabel instruct11= new JLabel("-If you land on an unowned property, crosswalk, or utility, you have the option to buy it.");
+       JLabel instruct12= new JLabel("-If you land on a property, a crosswalk, or utility that is already owned, you must pay rent to its owner.");
+       JLabel instruct13 = new JLabel("-If you land on a “Chance” or “Charger Chest” tile, a card will be drawn which gives an event (gain or lose money, or move on the board).");
+       JLabel instruct14 = new JLabel("-If you land on “Free Parking”, you don’t have to pay rent or draw a card.");
+       JLabel instruct15 = new JLabel("-If you land on “Jail”, nothing happens. You are just passing through.");
+       JLabel instruct16 = new JLabel("-If you land on “Go to Jail”, your player is now incarcerated (see Jail section of instructions)             .");
+       JLabel instruct17 = new JLabel("Buying, Selling, and Trading Properties");
+       JLabel instruct18 = new JLabel("There are two ways to buy a property, crosswalk, or utility: (1) land on the tile, or (2) buy or trade it from another player.");
+       JLabel instruct19 = new JLabel("If you own all the tiles of one color, this is a monopoly. Rent is more expensive on properties where the owner has a monopoly");
+       JLabel instruct20 = new JLabel("On your turn, you have the option of selling or trading properties. The other player must agree to your");
+       JLabel instruct21 = new JLabel("proposed sale or trade. If they do not, the sale or trade doesn’t happen.");
+       JLabel instruct22 = new JLabel("Mortgaging Properties                ");
+       JLabel instruct23 = new JLabel("Players have the option to mortgage their properties on their turn. If you mortgage a property, you receive a certain amount of money.");
+       JLabel instruct24 = new JLabel("Rent is not collected when a morgaged property is landed on.");
+       JLabel instruct25 = new JLabel("Jail                                                    ");
+       JLabel instruct26 = new JLabel("If you find yourself incarcerated, there are two ways to get out of jail: (1) Use a “Get Out of Jail Free");
+       JLabel instruct27 = new JLabel("or (2) Pay $50. Else you must pay the $50 on your third turn in jail.");
+       JLabel instruct28 = new JLabel("Winning and Losing                                                          ");
+       JLabel instruct29 = new JLabel("If a player runs out of money and is unable to mortgage any properties, they must declare bankruptcy. ");
+       JLabel instruct30 = new JLabel("Bankrupt players are eliminated from the game.                   ");
+       JLabel instruct31 = new JLabel("At the end of the predetermined number of rounds, the player with the most assets (money and properties) wins the game. ");
+       JLabel instruct32 = new JLabel();
+
+       panel.add(instruct1); panel.add(instruct2); panel.add(instruct3); panel.add(instruct4); panel.add(instruct5); panel.add(instruct6);
+       panel.add(instruct7); panel.add(instruct8); panel.add(instruct9); panel.add(instruct10); panel.add(instruct11); panel.add(instruct12);
+       panel.add(instruct13); panel.add(instruct14); panel.add(instruct15); panel.add(instruct16); panel.add(instruct17); panel.add(instruct18);
+       panel.add(instruct19); panel.add(instruct20); panel.add(instruct21); panel.add(instruct22); panel.add(instruct23); panel.add(instruct24);
+       panel.add(instruct25); panel.add(instruct26); panel.add(instruct27); panel.add(instruct28); panel.add(instruct29); panel.add(instruct30);
+       panel.add(instruct31); panel.add(instruct32); 
 
        JFrame frame = new JFrame("Instructions");
        frame.getContentPane().add(panel);
@@ -104,7 +143,12 @@ public class View1 extends Mdriver{
     
     //Will be edited to display current player locations
     public void viewBoard(Player currentP){
-       JFrame frame = new JFrame();
+       rotations++;
+       if(rotations > maxRotations){
+           Completed_Window();
+       }
+       else{
+           JFrame frame = new JFrame();
        JPanel basePanel = new JPanel();
        JLayeredPane lpane = new JLayeredPane();
        JPanel boardPanel = new JPanel();
@@ -133,22 +177,11 @@ public class View1 extends Mdriver{
              }
         JLabel photoLabel = new JLabel(new ImageIcon(boardImage));
         boardPanel.add(photoLabel);
-       
         JPanel tokinPanel1 = new JPanel();
         JPanel tokinPanel2 = new JPanel();
         JPanel tokinPanel3 = new JPanel();
         JPanel tokinPanel4 = new JPanel();
-        //Get tokin Image
-       /* JLabel tokinPhoto1 = new JLabel(gameBoard.get_Player(0).Get_Image());
-        tokinPanel1.add(tokinPhoto1); 
-        JLabel tokinPhoto2 = new JLabel(gameBoard.get_Player(1).Get_Image());
-        tokinPanel2.add(tokinPhoto2); 
-        JLabel tokinPhoto3 = new JLabel(gameBoard.get_Player(2).Get_Image());
-        tokinPanel3.add(tokinPhoto1); 
-        JLabel tokinPhoto4 = new JLabel(gameBoard.get_Player(3).Get_Image());
-        tokinPanel4.add(tokinPhoto1);         
-        */
-        
+
         basePanel.setPreferredSize(new Dimension(1500, 1000));
         basePanel.setLayout(new BorderLayout());
         basePanel.add(lpane, BorderLayout.CENTER);
@@ -174,8 +207,7 @@ public class View1 extends Mdriver{
              tokinPanel4.setBounds(gameBoard.get_Player(3).Get_XCordinate(), gameBoard.get_Player(3).Get_YCordinate(), 30, 30);
              lpane.add(tokinPanel4, new Integer(1), 0);
              tokinPanel4.setOpaque(true);
-        }
-
+         }
         
         tokinPanel1.setOpaque(true); tokinPanel2.setOpaque(true); 
         lpane.add(boardPanel, new Integer(0), 0);
@@ -214,7 +246,6 @@ public class View1 extends Mdriver{
            }
         } );
         controlP.add(btnManageProp);
-        
         controlP.add(btnRollDice1);
         controlP.add(TFresults);
         
@@ -222,7 +253,8 @@ public class View1 extends Mdriver{
         basePanel.add(panelplease, BorderLayout.EAST);
         frame.add(basePanel);
         frame.pack();
-        frame.setVisible(true);    
+        frame.setVisible(true);
+       }    
     }
 
      public void afterRollBoard(Player currentP, String rollResult){
@@ -338,7 +370,7 @@ public class View1 extends Mdriver{
         Text space4 = new Text("                                                 ");
         Text space5 = new Text("                                               ");
         
-        Text text1 = new Text("Lets set up the game. \n Please select number of players and choose a tokin.\n Number of players allowed 2-4. \n \n Amount of Players:");
+        Text text1 = new Text("Lets set up the game. \n Please give player names and choose turn length for the game. \n Turn Amount: ");
         TextField numberResponse = new TextField();
         Text txtP1 = new Text("Player One Name:  ");
         Text txtP2 = new Text("Player Two Name:  ");
@@ -350,37 +382,19 @@ public class View1 extends Mdriver{
         TextField TFplayer4 = new TextField();
         Text text2 = new Text("\n Next, select tokins: Fadora, Laptop, Rocket, Horse, Beaker, Glasses          \n");
         Text text15 = new Text("                                                            \n");
-        Text txtTime = new Text("Please select a time alotment for each player's turn: ");
-        TextField TFTime = new TextField();
+        
         Button btnfinish = new Button("Finish");
         
          btnfinish.setOnAction(new EventHandler<ActionEvent>() {
-          Stage setupMenu = new Stage();
-             String player1Name = "one";
-             String player2Name = "two";
-             String player3Name = "thee";
-             String player4Name = "four";
-             String stringPlayerAmount;
-             int numberOfPlayers;
-             int timeAlotment;
             @Override
-            public void handle(ActionEvent event) {
-               player1Name = TFplayer1.getText();
-               player2Name = TFplayer2.getText();
-               player3Name = TFplayer3.getText();
-               player4Name = TFplayer4.getText();
-               stringPlayerAmount = numberResponse.getText();
-               if("1".equals(stringPlayerAmount)){numberOfPlayers = 1;}
-               if("2".equals(stringPlayerAmount)){numberOfPlayers = 2;}
-               if("3".equals(stringPlayerAmount)){numberOfPlayers = 3;}
-               if("4".equals(stringPlayerAmount)){numberOfPlayers = 4;}
-               
-               maxPlayers = numberOfPlayers;
+            public void handle(ActionEvent event) { 
+               maxRotations = Integer.parseInt(numberResponse.getText());
+               System.out.println(""+rotations);
+               maxPlayers = 4;
               
-               if(numberOfPlayers == 1 || numberOfPlayers == 2 || numberOfPlayers == 3 || numberOfPlayers == 4){
-                 gameBoard = new Board(numberOfPlayers, player1Name, player2Name, player3Name, player4Name, timeAlotment, 17);
-                  viewBoard(gameBoard.get_Player(0));
-              }        
+                 gameBoard = new Board(TFplayer1.getText(), TFplayer2.getText(), TFplayer3.getText(), TFplayer4.getText());
+                 viewBoard(gameBoard.get_Player(0));
+                      
             }
         });
         
@@ -390,8 +404,8 @@ public class View1 extends Mdriver{
         root.getChildren().add(TFplayer1); root.getChildren().add(space1); root.getChildren().add(txtP2);
         root.getChildren().add(TFplayer2); root.getChildren().add(space2); root.getChildren().add(txtP3);
         root.getChildren().add(TFplayer3); root.getChildren().add(space3); root.getChildren().add(txtP4);
-        root.getChildren().add(TFplayer4); root.getChildren().add(space4); root.getChildren().add(txtTime);
-        root.getChildren().add(TFTime); root.getChildren().add(space5); root.getChildren().add(btnfinish);
+        root.getChildren().add(TFplayer4); root.getChildren().add(space4); 
+        root.getChildren().add(space5); root.getChildren().add(btnfinish);
 
         Scene setupScene = new Scene(root, 400, 350);
 
@@ -798,6 +812,37 @@ public class View1 extends Mdriver{
            //basePanel.add(evenTxt);
            
            //actual event logic
+           frame.add(basePanel);
+           frame.pack();
+           frame.setVisible(true);
+       }
+       
+       public void Completed_Window(){
+           JPanel basePanel = new JPanel();
+           basePanel.setSize(100,100);
+           basePanel.setLayout(new FlowLayout());
+           JFrame frame = new JFrame("Finished!");
+           frame.setSize(100,100);
+           JTextField txtmessage = new JTextField("The game is complete! \n Let's see the standings :D \n");
+           JLabel Lfinish = new JLabel("The game is complete! Let's see the standings :D ");
+           JLabel Lplayer1 = new JLabel(gameBoard.get_Player(0).Get_Name()+" total worth: " + gameBoard.get_Player(0).Get_Total_Worth());
+           JLabel Lplayer2 = new JLabel(gameBoard.get_Player(1).Get_Name()+" total worth: "+ gameBoard.get_Player(1).Get_Total_Worth());
+           JLabel Lplayer3 = new JLabel(gameBoard.get_Player(2).Get_Name()+" total worth: "+ gameBoard.get_Player(2).Get_Total_Worth());
+           JLabel Lplayer4 = new JLabel(gameBoard.get_Player(3).Get_Name()+" total worth: "+ gameBoard.get_Player(3).Get_Total_Worth());
+           JLabel Lwinner = new JLabel();
+           int highestAmount = 0;
+           int highestIndex = 0;
+           for(int i = 0; i<4; i++){
+               if(gameBoard.get_Player(i).Get_Total_Worth() >= highestAmount ){
+                   highestIndex = i;
+                   highestAmount = gameBoard.get_Player(i).Get_Total_Worth();
+               }
+           }
+           Lwinner.setText("The winner is " + gameBoard.get_Player(highestIndex).Get_Name() + "!");
+           basePanel.add(txtmessage);
+           basePanel.add(Lplayer1); basePanel.add(Lplayer2); basePanel.add(Lplayer3); basePanel.add(Lplayer4); 
+           basePanel.add(Lwinner);
+           
            frame.add(basePanel);
            frame.pack();
            frame.setVisible(true);
