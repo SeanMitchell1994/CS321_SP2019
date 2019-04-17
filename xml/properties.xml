@@ -426,4 +426,15 @@
 		<location>30</location>
     </property>
     
+    <property category="other">
+		<name>Buy Books</name>
+		<location>02</location>
+        <price>250</price>
+    </property>
+        <property category="other">
+		<name>Pay Tutition</name>
+		<location>38</location>
+        <price>250</price>
+    </property>
+    
 </propertyList>
