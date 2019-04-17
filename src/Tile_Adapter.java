@@ -129,11 +129,40 @@ public class Tile_Adapter
     */
     public void Set_Owner(String input)
     {
+	/*
         if (flag == 1)
         {
             this.owner = input;
-        }
+        }*/
         return;
+
+	switch(flag)
+        {
+            case 1:
+                this.owner = input;;
+                break;
+            case 2:
+                this.owner = input;
+                break;
+            case 3:
+                this.owner = input;
+                break;
+	/*
+            case 4:
+                temp = local_ct.getName();
+                break;
+            case 5:
+                temp = local_ct.getName();
+                break;
+            case 6:
+                temp = local_corner.getName();
+                break;
+            case 7:
+                temp = local_ot.getName();
+                break;
+	*/
+            default:
+                break;
     }
     
     /**
@@ -144,10 +173,42 @@ public class Tile_Adapter
     */
     public void Set_IsOwned(boolean input)
     {
+	this.is_owned = false;
+	
+	/*
         if ((this.flag == 1 ) || (this.flag == 2))
             this.is_owned = input;
         else
             this.is_owned = false;
+	*/
+	switch(flag)
+        {
+            case 1:
+                this.is_owned = input;
+                break;
+            case 2:
+                this.is_owned = input;
+                break;
+            case 3:
+                this.is_owned = input;
+                break;
+	/*
+            case 4:
+                temp = local_ct.getName();
+                break;
+            case 5:
+                temp = local_ct.getName();
+                break;
+            case 6:
+                temp = local_corner.getName();
+                break;
+            case 7:
+                temp = local_ot.getName();
+                break;
+	*/
+            default:
+                break;
+        }
     }
     
     // ======================================
@@ -185,16 +246,33 @@ public class Tile_Adapter
     {
         //System.out.print("debug!\n");
         String temp = "";
-        if (this.flag == 1)
-            temp = local_p.getName();
-        else if (this.flag == 2)
-            temp = local_cw.getName();
-        else if (this.flag == 3)
-            temp = local_u.getName();
-        else if (this.flag == 4)
-            temp = local_ct.getName();
-        else if (this.flag == 5)
-            temp = local_corner.getName();
+
+	switch(flag)
+        {
+            case 1:
+                temp = temp = local_p.getName();
+                break;
+            case 2:
+                temp = local_cw.getName();
+                break;
+            case 3:
+                temp = local_u.getName();
+                break;
+            case 4:
+                temp = local_ct.getName();
+                break;
+            case 5:
+                temp = local_ct.getName();
+                break;
+            case 6:
+                temp = local_corner.getName();
+                break;
+            case 7:
+                temp = local_ot.getName();
+                break;
+            default:
+                break;
+        }
         
         return temp;
     }
@@ -208,17 +286,34 @@ public class Tile_Adapter
     public int getLocation()
     {
         int temp = 0;
-        if (this.flag == 1)
-            temp = local_p.getLocation();
-        else if (this.flag == 2)
-            temp = local_cw.getLocation();
-        else if (this.flag == 3)
-            temp = local_u.getLocation();
-        else if (this.flag == 4)
-            temp = local_ct.getLocation();
-        else if (this.flag == 5)
-            temp = local_corner.getLocation();
         
+        switch(flag)
+        {
+            case 1:
+                temp = local_p.getLocation();
+                break;
+            case 2:
+                temp = local_cw.getLocation();
+                break;
+            case 3:
+                temp = local_u.getLocation();
+                break;
+            case 4:
+                temp = local_ct.getLocation();
+                break;
+            case 5:
+                temp = local_ct.getLocation();
+                break;
+            case 6:
+                temp = local_corner.getLocation();
+                break;
+            case 7:
+                temp = local_ot.getLocation();
+                break;
+            default:
+                break;
+        }
+
         return temp;
     }
 
@@ -230,13 +325,36 @@ public class Tile_Adapter
     */
     public int getPrice()
     {
-        int temp;
-        if (this.flag == 1)
-            temp = local_p.getPrice();
-        else if (this.flag == 2)
-            temp = local_cw.getPrice();
-        else 
-            temp = local_u.getPrice();
+        int temp = 0;
+
+	switch(flag)
+        {
+            case 1:
+                temp = local_p.getPrice();
+                break;
+            case 2:
+                temp = local_cw.getPrice();
+                break;
+            case 3:
+                temp = local_u.getPrice();
+                break;
+	/*
+            case 4:
+                if (local_ct.getHasEvent()) {temp = 0}
+                break;
+            case 5:
+                if (local_ct.getHasEvent()) {temp = 0}
+                break;
+            case 6:
+                if (local_corner.getHasEvent()) {temp = 0}
+                break;
+            case 7:
+                if (this.local_ot.getHasEvent()) {temp = 0}
+                break;
+	*/
+            default:
+                break;
+        }
         
         return temp;
     }
@@ -277,17 +395,87 @@ public class Tile_Adapter
     {
         if (getHasEvent())
         {
+	/*
             if (flag == 4)
             {
                 this.local_card = d1.draw("chance");
                 this.local_card.Get_Event(input);
             }
+	*/
+		switch(flag)
+		{
+		/*
+		    case 1:
+		        if (local_p.getHasEvent()) {temp = true;}
+		        break;
+		    case 2:
+		        if (local_cw.getHasEvent()) {temp = true;}
+		        break;
+		    case 3:
+		        if (local_u.getHasEvent()) {temp = true;}
+		        break;
+		*/
+		    case 4:
+		        this.local_card = d1.draw("charger_chest");
+		        break;
+		    case 5:
+		        this.local_card = d1.draw("chance");
+		        break;
+		    case 6:
+		        if (local_corner.getHasEvent()) {temp = true;}
+		        break;
+		    case 7:
+		        if (this.local_ot.getHasEvent()) {temp = true;}
+		        break;
+		    default:
+		        break;
+        	}
+	
         }
     }
     
     // Need to call getEvent() before this to draw a new card
     public String getEventText()
     {
-        return this.local_card.getText();
+	String temp;
+        if (getHasEvent())
+        {
+	/*
+            if (flag == 4)
+            {
+	        return this.local_card.getText();
+		}
+	*/
+
+		switch(flag)
+		{
+		/*
+		    case 1:
+			if (local_p.getHasEvent()) {temp = true;}
+			break;
+		    case 2:
+			if (local_cw.getHasEvent()) {temp = true;}
+			break;
+		    case 3:
+			if (local_u.getHasEvent()) {temp = true;}
+			break;
+		*/
+		    case 4:
+			temp = this.local_card.getText();
+			break;
+		    case 5:
+			temp = this.local_card.getText();
+			break;
+		    case 6:
+			//if (local_corner.getHasEvent()) {temp = true;}
+			break;
+		    case 7:
+			//if (this.local_ot.getHasEvent()) {temp = true;}
+			break;
+		    default:
+			break;
+		}
+	return temp;
+	
     }
 }
