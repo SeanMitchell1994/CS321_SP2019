@@ -392,4 +392,12 @@ public class Player{
                 System.out.println();
             } 
         }
+	
+	public int Get_Total_Worth() {
+        int worth = this.Get_Money();
+            for(int i = 0; i < this.Get_Property_Amount(); i++){
+                worth = worth + property_list.get(i).getPrice();
+            }
+            return worth;
+    }
 }
