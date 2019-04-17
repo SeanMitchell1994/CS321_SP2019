@@ -209,7 +209,4 @@ public class Board
             //                player_list.get(turn_flag).Get_Location(),
             //                player_list.get(turn_flag).Get_Money());	
 	}
-	public Tile_Adapter Get_Board(int index){
-            return board[index];
-        }
 }

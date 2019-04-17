@@ -21,6 +21,7 @@ public class Tile_Adapter
     private Card_Tile local_ct;
     private Corner_Tile local_corner;
     private Decks d1 = new Decks();
+    private Card local_card;
     
     private int flag;
     private boolean is_owned;
@@ -250,8 +251,15 @@ public class Tile_Adapter
         {
             if (flag == 4)
             {
-                d1.draw("chance").Get_Event(input);
+                this.local_card = d1.draw("chance");
+                this.local_card.Get_Event(input);
             }
         }
+    }
+    
+    // Need to call getEvent() before this to draw a new card
+    public String getEventText()
+    {
+        return this.local_card.getText();
     }
 }
