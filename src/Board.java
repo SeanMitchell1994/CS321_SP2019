@@ -38,6 +38,8 @@ public class Board
 	private int[] scoreboard;								// array containing the total score of each player
 	private int turn_flag = 0;								// integer flag identifying whose turn it is
         private int NUM_PLAYERS;
+	private int turn_time;
+        private int turn_amount;
 
 	/**
 	* Default constructor for Board objects
@@ -45,6 +47,33 @@ public class Board
 	* @param  	None  
 	* @return      	A Board object
 	*/
+	public Board(){
+		System.out.print("Board created!\n");
+		Board_Init();
+	}
+	
+	public Board(int playerAmount, String p1, String p2, String p3, String p4, int time, int turns){
+            String names[];
+            names = new String[] {p1, p2, p3, p4};
+            for(int i = 0; i < playerAmount; i++){
+                player_list.add(new Player(names[i], (i+1)));
+            }
+            turn_time = time;
+            turn_amount = turns;
+            Board_Init();
+            
+        }
+	
+	 public Board(String p1, String p2, String p3, String p4){
+            String names[];
+            names = new String[] {p1, p2, p3, p4};
+            for(int i = 0; i < 4; i++){
+                player_list.add(new Player(names[i], (i+1)));
+            }
+            Board_Init();
+            
+        }
+	
 	public Board(int num_players)
 	{
 		System.out.print("Board created!\n");
