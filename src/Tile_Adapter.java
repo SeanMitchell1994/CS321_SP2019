@@ -34,6 +34,7 @@ public class Tile_Adapter
     /**
     * Constructor for Property types
     *
+	* @author Sean Mitchell
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
@@ -47,6 +48,7 @@ public class Tile_Adapter
     /**
     * Constructor for Crosswalk types
     *
+* @author Sean Mitchell
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
@@ -60,6 +62,7 @@ public class Tile_Adapter
     /**
     * Constructor for Utility types
     *
+* @author Sean Mitchell
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
@@ -73,6 +76,7 @@ public class Tile_Adapter
     /**
     * Constructor for Card_Tile types
     *
+* @author Sean Mitchell
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
@@ -96,6 +100,7 @@ public class Tile_Adapter
     /**
     * Constructor for Corner_Tile types
     *
+* @author Sean Mitchell
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
@@ -109,6 +114,7 @@ public class Tile_Adapter
     /**
     * Constructor for Other_Tile types
     *
+* @author Sean Mitchell
     * @param                    None
     * @return   Tile_Adapter    Tile_Adapter object
     */
@@ -126,6 +132,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for setting if a tile's owner
     *
+* @author Sean Mitchell
     * @param    String  input
     * @return           None
     */
@@ -171,6 +178,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for setting if a tile is owned
     *
+* @author Sean Mitchell
     * @param    input   boolean value
     * @return           None
     */
@@ -220,6 +228,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for is tile classification
     *
+* @author Sean Mitchell
     * @param            None
     * @return   int     Tile classification
     */
@@ -242,6 +251,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for tile names
     *
+* @author Sean Mitchell
     * @param            None
     * @return   String  Name of tile
     */
@@ -283,6 +293,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for tile locations
     *
+* @author Sean Mitchell
     * @param            None
     * @return   int     Location of tile
     */
@@ -323,6 +334,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for tile prices
     *
+* @author Sean Mitchell
     * @param            None
     * @return   int     Price of tile
     */
@@ -362,6 +374,13 @@ public class Tile_Adapter
         return temp;
     }
     
+    /**
+    * Adapter interface for if a tile has an event
+    *
+* @author Sean Mitchell
+    * @param            None
+    * @return   boolean     Does a the tile have an event?
+    */
     public boolean getHasEvent()
     {
         boolean temp = false;
@@ -394,6 +413,13 @@ public class Tile_Adapter
         return temp;
     }
     
+    /**
+    * Adapter interface for tile events
+    *
+* @author Sean Mitchell
+    * @param	Player	the player who the event happens to
+    * @return   	None
+    */
     public void getEvent(Player input)
     {
         System.out.println("Event function!");
@@ -445,6 +471,15 @@ public class Tile_Adapter
         //}
     }
     
+    /**
+    * Adapter interface for getting the text describing an event
+* Need to call @see getEvent() first to draw a new card
+* Gets the text for the same event until a new card is drawn
+    *
+* @author Sean Mitchell
+    * @param            None
+    * @return   String    The text describing the event
+    */
     // Need to call getEvent() before this to draw a new card
     public String getEventText()
     {
