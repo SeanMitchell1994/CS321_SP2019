@@ -1,22 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package monopolydriver;
 
 /**
- *
- * @author Sean
+ * Other_Tile.java
+*
+ * This class contains the member variables and methods for "other tiles"
+* Other tiles are the two cost tiles on the board
+* These are the Buy Books and Pay Tutition tiles
+ * 
+ * @author Sean Mitchell
  */
 public class Other_Tile 
 {
+    // ======================================
+    // Member variables
+    // ======================================
     private String name;
     private String location;
     private String cost;
     private int flag;
     private boolean hasEvent = true;
     
+    // ======================================
+    // Constructors
+    // ======================================
+    /**
+    * Constructor for Other_Tile types
+    *
+	* @author Sean Mitchell
+    * @param    String		name of tile
+* @param	String		location of tile
+* @param	String		cost of tile
+    * @return   Other_Tile    Other_Tile object
+    */
     Other_Tile (String name, String location, String cost)
     {        
         this.name = name;
@@ -36,12 +51,9 @@ public class Other_Tile
 	}
     }
     
-    /*()
-    Event_Adapter Get_Event()
-    {
-        return 
-    }*/
-    
+    // ======================================
+    // Accessors
+    // ======================================    
     /**
      * Returns the name of the Property
      * @author Ansley Solomon
