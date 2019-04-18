@@ -607,8 +607,7 @@ public class View1 extends Mdriver{
             }   
        }
        
-       
-       public void Trade_Menu(Player currentP){
+    public void Trade_Menu(Player currentP){
             JFrame frame = new JFrame("Trade Menu");
             frame.setSize(150,150);
             JPanel basePanel = new JPanel();
@@ -623,43 +622,52 @@ public class View1 extends Mdriver{
             JLabel Lprop2 = new JLabel("" + gameBoard.get_Player(1).Get_Name() + "   ");
             JLabel Lprop3 = new JLabel("" + gameBoard.get_Player(2).Get_Name() +"   ");
             JLabel Lprop4 = new JLabel("" + gameBoard.get_Player(3).Get_Name() + "   ");
-            String[] P1properties = new String[40]; //player.Get_Property_Amount()  
-            for(int i =0; i < gameBoard.get_Player(0).Get_Property_Amount(); i++ ){
-            P1properties[i] = gameBoard.get_Player(0).Get_Property_Name(i);
+            String[] P1properties = new String[41]; //player.Get_Property_Amount() 
+            P1properties[0] = "no trade";
+            for(int i =1; i < gameBoard.get_Player(0).Get_Property_Amount()+1; i++ ){
+            P1properties[i] = gameBoard.get_Player(0).Get_Property_Name(i-1);
                    }
             JComboBox player1Properties = new JComboBox(P1properties); 
             
-            String[] P2properties = new String[40]; 
-            for(int i =0; i < gameBoard.get_Player(1).Get_Property_Amount(); i++ ){
-            P2properties[i] = gameBoard.get_Player(1).Get_Property_Name(i);
+            String[] P2properties = new String[41]; 
+            P2properties[0] = "no trade";
+            for(int i =1; i < gameBoard.get_Player(1).Get_Property_Amount()+1; i++ ){
+            P2properties[i] = gameBoard.get_Player(1).Get_Property_Name(i-1);
                    }
             JComboBox player2Properties = new JComboBox(P2properties);  
             
-            String[] P3properties = new String[40];  
-            for(int i =0; i < gameBoard.get_Player(2).Get_Property_Amount(); i++ ){
-            P3properties[i] = gameBoard.get_Player(2).Get_Property_Name(i);
+            String[] P3properties = new String[41];  
+            P3properties[0] = "no trade";
+            for(int i =1; i < gameBoard.get_Player(2).Get_Property_Amount()+1; i++ ){
+            P3properties[i] = gameBoard.get_Player(2).Get_Property_Name(i-1);
                    }
             JComboBox player3Properties = new JComboBox(P3properties);  
             
-            String[] P4properties = new String[40];  
-            for(int i =0; i < gameBoard.get_Player(3).Get_Property_Amount(); i++ ){
-            P4properties[i] = gameBoard.get_Player(3).Get_Property_Name(i);
+            String[] P4properties = new String[41];
+            P4properties[0] = "no trade";
+            for(int i =1; i < gameBoard.get_Player(3).Get_Property_Amount()+1; i++ ){
+            P4properties[i] = gameBoard.get_Player(3).Get_Property_Name(i-1);
                    }
             JComboBox player4Properties = new JComboBox(P4properties);  
-            
-            tradeP1 = 0;
-            tradeP2 = 0;
-            selectionCount = 0;
-            trade1index = 0;
-            trade2index=0;
-                if(player1Properties.getSelectedItem() != null){
+             
+            btnTrade.addActionListener(new ActionListener() { 
+                public void actionPerformed(ActionEvent e) { 
+                   }                     
+                 @Override
+                  public void actionPerformed(java.awt.event.ActionEvent e) {
+                 frame.dispose();   
+                 tradeP1 = 0;
+                tradeP2 = 0;
+                selectionCount = 0;
+                trade1index = 7;
+                trade2index=7;
+                if(player1Properties.getSelectedIndex() != 0){
                     trade1index = player1Properties.getSelectedIndex();
                     tradeP1 = 1;
                     selectionCount++;
-                }
-                if(player2Properties.getSelectedItem() != null){
-                    
-                    if(tradeP1 != 0){
+                 }
+                if(player2Properties.getSelectedIndex() != 0){
+                  if(tradeP1 != 0){
                         tradeP2 = 2;
                         trade2index = player2Properties.getSelectedIndex();
                     }
@@ -667,24 +675,22 @@ public class View1 extends Mdriver{
                         tradeP1 = 2;
                         trade1index = player2Properties.getSelectedIndex();
                     }
-                    selectionCount++;
-                }
-                if(player3Properties.getSelectedItem() != null){
-                    
-                    if(tradeP1 != 0){
+                    selectionCount++;  
+                } 
+                if(player3Properties.getSelectedIndex() != 0){ 
+                 if(tradeP1 != 0){
                         tradeP2 = 3;
                         trade2index = player3Properties.getSelectedIndex();
-                        
                     }
                     else{
                         tradeP1 = 3;
                         trade1index = player3Properties.getSelectedIndex();
                     }
-                    selectionCount++;
+                    selectionCount++;   
                 }
-                if(player4Properties.getSelectedItem() != null){
-                    
-                     if(tradeP1 != 0){
+  
+                if(player4Properties.getSelectedIndex() != 0){
+                 if(tradeP1 != 0){
                         tradeP2 = 4;
                         trade2index = player4Properties.getSelectedIndex();
                     }
@@ -692,25 +698,29 @@ public class View1 extends Mdriver{
                         tradeP1 = 4;
                         trade1index = player4Properties.getSelectedIndex();
                     }
-                     selectionCount++;
+                     selectionCount++;       
                 }
-            if(selectionCount <2){
-             tradeP1 = 5;
-            tradeP2 = 5;
-            selectionCount = 2;
-            trade1index = 0;
-            trade2index=0;   
-            }
-            
-             
-            btnTrade.addActionListener(new ActionListener() { 
-                public void actionPerformed(ActionEvent e) { 
-                   }                     
-                 @Override
-                  public void actionPerformed(java.awt.event.ActionEvent e) {
-                 frame.dispose();                                                                        //int trade indexes
-                 Confirm_Trade(currentP, gameBoard.get_Player(tradeP1-1), gameBoard.get_Player(tradeP1-1), trade1index, trade2index);
-                    }
+                trade1index = player1Properties.getSelectedIndex();
+                trade2index = player2Properties.getSelectedIndex();
+                System.out.println("trade1index: " + trade1index + "  2:  " + trade2index + "selection count " + selectionCount + "  P1: " + tradeP1 + "  P2: " + tradeP2);
+                if(selectionCount != 2){
+                tradeP1 = 0;
+                tradeP2 = 0;
+                selectionCount = 2;
+                trade1index = 72;
+                trade2index=72;   
+                }
+                  
+                 if(tradeP1 + tradeP2 == 0){
+                     System.out.println("trade indexes and such: P1 - " + tradeP1 + "P2 - " + tradeP2 + "trade1index: " + trade1index + "trade2index: " + trade2index );
+                     Error_Window("Trade could not be completed");
+                 }
+                 else{
+                    System.out.println("TRADE WORKED \n trade indexes and such: P1 - " + tradeP1 + "P2 - " + tradeP2 + "trade1index: " + trade1index + "trade2index: " + trade2index ); //int trade indexes
+                 Confirm_Trade(currentP, gameBoard.get_Player(tradeP1-1), gameBoard.get_Player(tradeP1-1), trade1index-1, trade2index-1);
+                      
+                 }
+                  }
                 } );
             btnCancel.addActionListener(new ActionListener() { 
                 public void actionPerformed(ActionEvent e) { 
