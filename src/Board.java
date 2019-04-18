@@ -223,26 +223,24 @@ public class Board
             // Walks through player list and calls their turn
             System.out.printf("Player: %-5s | Money: %-5d |", player_list.get(turn_flag).Get_Name(),player_list.get(turn_flag).Get_Money());
 
-            if (board[player_list.get(turn_flag).Get_Location()] != null)
+            board[4].getEvent(player_list.get(turn_flag));
+            if (!board[player_list.get(turn_flag).Get_Location()].getHasEvent())  
             {
-                if (!board[player_list.get(turn_flag).Get_Location()].getHasEvent())  
-                {
-                    //System.out.println("hasEvent: " + String.valueOf(board[player_list.get(turn_flag).Get_Location()].getHasEvent()));
-                    player_list.get(turn_flag).Turn(board[player_list.get(turn_flag).Get_Location()]);
-                }
-                else
-                {
-                    //System.out.println("Event tile!");
-                    board[player_list.get(turn_flag).Get_Location()].getEvent(player_list.get(turn_flag));
-                }
+                //System.out.println("hasEvent: " + String.valueOf(board[player_list.get(turn_flag).Get_Location()].getHasEvent()));
+                player_list.get(turn_flag).Turn(board[player_list.get(turn_flag).Get_Location()]);
+            }
+            else
+            {
+                System.out.println("Event tile!");
+                board[player_list.get(turn_flag).Get_Location()].getEvent(player_list.get(turn_flag));
             }
             //else
             //{
                 //d1.draw("chance").Get_Event(player_list.get(turn_flag));
             //}
             //player_list.get(turn_flag).Buy_Property(property_list.get(1));
-            //System.out.printf(" \nLocation: %-5d | Money: %-5d\n", 
-            //                player_list.get(turn_flag).Get_Location(),
-            //                player_list.get(turn_flag).Get_Money());	
+            System.out.printf(" \nLocation: %-5d | Money: %-5d\n", 
+                            player_list.get(turn_flag).Get_Location(),
+                            player_list.get(turn_flag).Get_Money());	
 	}
 }

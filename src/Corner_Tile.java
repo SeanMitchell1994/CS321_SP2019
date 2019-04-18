@@ -71,27 +71,27 @@ public class Corner_Tile
      * @author Sean Mitchell
      * @return boolean hasEvent 
      */
-    public boolean getHasEvent(Player input_obj)
+    public boolean getHasEvent()
     {
         return this.hasEvent;
     }
 
-	public void getEvent()
-	{
-		switch(flag)
-		{
-		    case 1:
-			input_obj.shift_Money(200);
-			break;
-		    case 2:
-			break;
-		    case 3:
-			break;
-		    case 4:
-			//input_obj.Set_Location
-			break;
-		default:
-			break;
-		}
-	}
+    public void getEvent(Player input_obj)
+    {
+        switch(flag)
+        {
+            case 1:
+                input_obj.shift_Money(200);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                //input_obj.Set_Location
+                break;
+        default:
+                break;
+        }
+    }
 }

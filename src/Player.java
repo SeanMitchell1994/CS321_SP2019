@@ -388,18 +388,19 @@ public class Player{
             int rollValue = (new Dice_Roller(12).Roll());
            // Shift_Location(rollValue);
             System.out.println("The Player Rolled a: "+ rollValue);
-	    this.Set_Location(rollValue);
+	    //this.Set_Location(rollValue);
+            this.Shift_Location(rollValue);
             return rollValue;
         }
 	
-	
+	/*
 	public int Get_Total_Worth() {
-        int worth = this.Get_Money();
+            int worth = this.Get_Money();
             for(int i = 0; i < this.Get_Property_Amount(); i++){
                 worth = worth + property_list.get(i).getPrice();
             }
             return worth;
-       }
+       }*/
         
         /**
          * Prints out the entire PropertyList

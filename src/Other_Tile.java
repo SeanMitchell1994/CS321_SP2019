@@ -13,7 +13,8 @@ public class Other_Tile
 {
     private String name;
     private String location;
-	private String cost;
+    private String cost;
+    private int flag;
     private boolean hasEvent = true;
     
     Other_Tile (String name, String location, String cost)
