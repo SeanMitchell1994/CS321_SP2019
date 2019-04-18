@@ -1,4 +1,4 @@
-
+	
 package monopolydriver;
 
 /**
@@ -14,17 +14,17 @@ public class Card_Tile
     
     Card_Tile(String name, String location)
     {
-        if (name.equals("charger_chest"))
+	this.name = name;
+        this.location = location;
+	//System.out.println("CT Name: " + this.name);
+        if (this.name.equals("charger_chest"))
         {
             flag = 1;
         }
-        else if (name.equals("chance"))
+        else if (this.name.equals("chance"))
         {
             flag = 2;
         }
-        
-        this.name = name;
-        this.location = location;
     }
     
     /*()
