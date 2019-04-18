@@ -1,21 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package monopolydriver;
 
 /**
- *
- * @author Sean
+ * Corner_Tile.java
+*
+ * This class contains the member variables and methods for "corner tiles"
+* Corner tiles are the four corner tiles on the board
+* These are the GO, Jail, Free Parking, Go to Jail tiles
+ * 
+ * @author Sean Mitchell
  */
+
 public class Corner_Tile 
 {
+    // ======================================
+    // Member variables
+    // ======================================
     private int flag = 0;
     private String name;
     private String location;
     private final boolean hasEvent = true;
     
+    // ======================================
+    // Constructors
+    // ======================================
+    /**
+    * Constructor for Other_Tile types
+    *
+	* @author Sean Mitchell
+    * @param    String		name of tile
+* @param	String		location of tile
+    * @return   Corner_Tile    Corner_Tile object
+    */
     Corner_Tile(String name, String location)
     {
         this.name = name;
@@ -40,13 +55,10 @@ public class Corner_Tile
 	}
         
     }
-    
-    /*()
-    Event_Adapter Get_Event()
-    {
-        return 
-    }*/
-    
+   
+    // ======================================
+    // Accessors
+    // ====================================== 
     /**
      * Returns the name of the Property
      * @author Ansley Solomon
@@ -76,6 +88,12 @@ public class Corner_Tile
         return this.hasEvent;
     }
 
+    /** 
+     * Returns the event of this tile
+     * @author Sean Mitchell
+*@param Player the player who is involved in the event
+     * @return None
+     */
     public void getEvent(Player input_obj)
     {
         switch(flag)
