@@ -223,7 +223,7 @@ public class Board
             // Walks through player list and calls their turn
             System.out.printf("Player: %-5s | Money: %-5d |", player_list.get(turn_flag).Get_Name(),player_list.get(turn_flag).Get_Money());
 
-            board[4].getEvent(player_list.get(turn_flag));
+            //board[7].getEvent(player_list.get(turn_flag));
             if (!board[player_list.get(turn_flag).Get_Location()].getHasEvent())  
             {
                 //System.out.println("hasEvent: " + String.valueOf(board[player_list.get(turn_flag).Get_Location()].getHasEvent()));

@@ -85,16 +85,16 @@ public class Tile_Adapter
         //System.out.println("Tile object  created!");
         this.local_ct = input;
         
-        if (this.local_ct.getName().equals("charger_chest"))
+        if (this.local_ct.getName().equals("Charger Chest"))
         {
             this.flag = 4;
         }
-        else if (this.local_ct.getName().equals("chance"))
+        else if (this.local_ct.getName().equals("Chance"))
         {
             this.flag = 5;
         }
         
-        System.out.println("Flag: "+this.flag);
+        //System.out.println("Flag: "+this.flag);
     }
     
     /**
@@ -446,15 +446,15 @@ public class Tile_Adapter
 		        if (local_u.getHasEvent()) {temp = true;}
 		        break;
 		*/
-		    case 0:
+		    case 4:
                     {
-                        System.out.println("CC event!");
+                        //System.out.println("CC event!");
 		        this.local_card = d1.draw("cc");
                         this.local_card.Get_Event(input);
 		        break;
                     }
 		    case 5:
-                        System.out.println("Chance event!");
+                        //System.out.println("Chance event!");
 		        this.local_card = d1.draw("chance");
                         this.local_card.Get_Event(input);
 		        break;

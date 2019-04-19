@@ -16,12 +16,12 @@ public class Card_Tile
     {
 	this.name = name;
         this.location = location;
-	//System.out.println("CT Name: " + this.name);
-        if (this.name.equals("charger_chest"))
+
+        if (this.name.equals("Charger Chest"))
         {
             flag = 1;
         }
-        else if (this.name.equals("chance"))
+        else if (this.name.equals("Chance"))
         {
             flag = 2;
         }
