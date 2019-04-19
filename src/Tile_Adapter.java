@@ -228,7 +228,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for is tile classification
     *
-* @author Sean Mitchell
+    * @author Sean Mitchell
     * @param            None
     * @return   int     Tile classification
     */
@@ -249,9 +249,39 @@ public class Tile_Adapter
     }
     
     /**
+    * Adapter interface for if the tile is buyable
+    *
+    * @author Sean Mitchell
+    * @param            None
+    * @return   boolean is tile buyable?
+    */
+    public boolean Get_IsBuyable()
+    {
+        boolean temp = false;
+        if (!Get_IsOwned())
+        {
+            switch(flag)
+            {
+                case 1:
+                    temp = true;
+                    break;
+                case 2:
+                    temp = true;
+                    break;
+                case 3:
+                    temp = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+        return temp;
+    }
+    
+    /**
     * Adapter interface for tile names
     *
-* @author Sean Mitchell
+    * @author Sean Mitchell
     * @param            None
     * @return   String  Name of tile
     */
@@ -293,7 +323,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for tile locations
     *
-* @author Sean Mitchell
+    * @author Sean Mitchell
     * @param            None
     * @return   int     Location of tile
     */
@@ -334,7 +364,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for tile prices
     *
-* @author Sean Mitchell
+    * @author Sean Mitchell
     * @param            None
     * @return   int     Price of tile
     */

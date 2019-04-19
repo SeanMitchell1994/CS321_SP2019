@@ -295,19 +295,19 @@ public class Player{
 	* @author 
 	* @param  	tile	A property object
 	*/
-	public void Buy_Property(Tile_Adapter tile){
+	public void Buy_Property(Tile_Adapter tile)
+        {
             // to do: check if player already owns tile
             System.out.print("Buy function!\n");
-            if (tile.getType() == 1)
-                if (!tile.Get_IsOwned())
-                {                                
-                    property_list.add(tile);   
-                    tile.Set_IsOwned(true);
-                    tile.Set_Owner(this.name);
-                    money = money - tile.getPrice();
-                }
-                else
-                    System.out.print("Property is already owned!\n");
+            if (tile.Get_IsBuyable())
+            {                              
+                property_list.add(tile);   
+                tile.Set_IsOwned(true);
+                tile.Set_Owner(this.name);
+                money = money - tile.getPrice();
+            }
+            else
+                System.out.print("Property is already owned!\n");
         }
 
 	/**
