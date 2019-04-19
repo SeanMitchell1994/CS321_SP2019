@@ -18,6 +18,7 @@ public class Corner_Tile
     private int flag = 0;
     private String name;
     private String location;
+    private String event_text;
     private final boolean hasEvent = true;
     
     // ======================================
@@ -39,17 +40,29 @@ public class Corner_Tile
 	switch(this.name)
 	{
 	    case "GO":
+            {
 		this.flag = 1;
+                this.event_text = "Passed GO! Collect $200";
 		break;
+            }
 	    case "Jail":
+            {
 		this.flag = 2;
+                this.event_text = "Just visiting";
 		break;
+            }
 	    case "Free Parking":
+            {
 		this.flag = 3;
+                this.event_text = "Free parking!";
 		break;
+            }
 	    case "Go to Jail":
+            {
 		this.flag = 4;
+                this.event_text = "Go to jail! Pay $50";
 		break;
+            }
 	default:
 		break;
 	}
@@ -117,5 +130,10 @@ public class Corner_Tile
         default:
                 break;
         }
+    }
+    
+    public String getEventText()
+    {
+        return this.event_text;
     }
 }

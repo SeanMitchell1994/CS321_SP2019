@@ -473,13 +473,13 @@ public class Tile_Adapter
                 }
                 case 6:
                 {
-                    System.out.println("Corner event!");
+                    //System.out.println("Corner event!");
                     this.local_corner.getEvent(input);
                     break;
                 }
                 case 7:
                 {
-                    System.out.println("Other event!");
+                    //System.out.println("Other event!");
                     input.shift_Money(-local_ot.getCost());
                     break;
                 }
@@ -492,39 +492,22 @@ public class Tile_Adapter
     
     /**
     * Adapter interface for getting the text describing an event
-* Need to call @see getEvent() first to draw a new card
-* Gets the text for the same event until a new card is drawn
+    * Need to call @see getEvent() first to draw a new card
+    * Gets the text for the same event until a new card is drawn
+    * 
+    * Usage: Need to call getEvent() before this to draw a new card
     *
-* @author Sean Mitchell
+    * @author Sean Mitchell
     * @param            None
     * @return   String    The text describing the event
     */
-    // Need to call getEvent() before this to draw a new card
     public String getEventText()
     {
 	String temp = "";
         if (getHasEvent())
         {
-	/*
-            if (flag == 4)
-            {
-	        return this.local_card.getText();
-		}
-	*/
-
             switch(flag)
             {
-            /*
-                case 1:
-                    if (local_p.getHasEvent()) {temp = true;}
-                    break;
-                case 2:
-                    if (local_cw.getHasEvent()) {temp = true;}
-                    break;
-                case 3:
-                    if (local_u.getHasEvent()) {temp = true;}
-                    break;
-            */
                 case 4:
                     temp = this.local_card.getText();
                     break;
@@ -532,17 +515,15 @@ public class Tile_Adapter
                     temp = this.local_card.getText();
                     break;
                 case 6:
-                    //if (local_corner.getHasEvent()) {temp = true;}
+                    temp = this.local_corner.getEventText();
                     break;
                 case 7:
-                    //if (this.local_ot.getHasEvent()) {temp = true;}
+                    temp = this.local_ot.getEventText();
                     break;
                 default:
                     break;
             }
-	
-	
         }
-    return temp;
+        return temp;
     }
 }
