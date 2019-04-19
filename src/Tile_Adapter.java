@@ -407,7 +407,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for if a tile has an event
     *
-* @author Sean Mitchell
+    * @author Sean Mitchell
     * @param            None
     * @return   boolean     Does a the tile have an event?
     */
@@ -452,53 +452,42 @@ public class Tile_Adapter
     */
     public void getEvent(Player input)
     {
-        System.out.println("Event function!");
-        //if (getHasEvent())
-        //{
-	/*
-            if (flag == 4)
+        //System.out.println("Event function!");
+        if (getHasEvent())
+        {
+            switch(flag)
             {
-                this.local_card = d1.draw("chance");
-                this.local_card.Get_Event(input);
+                case 4:
+                {
+                    //System.out.println("CC event!");
+                    this.local_card = d1.draw("cc");
+                    this.local_card.Get_Event(input);
+                    break;
+                }
+                case 5:
+                {
+                    //System.out.println("Chance event!");
+                    this.local_card = d1.draw("chance");
+                    this.local_card.Get_Event(input);
+                    break;
+                }
+                case 6:
+                {
+                    System.out.println("Corner event!");
+                    this.local_corner.getEvent(input);
+                    break;
+                }
+                case 7:
+                {
+                    System.out.println("Other event!");
+                    input.shift_Money(-local_ot.getCost());
+                    break;
+                }
+                default:
+                    break;
             }
-	*/
-
-		switch(flag)
-		{
-		/*
-		    case 1:
-		        if (local_p.getHasEvent()) {temp = true;}
-		        break;
-		    case 2:
-		        if (local_cw.getHasEvent()) {temp = true;}
-		        break;
-		    case 3:
-		        if (local_u.getHasEvent()) {temp = true;}
-		        break;
-		*/
-		    case 4:
-                    {
-                        //System.out.println("CC event!");
-		        this.local_card = d1.draw("cc");
-                        this.local_card.Get_Event(input);
-		        break;
-                    }
-		    case 5:
-                        //System.out.println("Chance event!");
-		        this.local_card = d1.draw("chance");
-                        this.local_card.Get_Event(input);
-		        break;
-		    case 6:
-		        //if (local_corner.getHasEvent()) {temp = true;}
-		        break;
-		    case 7:
-		        input.shift_Money(-local_ot.getCost());
-		        break;
-		    default:
-		        break;
-        	}
 	
-        //}
+        }
     }
     
     /**

@@ -89,24 +89,30 @@ public class Corner_Tile
     }
 
     /** 
-     * Returns the event of this tile
-     * @author Sean Mitchell
-*@param Player the player who is involved in the event
-     * @return None
-     */
+    * Returns the event of this tile
+    * 
+    * @author   Sean Mitchell
+    * @param     Player  the player who is involved in the event
+    * @return None
+    */
     public void getEvent(Player input_obj)
     {
         switch(flag)
         {
             case 1:
+                System.out.println("Passed GO!");
                 input_obj.shift_Money(200);
                 break;
             case 2:
+                System.out.println("Passed Jail!");
                 break;
             case 3:
+                System.out.println("Passed Free Parking!");
                 break;
             case 4:
-                //input_obj.Set_Location
+                System.out.println("Passed Go to Jail!");
+                input_obj.Set_Location(10);
+                input_obj.shift_Money(-50);
                 break;
         default:
                 break;
