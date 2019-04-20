@@ -29,13 +29,6 @@
         <event_value>50</event_value>
 	</card>
 	<card category="chance">
-		<id_number>07</id_number>
-		<text>Geese in the road. Go back three spaces.</text>
-		<event>move(current-3)</event>
-        <event_type>move</event_type>
-        <event_value>-3</event_value>
-	</card>
-	<card category="chance">
 		<id_number>09</id_number>
 		<text>Decorate your dorm room, pay $25</text>
 		<event>lose(25)</event>
