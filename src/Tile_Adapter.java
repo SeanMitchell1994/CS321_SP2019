@@ -178,7 +178,7 @@ public class Tile_Adapter
     /**
     * Adapter interface for setting if a tile is owned
     *
-* @author Sean Mitchell
+    * @author Sean Mitchell
     * @param    input   boolean value
     * @return           None
     */
@@ -405,6 +405,34 @@ public class Tile_Adapter
     }
     
     /**
+    * Adapter interface for tile rent
+    *
+    * @author Sean Mitchell
+    * @param            None
+    * @return   int     rent of tile
+    */
+    public int getRent()
+    {
+        int temp = 0;
+        switch(flag)
+        {
+            case 1:
+                temp = local_p.getRent();
+                break;
+            case 2:
+                temp = local_cw.getRent1();
+                break;
+            case 3:
+                temp = local_u.getRent();
+                break;
+            default:
+                break;
+        }
+        
+        return temp;
+    }
+    
+    /**
     * Adapter interface for if a tile has an event
     *
     * @author Sean Mitchell
@@ -486,7 +514,6 @@ public class Tile_Adapter
                 default:
                     break;
             }
-	
         }
     }
     

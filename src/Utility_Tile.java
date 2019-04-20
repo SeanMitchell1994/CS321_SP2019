@@ -14,6 +14,7 @@ public class Utility_Tile
     private int rent1;
     private int rent2;
     private String mortgageValue;
+    private final Dice_Roller dice = new Dice_Roller(6);
     
     private String owner;
     private int currentRent; 
@@ -77,8 +78,9 @@ public class Utility_Tile
      * @author Ansley Solomon
      * @return int rent1
      */
-    public int getRent1(){
-        return rent1;
+    public int getRent(){
+        int rent = 4*dice.Roll();
+        return rent;
     }
     
     /**

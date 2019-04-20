@@ -27,7 +27,7 @@ public class PropertyList{
     private final ArrayList<Card_Tile> charger_chest = new ArrayList<>();
     private final ArrayList<Card_Tile> chance = new ArrayList<>();
     private final ArrayList<Corner_Tile> corner_tiles = new ArrayList<>();
-	private final ArrayList<Other_Tile> other_tiles = new ArrayList<>();
+    private final ArrayList<Other_Tile> other_tiles = new ArrayList<>();
     
     /**
      * Default constructor
