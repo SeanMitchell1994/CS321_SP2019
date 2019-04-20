@@ -1,7 +1,10 @@
+package monopolydriver;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -138,16 +141,18 @@ public class View1 extends Mdriver{
        JLabel instruct30 = new JLabel("The game ends when only one player remains or when the aloted amount of turns has ended.");
        JLabel instruct31 = new JLabel("The last player standing or the player with the most assets (money and properties) at the end of the rounds wins the game. ");
        JLabel instruct32 = new JLabel();
+
        panel.add(instruct1); panel.add(instruct2); panel.add(instruct3); panel.add(instruct4); panel.add(instruct5); panel.add(instruct6);
        panel.add(instruct7); panel.add(instruct8); panel.add(instruct9); panel.add(instruct10); panel.add(instruct11); panel.add(instruct12);
        panel.add(instruct13); panel.add(instruct14); panel.add(instruct15); panel.add(instruct16); panel.add(instruct17); panel.add(instruct18);
        panel.add(instruct19); panel.add(instruct20); panel.add(instruct21); panel.add(instruct22); panel.add(instruct23); panel.add(instruct24);
        panel.add(instruct25); panel.add(instruct26); panel.add(instruct27); panel.add(instruct28); panel.add(instruct29); panel.add(instruct30);
        panel.add(instruct31); panel.add(instruct32); 
+
        JFrame frame = new JFrame("Instructions");
        frame.getContentPane().add(panel);
        frame.pack();
-       frame.setVisible(true);
+       frame.setVisible(true);  
     }
     
     //Will be edited to display current player locations
@@ -165,14 +170,12 @@ public class View1 extends Mdriver{
        JPanel controlPanel = new JPanel();
        controlPanel.setLayout(new FlowLayout());
        JButton btnRollDice = new JButton("Roll Dice");
-       JButton btnManageProperty = new JButton("Manage Property");
        Button btnViewBoard = new Button("View Board");
        Button btnEndTurn = new Button("End Turn");
        Button btnForfeit = new Button("Forfiet");
        JTextField turnInfo = new JTextField("I will place info here");
        controlPanel.add(btnRollDice);
        controlPanel.add(btnRollDice);
- 
        boardPanel.setPreferredSize(new Dimension(1000,800));
        //
         //get board image
@@ -205,7 +208,6 @@ public class View1 extends Mdriver{
         tokinPanel3.setBackground(Color.BLACK);
         tokinPanel4.setBackground(Color.YELLOW);
         
-        //needs to be editable
         tokinPanel1.setBounds(gameBoard.get_Player(0).Get_XCordinate(), gameBoard.get_Player(0).Get_YCordinate(), 30, 30);
         tokinPanel2.setBounds(gameBoard.get_Player(1).Get_XCordinate(), gameBoard.get_Player(1).Get_YCordinate(), 30, 30);
         if(maxPlayers >= 3){
@@ -230,7 +232,6 @@ public class View1 extends Mdriver{
         
  //Control Menu Buttons
         JPanel controlP = new JPanel();
-        JButton btnManageProp = new JButton("Manage Property");
         JButton btnRollDice1 = new JButton("Roll Dice");
         JTextField TFresults = new JTextField(currentP.Get_Name()+" Start Turn");
         btnRollDice1.addActionListener(new ActionListener() { 
@@ -242,20 +243,14 @@ public class View1 extends Mdriver{
              int rolled = currentP.PlayerRoll();
              TFresults.setText("The player rolled a: " + rolled);
              frame.dispose();
-             afterRollBoard(currentP, "The player rolled a: " + rolled);    
+             afterRollBoard(currentP, "The player rolled a: " + rolled); 
+             Check_For_Rent(currentP, gameBoard.Get_Tile(currentP.Get_Location()));
+             gameBoard.Create_Event(currentP);
+             //Community_Window(currentP);
+             //sha
            }
         } );
-        
-        btnManageProp.addActionListener(new ActionListener() { 
-            public void actionPerformed(ActionEvent e) { 
-             
-            } 
-           @Override
-           public void actionPerformed(java.awt.event.ActionEvent e) {
-             managePropertyMenu(currentP);              
-           }
-        } );
-        controlP.add(btnManageProp);
+
         controlP.add(btnRollDice1);
         controlP.add(TFresults);
         
@@ -271,9 +266,14 @@ public class View1 extends Mdriver{
              if(turnCounter == maxPlayers){
                  turnCounter = 0;
              }
-             currentP.Update_Playability();
+             if(currentP.Update_Playability() == false){
+                 gameBoard.Set_Remaining_Players(gameBoard.Get_Remaining_players() - 1);
+            }
+             if(gameBoard.Get_Remaining_players() == 1){
+                 Completed_Window();
+             }
              playerTurns(0, currentP);    
-               }
+            }
   
     }
 
@@ -389,7 +389,6 @@ public class View1 extends Mdriver{
         frame.setVisible(true);        
     }
     
-     
      //CONVERT TO JPANEL
     public void setupMenu(){     
         Text space1 = new Text("                  ");
@@ -421,8 +420,7 @@ public class View1 extends Mdriver{
                maxPlayers = 4;
               
                  gameBoard = new Board(TFplayer1.getText(), TFplayer2.getText(), TFplayer3.getText(), TFplayer4.getText());
-                 viewBoard(gameBoard.get_Player(0));
-                      
+                 viewBoard(gameBoard.get_Player(0));             
             }
         });
         
@@ -436,7 +434,6 @@ public class View1 extends Mdriver{
         root.getChildren().add(space5); root.getChildren().add(btnfinish);
 
         Scene setupScene = new Scene(root, 400, 350);
-
         Stage setupMenu = new Stage();
         setupMenu.setTitle("Setup Menu");
         setupMenu.setScene(setupScene);
@@ -477,7 +474,6 @@ public class View1 extends Mdriver{
         JComboBox playerThreeProp = new JComboBox(properties);  //COMBO BOX
         String prop = "property";
         
-        
         DataPanel.add(playerThreeName);
         DataPanel.add(account3);
         DataPanel.add(playerThreeProp);
@@ -493,13 +489,12 @@ public class View1 extends Mdriver{
        JFrame frame = new JFrame("Manage Property");
        JPanel basePanel = new JPanel();
        JButton btnBuyP = new JButton("Buy Property");
-       JButton btnMorgageP = new JButton("Morgage Property");
+      // JButton btnMorgageP = new JButton("Morgage Property");
        JButton btnTradeP = new JButton("Trade Property");
        basePanel.setLayout(new FlowLayout());
        
         btnBuyP.addActionListener(new ActionListener() { 
                      public void actionPerformed(ActionEvent e) { 
-                         
                       } 
                         @Override
                         public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -508,8 +503,7 @@ public class View1 extends Mdriver{
                         }
                      } );
         btnTradeP.addActionListener(new ActionListener() { 
-                     public void actionPerformed(ActionEvent e) { 
-                         
+                     public void actionPerformed(ActionEvent e) {  
                       } 
                         @Override
                         public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -518,10 +512,9 @@ public class View1 extends Mdriver{
                            frame.dispose();
                         }
                      } );
-        
+        /*
          btnMorgageP.addActionListener(new ActionListener() { 
-                     public void actionPerformed(ActionEvent e) { 
-                         
+                     public void actionPerformed(ActionEvent e) {  
                       } 
                         @Override
                         public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -530,10 +523,12 @@ public class View1 extends Mdriver{
                            frame.dispose();
                         }
                      } );
+                */
         if(currentP.Get_Location()%5 != 0 || currentP.Get_Location() !=2 || currentP.Get_Location() !=7 ){
            basePanel.add(btnBuyP);
        }
-       basePanel.add(btnMorgageP); basePanel.add(btnTradeP);
+        
+       basePanel.add(btnTradeP);
        
        frame.add(basePanel);
        frame.pack();
@@ -565,7 +560,9 @@ public class View1 extends Mdriver{
        
        public void Purchase_Menu(Player currentP){
            JFrame frame = new JFrame("Purchase Menu");
+           frame.setSize(300,300);
            JPanel basePanel = new JPanel();
+           basePanel.setSize(300,300);
            basePanel.setLayout(new FlowLayout());
             JLabel buyable = new JLabel();
             buyable.setText("This Property is able to be purchased"); 
@@ -573,6 +570,11 @@ public class View1 extends Mdriver{
             propName.setText("Property Name: " + gameBoard.Get_Board(currentP.Get_Location()).getName());
            JLabel propPrice = new JLabel();
            propPrice.setText("Property Price: " + gameBoard.Get_Board(currentP.Get_Location()).getPrice());
+           JButton btnPurchase = new JButton("Purchase");
+           JButton btnCancel = new JButton("Cancel");
+           String space = "                                                                    ";
+           JLabel Lspace = new JLabel(space);
+           
             
             if(currentP.Get_Location() == 0 || currentP.Get_Location() == 2 || currentP.Get_Location() == 4 || currentP.Get_Location() == 7 ){
                 JLabel invalid = new JLabel("invalid purchase");
@@ -584,8 +586,8 @@ public class View1 extends Mdriver{
                 frame.setVisible(true);  
             }
             else{
-               JButton btnPurchase = new JButton("Purchase");
-            JButton btnCancel = new JButton("Cancel");
+               basePanel.add(propName); basePanel.add(Lspace); basePanel.add(propPrice);
+            }
             
                 btnPurchase.addActionListener(new ActionListener() { 
                  public void actionPerformed(ActionEvent e) { 
@@ -605,9 +607,9 @@ public class View1 extends Mdriver{
        frame.setVisible(true);   
                 
             }   
-       }
-       
-    public void Trade_Menu(Player currentP){
+             
+
+       public void Trade_Menu(Player currentP){
             JFrame frame = new JFrame("Trade Menu");
             frame.setSize(150,150);
             JPanel basePanel = new JPanel();
@@ -717,7 +719,7 @@ public class View1 extends Mdriver{
                  }
                  else{
                     System.out.println("TRADE WORKED \n trade indexes and such: P1 - " + tradeP1 + "P2 - " + tradeP2 + "trade1index: " + trade1index + "trade2index: " + trade2index ); //int trade indexes
-                 Confirm_Trade(currentP, gameBoard.get_Player(tradeP1-1), gameBoard.get_Player(tradeP1-1), trade1index-1, trade2index-1);
+                 Confirm_Trade(currentP, gameBoard.get_Player(tradeP1-1), gameBoard.get_Player(tradeP2-1), trade1index-1, trade2index-1);
                       
                  }
                   }
@@ -781,6 +783,7 @@ public class View1 extends Mdriver{
        }
        
        public void Confirm_Trade(Player currentP, Player tradeP1, Player tradeP2, int trade1index, int trade2index){
+           
            JFrame frame = new JFrame("Confirm Trade");
            JPanel basePanel = new JPanel();
            JLabel invalidTrade = new JLabel("The selected trade was invalid");
@@ -793,9 +796,7 @@ public class View1 extends Mdriver{
                  @Override
                   public void actionPerformed(java.awt.event.ActionEvent e) {
                  frame.dispose();
-                         /////
-                 //ADD Trade Logic
-                         ////
+                 tradeP1.Swap_Property(tradeP1.Get_Tile(trade1index), tradeP2.Get_Tile(trade2index), tradeP2);
                     }
                 } );
             btnCancel.addActionListener(new ActionListener() { 
@@ -807,8 +808,7 @@ public class View1 extends Mdriver{
                     }
                 } );
            
-           
-           if(trade1index == 0 && trade2index == 0){
+           if(trade1index == 72 && trade2index == 72){
                basePanel.add(invalidTrade);
                frame.add(basePanel);
                frame.pack();
@@ -827,6 +827,9 @@ public class View1 extends Mdriver{
                basePanel.add(LConfirm); basePanel.add(PlayerTrader1); basePanel.add(prop1); basePanel.add(PlayerTrader2); basePanel.add(prop2);
                basePanel.add(Lspace);
                basePanel.add(btnTrade); basePanel.add(btnCancel);    
+               frame.add(basePanel);
+               frame.pack();
+               frame.setVisible(true);
            }
        }
        
@@ -840,6 +843,8 @@ public class View1 extends Mdriver{
            //gameBoard.Get_Board(tile index).getEvent(currentP);
            //Jlabel eventTxt = new Jlabel("This is the text to show");
            //basePanel.add(evenTxt);
+           
+           
            
            //actual event logic
            frame.add(basePanel);
@@ -905,4 +910,42 @@ public class View1 extends Mdriver{
         frame.pack();
         frame.setVisible(true);
     }
+    
+    public void Check_For_Rent(Player currentP, Tile_Adapter tile){
+        if(tile.getType() == 1){
+            if(tile.Get_IsOwned()){
+                String owner = tile.Get_Owner();
+                int ownerIndex =0;
+                
+                for(int i = 0; i <4; i ++){
+                    if(gameBoard.get_Player(i).Get_Name() == owner){
+                        ownerIndex = i;
+                    }
+                }
+                for(int i =0; i < gameBoard.get_Player(ownerIndex).Get_Property_Amount(); i++ ){
+                    if(gameBoard.get_Player(ownerIndex).Get_Tile(i).getLocation() == currentP.Get_Location()){
+                        currentP.Set_Money(currentP.Get_Money() - gameBoard.get_Player(ownerIndex).Get_Tile(i).getRent());
+                        gameBoard.get_Player(ownerIndex).shift_Money(gameBoard.get_Player(ownerIndex).Get_Tile(i).getRent());
+                      Pay_Rent_Window(currentP.Get_Name() + " has landed on " + gameBoard.get_Player(ownerIndex).Get_Name() + "'s property. " + currentP.Get_Name()+ "must pay $" +  gameBoard.get_Player(ownerIndex).Get_Tile(i).getRent()); 
+      
+                    }
+                }
+                
+            }
+        }
+        
+    }
+    
+    public void Pay_Rent_Window(String message){
+        JFrame frame = new JFrame("Pay Rent");
+        frame.setSize(200,100);
+        JPanel panel = new JPanel();
+        panel.setSize(200,100);
+        JLabel label = new JLabel(message);
+        panel.add(label);
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+    }
 }
+
