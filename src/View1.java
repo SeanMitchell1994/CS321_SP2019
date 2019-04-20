@@ -576,7 +576,9 @@ public class View1 extends Mdriver{
            JLabel Lspace = new JLabel(space);
            
             
-            if(currentP.Get_Location() == 0 || currentP.Get_Location() == 2 || currentP.Get_Location() == 4 || currentP.Get_Location() == 7 ){
+            if(currentP.Get_Location() == 0 || currentP.Get_Location() == 2 || currentP.Get_Location() == 4 || currentP.Get_Location() == 7 || currentP.Get_Location() == 10 ||
+                currentP.Get_Location() == 17 || currentP.Get_Location() == 20 || currentP.Get_Location() == 22 || currentP.Get_Location() == 30 || currentP.Get_Location() == 33 || 
+                     currentP.Get_Location() == 36 || currentP.Get_Location() == 38 || gameBoard.Get_Tile(currentP.Get_Location()).Get_IsOwned() == true){
                 JLabel invalid = new JLabel("invalid purchase");
                 basePanel.add(invalid);
                 afterRollBoard(currentP, "");
