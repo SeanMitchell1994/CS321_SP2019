@@ -1,3 +1,9 @@
+ /**
+    * File View1.java
+    * Contains view functions for GUI and event driven programming
+    * @author Megan Haskins
+    */
+
 package monopolydriver;
 
 import java.awt.BorderLayout;
@@ -28,10 +34,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author MeganHaskins
- */
 public class View1 extends Mdriver{
     Board gameBoard;
     int turnCounter;
@@ -46,8 +48,19 @@ public class View1 extends Mdriver{
     int trade1index;
     int trade2index;
     
+ /**
+    * public void View1
+    * Constructor for View1 class
+    * @author Megan Haskins
+    */    
  public void View1(){  turnCounter = 0; rotations = 0; maxRotations = 0; }
     
+ /**
+    * public void welcomeMenu()
+    * Creates GUI window to welcome user to the program. Offers users a button that links to game instructions,
+    * an exit button to close the game, and a start game button to begin game initialization. Once start is clicked setup Menu is called.
+    * @author Megan Haskins
+    */
   public void welcomeMenu(){
         Button btnStart = new Button();
         Button btnInstructions = new Button();
@@ -92,6 +105,11 @@ public class View1 extends Mdriver{
         welcomeMenu.show();
     }
   
+  /**
+    * public void instructionEvent()
+    * Function called that displays a window with the game instructions
+    * @author Megan Haskins
+    */
   public void instructionEvent(){
        System.out.println("Give Instructions");
        Font font = new Font("Courier", Font.BOLD,13);
@@ -133,10 +151,6 @@ public class View1 extends Mdriver{
        JLabel instruct24 = new JLabel("Rent is not collected when a morgaged property is landed on.");
        JLabel instruct25 = new JLabel("Jail" + Lspace + "           ");
        instruct25.setFont(font);
-       JLabel instruct26 = new JLabel("If you find yourself incarcerated, there are two ways to get out of jail: (1) Use a “Get Out of Jail Free");
-       JLabel instruct27 = new JLabel("or (2) Pay $50. Else you must pay the $50 on your third turn in jail.");
-       JLabel instruct28 = new JLabel("Winning and Losing" + LLspace + "                                                                                                                                                                ");
-       instruct28.setFont(font);
        JLabel instruct29 = new JLabel("If a player ends a turn with a negative account balance they are eliminated from the game. ");
        JLabel instruct30 = new JLabel("The game ends when only one player remains or when the aloted amount of turns has ended.");
        JLabel instruct31 = new JLabel("The last player standing or the player with the most assets (money and properties) at the end of the rounds wins the game. ");
@@ -146,7 +160,7 @@ public class View1 extends Mdriver{
        panel.add(instruct7); panel.add(instruct8); panel.add(instruct9); panel.add(instruct10); panel.add(instruct11); panel.add(instruct12);
        panel.add(instruct13); panel.add(instruct14); panel.add(instruct15); panel.add(instruct16); panel.add(instruct17); panel.add(instruct18);
        panel.add(instruct19); panel.add(instruct20); panel.add(instruct21); panel.add(instruct22); panel.add(instruct23); panel.add(instruct24);
-       panel.add(instruct25); panel.add(instruct26); panel.add(instruct27); panel.add(instruct28); panel.add(instruct29); panel.add(instruct30);
+       panel.add(instruct25); panel.add(instruct29); panel.add(instruct30);
        panel.add(instruct31); panel.add(instruct32); 
 
        JFrame frame = new JFrame("Instructions");
@@ -155,31 +169,171 @@ public class View1 extends Mdriver{
        frame.setVisible(true);  
     }
     
-    //Will be edited to display current player locations
+    /**
+    * public void viewBoard(Player currentP)
+    * Allows players to view current board standings and player information. ViewBoard is called at the begining of each players turn before the dice is rolled.
+    * Allows player to roll dice and execute their turn. Once the player rolls dice afterRollBoard is called.
+    * @author Megan Haskins
+    * @param    Player		Player that is currently taking their turn
+    */
     public void viewBoard(Player currentP){
+        //execute is player turn is valid. // Player is still in game
         if(currentP.Get_Playable() == true){
+            //increment rotation counter
             rotations++;
-       if(rotations > maxRotations){
-           Completed_Window();
-       }
-       else{
+             if(rotations > maxRotations){
+                Completed_Window();
+                }
+        else{
+           //create window elements
            JFrame frame = new JFrame();
-       JPanel basePanel = new JPanel();
-       JLayeredPane lpane = new JLayeredPane();
-       JPanel boardPanel = new JPanel();
-       JPanel controlPanel = new JPanel();
-       controlPanel.setLayout(new FlowLayout());
-       JButton btnRollDice = new JButton("Roll Dice");
-       Button btnViewBoard = new Button("View Board");
-       Button btnEndTurn = new Button("End Turn");
-       Button btnForfeit = new Button("Forfiet");
-       JTextField turnInfo = new JTextField("I will place info here");
-       controlPanel.add(btnRollDice);
-       controlPanel.add(btnRollDice);
-       boardPanel.setPreferredSize(new Dimension(1000,800));
-       //
+            JPanel basePanel = new JPanel();
+            JLayeredPane lpane = new JLayeredPane();
+            JPanel boardPanel = new JPanel();
+            JPanel controlPanel = new JPanel();
+            controlPanel.setLayout(new FlowLayout());
+            JButton btnRollDice = new JButton("Roll Dice");
+            controlPanel.add(btnRollDice);
+            controlPanel.add(btnRollDice);
+            boardPanel.setPreferredSize(new Dimension(1000,800));
+       
+            // get board image
+            File imageFile = new File("Board.JPG");
+            BufferedImage boardImage = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
+                 try{
+                     boardImage = ImageIO.read(imageFile);
+                   } 
+                catch(IOException e){
+                    System.out.println("Error: " + e);
+                    }
+            JLabel photoLabel = new JLabel(new ImageIcon(boardImage));
+            boardPanel.add(photoLabel);
+             //create player icon panels
+            JPanel tokinPanel1 = new JPanel();
+            JPanel tokinPanel2 = new JPanel();
+            JPanel tokinPanel3 = new JPanel();
+            JPanel tokinPanel4 = new JPanel();
+
+            basePanel.setPreferredSize(new Dimension(1500, 1000));
+            basePanel.setLayout(new BorderLayout());
+            basePanel.add(lpane, BorderLayout.CENTER);
+            basePanel.add(controlPanel, BorderLayout.SOUTH);
+            lpane.setBounds(0, 0, 900, 900);
+            boardPanel.setBackground(Color.BLUE);
+            boardPanel.setBounds(0, 0, 900, 900);
+            boardPanel.setOpaque(true);
+            tokinPanel1.setBackground(Color.YELLOW);
+            tokinPanel2.setBackground(Color.GREEN);
+            tokinPanel3.setBackground(Color.BLACK);
+            tokinPanel4.setBackground(Color.BLUE);
+        
+            //Get cordinates for player icons on board
+            tokinPanel1.setBounds(gameBoard.get_Player(0).Get_XCordinate(), gameBoard.get_Player(0).Get_YCordinate(), 30, 30);
+            tokinPanel2.setBounds(gameBoard.get_Player(1).Get_XCordinate(), gameBoard.get_Player(1).Get_YCordinate(), 30, 30);
+             if(maxPlayers >= 3){
+                   tokinPanel3.setBounds(gameBoard.get_Player(2).Get_XCordinate(), gameBoard.get_Player(2).Get_YCordinate(), 30, 30);
+                   lpane.add(tokinPanel3, new Integer(1), 0);
+                   tokinPanel3.setOpaque(true);
+                  }
+             if(maxPlayers >= 4){
+               tokinPanel4.setBounds(gameBoard.get_Player(3).Get_XCordinate(), gameBoard.get_Player(3).Get_YCordinate(), 30, 30);
+                 lpane.add(tokinPanel4, new Integer(1), 0);
+                 tokinPanel4.setOpaque(true);
+                }
+        
+            tokinPanel1.setOpaque(true); tokinPanel2.setOpaque(true); 
+            lpane.add(boardPanel, new Integer(0), 0);
+            lpane.add(tokinPanel2, new Integer(1), 0);
+            lpane.add(tokinPanel1, new Integer(1), 0);
+       
+            JPanel panelplease = playerInformation();
+            panelplease.setPreferredSize(new Dimension(500, 950));
+        
+        //Control Menu Buttons
+            JPanel controlP = new JPanel();
+            JButton btnRollDice1 = new JButton("Roll Dice");
+            JTextField TFresults = new JTextField(currentP.Get_Name()+" Start Turn");
+            btnRollDice1.addActionListener(new ActionListener() { 
+                public void actionPerformed(ActionEvent e) { 
+                    currentP.PlayerRoll();
+                } 
+                @Override
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    int rolled = currentP.PlayerRoll();
+                    TFresults.setText("The player rolled a: " + rolled);
+                    frame.dispose();
+                    afterRollBoard(currentP, "The player rolled a: " + rolled); 
+                    Check_For_Rent(currentP, gameBoard.Get_Tile(currentP.Get_Location()));
+                    Event_Window(gameBoard.Create_Event(currentP));
+                }
+            } );
+        //add components
+           controlP.add(btnRollDice1);
+           controlP.add(TFresults);
+           panelplease.add(controlP);
+           basePanel.add(panelplease, BorderLayout.EAST);
+           frame.add(basePanel);
+           frame.pack();
+           frame.setVisible(true);
+           }
+    }
+        //If current player has been eliminated from the game begin the next players turn
+    else{
+        turnCounter++;
+        if(turnCounter == maxPlayers){
+            turnCounter = 0;
+        }
+        if(currentP.Update_Playability() == false){
+            gameBoard.Set_Remaining_Players(gameBoard.Get_Remaining_players() - 1);
+        }
+        if(gameBoard.Get_Remaining_players() == 1){
+            Completed_Window();
+        }
+        playerTurns(0, currentP);    
+        }
+    }
+ 
+    /**
+    * public void afterRollBoard(Player currentP, String rollResult)
+    * Allows players to view current board standings, what they rolled, and player information. Is called after a player rolls dice.
+    * Allows player to chose to manage property or end turn. Upon end turn the current players turn is ended and a new players turn is
+    * called to begin in viewBoard()
+    * @author Megan Haskins
+    * @param    Player		Player that is currently taking their turn
+    * @param    String		Message to display to player what they rolled
+    */
+    public void afterRollBoard(Player currentP, String rollResult){
+        JFrame frame = new JFrame();
+        JPanel basePanel = new JPanel();
+        JLayeredPane lpane = new JLayeredPane();
+        JPanel boardPanel = new JPanel();
+        JPanel controlPanel = new JPanel();
+        controlPanel.setLayout(new FlowLayout());
+        JButton btnEndTurn = new JButton("End Turn");
+        
+        //End turn button action listener
+        btnEndTurn.addActionListener(new ActionListener() { 
+            public void actionPerformed(ActionEvent e) { 
+                } 
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                 frame.dispose();
+                turnCounter++;
+                if(turnCounter == maxPlayers){
+                     turnCounter = 0;
+                }
+             //at the end of the playes turn the players playable staus is checked and updated
+                currentP.Update_Playability();
+                if(currentP.Get_Playable() == false){
+                    playerTurns(1, currentP); 
+                }
+                else{
+                    playerTurns(0, currentP); 
+                }         
+            }
+        } );
+        boardPanel.setPreferredSize(new Dimension(1000,800));
         //get board image
-       //
         File imageFile = new File("Board.JPG");
         BufferedImage boardImage = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
            try{
@@ -194,141 +348,6 @@ public class View1 extends Mdriver{
         JPanel tokinPanel2 = new JPanel();
         JPanel tokinPanel3 = new JPanel();
         JPanel tokinPanel4 = new JPanel();
-
-        basePanel.setPreferredSize(new Dimension(1500, 1000));
-        basePanel.setLayout(new BorderLayout());
-        basePanel.add(lpane, BorderLayout.CENTER);
-        basePanel.add(controlPanel, BorderLayout.SOUTH);
-        lpane.setBounds(0, 0, 900, 900);
-        boardPanel.setBackground(Color.BLUE);
-        boardPanel.setBounds(0, 0, 900, 900);
-        boardPanel.setOpaque(true);
-        tokinPanel1.setBackground(Color.GREEN);
-        tokinPanel2.setBackground(Color.BLUE);
-        tokinPanel3.setBackground(Color.BLACK);
-        tokinPanel4.setBackground(Color.YELLOW);
-        
-        tokinPanel1.setBounds(gameBoard.get_Player(0).Get_XCordinate(), gameBoard.get_Player(0).Get_YCordinate(), 30, 30);
-        tokinPanel2.setBounds(gameBoard.get_Player(1).Get_XCordinate(), gameBoard.get_Player(1).Get_YCordinate(), 30, 30);
-        if(maxPlayers >= 3){
-             tokinPanel3.setBounds(gameBoard.get_Player(2).Get_XCordinate(), gameBoard.get_Player(2).Get_YCordinate(), 30, 30);
-             lpane.add(tokinPanel3, new Integer(1), 0);
-             tokinPanel3.setOpaque(true);
-        }
-         if(maxPlayers >= 4){
-             tokinPanel4.setBounds(gameBoard.get_Player(3).Get_XCordinate(), gameBoard.get_Player(3).Get_YCordinate(), 30, 30);
-             lpane.add(tokinPanel4, new Integer(1), 0);
-             tokinPanel4.setOpaque(true);
-         }
-        
-        tokinPanel1.setOpaque(true); tokinPanel2.setOpaque(true); 
-        lpane.add(boardPanel, new Integer(0), 0);
-        lpane.add(tokinPanel2, new Integer(1), 0);
-        lpane.add(tokinPanel1, new Integer(1), 0);
-       
-        //needs to be updateable
-        JPanel panelplease = playerInformation();
-        panelplease.setPreferredSize(new Dimension(500, 950));
-        
- //Control Menu Buttons
-        JPanel controlP = new JPanel();
-        JButton btnRollDice1 = new JButton("Roll Dice");
-        JTextField TFresults = new JTextField(currentP.Get_Name()+" Start Turn");
-        btnRollDice1.addActionListener(new ActionListener() { 
-            public void actionPerformed(ActionEvent e) { 
-             currentP.PlayerRoll();
-            } 
-           @Override
-           public void actionPerformed(java.awt.event.ActionEvent e) {
-             int rolled = currentP.PlayerRoll();
-             TFresults.setText("The player rolled a: " + rolled);
-             frame.dispose();
-             afterRollBoard(currentP, "The player rolled a: " + rolled); 
-             Check_For_Rent(currentP, gameBoard.Get_Tile(currentP.Get_Location()));
-             gameBoard.Create_Event(currentP);
-             //Community_Window(currentP);
-             //sha
-           }
-        } );
-
-        controlP.add(btnRollDice1);
-        controlP.add(TFresults);
-        
-        panelplease.add(controlP);
-        basePanel.add(panelplease, BorderLayout.EAST);
-        frame.add(basePanel);
-        frame.pack();
-        frame.setVisible(true);
-        }
-      }
-       else{
-             turnCounter++;
-             if(turnCounter == maxPlayers){
-                 turnCounter = 0;
-             }
-             if(currentP.Update_Playability() == false){
-                 gameBoard.Set_Remaining_Players(gameBoard.Get_Remaining_players() - 1);
-            }
-             if(gameBoard.Get_Remaining_players() == 1){
-                 Completed_Window();
-             }
-             playerTurns(0, currentP);    
-            }
-  
-    }
-
-     public void afterRollBoard(Player currentP, String rollResult){
-        JFrame frame = new JFrame();
-        JPanel basePanel = new JPanel();
-       JLayeredPane lpane = new JLayeredPane();
-       JPanel boardPanel = new JPanel();
-       
-       JPanel controlPanel = new JPanel();
-       controlPanel.setLayout(new FlowLayout());
-        JButton btnManageProperty = new JButton("Manage Property");
-        JButton btnEndTurn = new JButton("End Turn");
-        JButton btnForfeit = new JButton("Forfiet");
-        
-        //////////////////////////////////////////////////////////////////////////////END TURN
-         btnEndTurn.addActionListener(new ActionListener() { 
-            public void actionPerformed(ActionEvent e) { 
-            } 
-           @Override
-           public void actionPerformed(java.awt.event.ActionEvent e) {
-             frame.dispose();
-             turnCounter++;
-             if(turnCounter == maxPlayers){
-                 turnCounter = 0;
-             }
-             currentP.Update_Playability();
-             if(currentP.Get_Playable() == false){
-                 playerTurns(1, currentP); 
-             }
-             else{
-                playerTurns(0, currentP); 
-             }
-                         
-           }
-        } );
-        
-       boardPanel.setPreferredSize(new Dimension(1000,800));
-        //get board image
-       //
-        File imageFile = new File("Board.JPG");
-        BufferedImage boardImage = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
-           try{
-           boardImage = ImageIO.read(imageFile);
-             } 
-          catch(IOException e){
-             System.out.println("Error: " + e);
-             }
-       JLabel photoLabel = new JLabel(new ImageIcon(boardImage));
-       boardPanel.add(photoLabel);
-       
-        JPanel tokinPanel1 = new JPanel();
-        JPanel tokinPanel2 = new JPanel();
-        JPanel tokinPanel3 = new JPanel();
-        JPanel tokinPanel4 = new JPanel();
         
         //Get tokin Image
         basePanel.setPreferredSize(new Dimension(1500, 1000));
@@ -339,12 +358,12 @@ public class View1 extends Mdriver{
         boardPanel.setBackground(Color.BLUE);
         boardPanel.setBounds(0, 0, 900, 900);
         boardPanel.setOpaque(true);
-        tokinPanel1.setBackground(Color.GREEN);
-        tokinPanel2.setBackground(Color.BLUE);
+        tokinPanel1.setBackground(Color.YELLOW);
+        tokinPanel2.setBackground(Color.GREEN);
         tokinPanel3.setBackground(Color.BLACK);
-        tokinPanel4.setBackground(Color.YELLOW);
+        tokinPanel4.setBackground(Color.BLUE);
         
-        //needs to be editable
+        //get cordinates for player tokins
         tokinPanel1.setBounds(gameBoard.get_Player(0).Get_XCordinate(), gameBoard.get_Player(0).Get_YCordinate(), 30, 30);
         tokinPanel2.setBounds(gameBoard.get_Player(1).Get_XCordinate(), gameBoard.get_Player(1).Get_YCordinate(), 30, 30);
         tokinPanel3.setBounds(gameBoard.get_Player(2).Get_XCordinate(), gameBoard.get_Player(2).Get_YCordinate(), 30, 30);
@@ -360,7 +379,7 @@ public class View1 extends Mdriver{
         JPanel panelplease = playerInformation();
         panelplease.setPreferredSize(new Dimension(500, 950));
         
- //Control Menu Buttons
+        //Control Menu Buttons
         JPanel controlP = new JPanel();
         JButton btnManageProp = new JButton("Manage Property");
         JTextField TFresults = new JTextField(rollResult);
@@ -374,29 +393,27 @@ public class View1 extends Mdriver{
              frame.dispose();
            }
         } );      
-        controlP.add(btnManageProp);
-        controlP.add(btnEndTurn);
-        controlP.add(TFresults);
-        
+        //add components
+        controlP.add(btnManageProp); controlP.add(btnEndTurn); controlP.add(TFresults);
         panelplease.add(controlP);
-        //basePanel.add(playerInformation(), BorderLayout.EAST);
         basePanel.add(panelplease, BorderLayout.EAST);
-        //ADD CONTROL PANEL HERE
-       // basePanel.add(controlMenu(), BorderLayout.SOUTH);
-        
         frame.add(basePanel);
         frame.pack();
         frame.setVisible(true);        
     }
     
-     //CONVERT TO JPANEL
+    /**
+    * public void setupMenu()
+    * Creates GUI interface for user to input game settings and then begin the game
+    * @author Megan Haskins
+    */
     public void setupMenu(){     
+        //create components
         Text space1 = new Text("                  ");
         Text space2 = new Text("                  ");
         Text space3 = new Text("                 ");
         Text space4 = new Text("                                                 ");
         Text space5 = new Text("                                               ");
-        
         Text text1 = new Text("Lets set up the game. \n Please give player names and choose turn length for the game. \n Turn Amount: ");
         TextField numberResponse = new TextField();
         Text txtP1 = new Text("Player One Name:  ");
@@ -407,9 +424,8 @@ public class View1 extends Mdriver{
         TextField TFplayer2 = new TextField();
         TextField TFplayer3 = new TextField();
         TextField TFplayer4 = new TextField();
-        Text text2 = new Text("\n Next, select tokins: Fadora, Laptop, Rocket, Horse, Beaker, Glasses          \n");
+        Text text2 = new Text("\n Next, Please give each player a name:                                       \n");
         Text text15 = new Text("                                                            \n");
-        
         Button btnfinish = new Button("Finish");
         
          btnfinish.setOnAction(new EventHandler<ActionEvent>() {
@@ -424,7 +440,7 @@ public class View1 extends Mdriver{
             }
         });
         
-         //Adding Children to Root
+         //Adding Coponents
         FlowPane root = new FlowPane(); root.getChildren().add(text1);  root.getChildren().add(numberResponse);
         root.getChildren().add(text15); root.getChildren().add(text2); root.getChildren().add(txtP1);
         root.getChildren().add(TFplayer1); root.getChildren().add(space1); root.getChildren().add(txtP2);
@@ -440,6 +456,13 @@ public class View1 extends Mdriver{
         setupMenu.show();      
     }
     
+    /**
+    * public JPanel playerInformation()
+    * Creates a panel displaying a each players information and property.
+    * Each players information is generated by calling PlayerPanel(Player) within
+    * @author Megan Haskins
+    * @return    JPanel		panel displaying a each players information and property
+    */
     public JPanel playerInformation(){
         JFrame frame = new JFrame();
         JPanel allPanel = new JPanel();
@@ -451,6 +474,13 @@ public class View1 extends Mdriver{
         return allPanel;
     }
 
+    /**
+    * JPanel PlayerPanel(Player player)
+    * Creates a Jpanel containinga specified players info: properties owned, image icon, and account balance
+    * @author Megan Haskins
+    * @return JPanel contains the player information in a user friendly format
+    * @param    Player		Player whose data is to be displayed
+    */
       public JPanel PlayerPanel(Player player){
 
         JPanel playerPanel = new JPanel();
@@ -485,11 +515,16 @@ public class View1 extends Mdriver{
         return playerPanel;
     }
       
+      /**
+    * managePropertyMenu(Player currentP)
+    * Creates Manage property menu for user interface. Through this menu users can select to buy or trade property by clicking a button
+    * @author Megan Haskins
+    * @param    Player		Current player in turn
+    */
        public void managePropertyMenu(Player currentP){
        JFrame frame = new JFrame("Manage Property");
        JPanel basePanel = new JPanel();
        JButton btnBuyP = new JButton("Buy Property");
-      // JButton btnMorgageP = new JButton("Morgage Property");
        JButton btnTradeP = new JButton("Trade Property");
        basePanel.setLayout(new FlowLayout());
        
@@ -512,18 +547,7 @@ public class View1 extends Mdriver{
                            frame.dispose();
                         }
                      } );
-        /*
-         btnMorgageP.addActionListener(new ActionListener() { 
-                     public void actionPerformed(ActionEvent e) {  
-                      } 
-                        @Override
-                        public void actionPerformed(java.awt.event.ActionEvent e) {
-                           afterRollBoard(currentP, "");
-                           Morgage_Menu(currentP);
-                           frame.dispose();
-                        }
-                     } );
-                */
+       
         if(currentP.Get_Location()%5 != 0 || currentP.Get_Location() !=2 || currentP.Get_Location() !=7 ){
            basePanel.add(btnBuyP);
        }
@@ -535,8 +559,16 @@ public class View1 extends Mdriver{
        frame.setVisible(true); 
        }
        
-       public void playerTurns(int window, Player currentP){
-           if(window != 0){
+       /**
+    * public void playerTurns(int playabel, Player currentP)
+    * Checks to see if a player should be eliminated from the game. If so the player is eliminated, 
+    * else the next player begins their turn
+    * @author Megan Haskins
+    * @param Player player         current player in turn
+    * @param    int playable       notifies function if the current player should be eliminated
+    */
+       public void playerTurns(int playable, Player currentP){
+           if(playable != 0){
                viewBoard(gameBoard.get_Player(turnCounter)); 
                Player_Elimination(currentP);
            }
@@ -545,6 +577,12 @@ public class View1 extends Mdriver{
            }  
        }
        
+        /**
+    * public void Error_Window(String message)
+    * Displays an error message specified by the string passed in
+    * @author Megan Haskins
+    * @param    String		message to display in the error window
+    */
        public void Error_Window(String message){
        JFrame frame = new JFrame("ERROR");
        frame.setSize(300, 300);
@@ -558,6 +596,12 @@ public class View1 extends Mdriver{
        frame.setVisible(true); 
        }
        
+    /**
+    * public void Purchase_Menu(Player currentP)
+    * Displays purchase menu to display a property for a player to buy
+    * @author Megan Haskins
+    * @param    Player		current player in turn to buy property
+    */
        public void Purchase_Menu(Player currentP){
            JFrame frame = new JFrame("Purchase Menu");
            frame.setSize(300,300);
@@ -575,7 +619,6 @@ public class View1 extends Mdriver{
            String space = "                                                                    ";
            JLabel Lspace = new JLabel(space);
            
-            
             if(currentP.Get_Location() == 0 || currentP.Get_Location() == 2 || currentP.Get_Location() == 4 || currentP.Get_Location() == 7 || currentP.Get_Location() == 10 ||
                 currentP.Get_Location() == 17 || currentP.Get_Location() == 20 || currentP.Get_Location() == 22 || currentP.Get_Location() == 30 || currentP.Get_Location() == 33 || 
                      currentP.Get_Location() == 36 || currentP.Get_Location() == 38 || gameBoard.Get_Tile(currentP.Get_Location()).Get_IsOwned() == true){
@@ -606,11 +649,16 @@ public class View1 extends Mdriver{
        basePanel.add(btnPurchase);
        frame.add(basePanel);
        frame.pack();
-       frame.setVisible(true);   
-                
+       frame.setVisible(true);              
             }   
              
 
+       /**
+    * Trade_Menu(Player currentP)
+    * Displays trade menu that displays all properties to trade
+    * @author Megan Haskins
+    * @param    Player		current player in turn to buy property
+    */
        public void Trade_Menu(Player currentP){
             JFrame frame = new JFrame("Trade Menu");
             frame.setSize(150,150);
@@ -745,47 +793,17 @@ public class View1 extends Mdriver{
        frame.setVisible(true);
        }
        
-       public void Morgage_Menu(Player currentP){
-           JFrame frame = new JFrame("Morgage Menu");
-           JPanel basePanel = new JPanel();
-           basePanel.setLayout(new FlowLayout());
-           JButton btnMorgage = new JButton("Morgage");
-           JButton btnCancel = new JButton("Cancel");
-           JLabel Linstructions = new JLabel("    Please select the property you wish to morgage and press morgage:   ");
-           
-           String[] properties = new String[40];   
-                for(int i =0; i < currentP.Get_Property_Amount(); i++ ){
-                 properties[i] = currentP.Get_Property_Name(i);
-                   }
-            JComboBox playerProperties = new JComboBox(properties); 
-           
-           btnMorgage.addActionListener(new ActionListener() { 
-                public void actionPerformed(ActionEvent e) { 
-                   }                     
-                 @Override
-                  public void actionPerformed(java.awt.event.ActionEvent e) {
-                 frame.dispose();
-                         /////
-                 //ADD Morgage Logic
-                         ////
-                    }
-                } );
-            btnCancel.addActionListener(new ActionListener() { 
-                public void actionPerformed(ActionEvent e) { 
-                   }                     
-                 @Override
-                  public void actionPerformed(java.awt.event.ActionEvent e) {   
-                 frame.dispose();
-                    }
-                } );
-           basePanel.add(btnMorgage); basePanel.add(btnCancel); basePanel.add(Linstructions); basePanel.add(playerProperties);
-           frame.add(basePanel);
-           frame.pack();
-           frame.setVisible(true);
-       }
-       
+         /**
+    * Confirm_Trade(Player currentP, Player tradeP1, Player tradeP2, int trade1index, int trade2index)
+    * Displays a message to the user of selected players trade properties. If the values are correct the player can continue the purchase or cancel.
+    * @author Megan Haskins
+    * @param    Player		currentP: current player in turn to buy property
+    * @param    Player		tradeP1 first selected player for a property trade
+    * @param    Player		tradeP2 second selected player for a property trade
+    * @param    int		trade1index location of tradeP1 property in their property index
+    * @param    int		trade2index location of tradeP2 property in their property index
+    */
        public void Confirm_Trade(Player currentP, Player tradeP1, Player tradeP2, int trade1index, int trade2index){
-           
            JFrame frame = new JFrame("Confirm Trade");
            JPanel basePanel = new JPanel();
            JLabel invalidTrade = new JLabel("The selected trade was invalid");
@@ -834,40 +852,12 @@ public class View1 extends Mdriver{
                frame.setVisible(true);
            }
        }
-       
-       public void Chance_Window(Player currentP){
-           JFrame frame = new JFrame("Chance Card");
-           JPanel basePanel = new JPanel();
-           basePanel.setLayout(new FlowLayout());
-           basePanel.setSize(300,300);
-           frame.setSize(300,300);
-           //sean has example in his code
-           //gameBoard.Get_Board(tile index).getEvent(currentP);
-           //Jlabel eventTxt = new Jlabel("This is the text to show");
-           //basePanel.add(evenTxt);
-           
-           
-           
-           //actual event logic
-           frame.add(basePanel);
-           frame.pack();
-           frame.setVisible(true);
-       }
-       public void Community_Window(Player currentP){
-           JFrame frame = new JFrame("Community Chest");
-           JPanel basePanel = new JPanel();
-           basePanel.setLayout(new FlowLayout());
-           basePanel.setSize(300,300);
-           frame.setSize(300,300);
-           //Jlabel eventTxt = new Jlabel();
-           //basePanel.add(evenTxt);
-           
-           //actual event logic
-           frame.add(basePanel);
-           frame.pack();
-           frame.setVisible(true);
-       }
-       
+
+            /**
+    * public void Completed_Window()
+    * Displays a message of final account balances and which player won the game
+    * @author Megan Haskins
+    */
        public void Completed_Window(){
            JPanel basePanel = new JPanel();
            basePanel.setSize(1000,1000);
@@ -899,6 +889,12 @@ public class View1 extends Mdriver{
            frame.setVisible(true);
        }
        
+    /**
+    * public void Player_Elimination(Player currentP)
+    * Creates a pop up with a message that a certain player has been eliminated from the game
+    * @author Megan Haskins
+    * @param    Player		currentP - player that has been eliminated from the game
+    */
     public void Player_Elimination(Player currentP){
         JFrame frame = new JFrame("Player Elimination");
         JPanel panel = new JPanel();
@@ -913,6 +909,14 @@ public class View1 extends Mdriver{
         frame.setVisible(true);
     }
     
+    /**
+    * Check_For_Rent(Player currentP, Tile_Adapter tile)
+    * Checks to see if a player is located on a property that they need to pay rent on. If so, Pay_Rent_Window(string)
+    * is called.
+    * @author Megan Haskins
+    * @param    Player		currentP - current player in turn
+    * @param    Tile_Adapter    tile - tile that the player has just landed on
+    */
     public void Check_For_Rent(Player currentP, Tile_Adapter tile){
         if(tile.getType() == 1){
             if(tile.Get_IsOwned()){
@@ -938,6 +942,13 @@ public class View1 extends Mdriver{
         
     }
     
+     /**
+    * Pay_Rent_Window(String message)
+    * Displays a pop up with a message to the current player. Called to notify a player that they had to pay another player rent.
+    * is called.
+    * @author Megan Haskins
+    * @param    String		message - text that is displayed in the pop up
+    */
     public void Pay_Rent_Window(String message){
         JFrame frame = new JFrame("Pay Rent");
         frame.setSize(200,100);
@@ -949,5 +960,24 @@ public class View1 extends Mdriver{
         frame.pack();
         frame.setVisible(true);
     }
+    
+      /**
+    * Pay_Rent_Window(String message)
+    * Displays a pop up with a message to the current player. Message notifies a player of an event that happend
+    * when they landed on special property locations.
+    * is called.
+    * @author Megan Haskins
+    * @param    String		message - text that is displayed in the pop up
+    */
+    public void Event_Window(String message){
+        JFrame frame = new JFrame("Event Window");
+        frame.setSize(200,100);
+        JPanel panel = new JPanel();
+        panel.setSize(200,100);
+        JLabel label = new JLabel(message);
+        panel.add(label);
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+    }
 }
-
