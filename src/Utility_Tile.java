@@ -20,12 +20,6 @@ public class Utility_Tile
     private int currentRent; 
     private boolean hasEvent = false;
     
-    
-    // Author: Ansley Solomon
-    // Constructor
-// Side note: I have no idea what is supposed to be the input in Dice_Roller, I just guessed
-
-    
     /**
      * Default constructor
      * @author Ansley Solomon
